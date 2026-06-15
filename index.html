@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maui Food Truck Websites | Built for Maui County Food Trucks · by Frontline Web Designs</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Websites built for Maui County food trucks — live find-us maps, weekly schedules, menus, and catering lead forms. A niche web-design service by Frontline Web Designs. Plus a free Maui food truck directory.">
+  <meta name="keywords" content="Maui food truck website, food truck web design Maui, Maui food trucks, Kihei food trucks, Kahului food trucks, Lahaina food trucks">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#C23327">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Maui Food Truck Websites · by Frontline Web Designs">
+  <meta property="og:description" content="Websites built for Maui County food trucks. Live location, schedule, menu & catering leads — plus a free Maui food truck directory.">
+  <meta property="og:url" content="https://mauifoodtruckwebsites.com">
+
+  <link rel="canonical" href="https://mauifoodtruckwebsites.com">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400;1,9..144,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --paper:   #FAF5EA;
+      --paper2:  #F3EDD9;
+      --char:    #1C1005;
+      --chili:   #C23327;
+      --saffron: #E59B1A;
+      --herb:    #2B5F41;
+      --ink:     #4A3B2A;
+      --line:    #1C1005;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    img  { max-width: 100%; display: block; }
+    body {
+      font-family: 'Fraunces', Georgia, serif;
+      background: var(--paper);
+      color: var(--char);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+    a { color: inherit; }
+
+    /* ─── SKIP LINK ─── */
+    .skip {
+      position: absolute; left: -999px; top: 0; z-index: 500;
+      background: var(--char); color: var(--paper); padding: 10px 18px;
+      font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+      text-decoration: none;
+    }
+    .skip:focus { left: 8px; top: 8px; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0 5%; height: 66px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--paper); border-bottom: 1.5px solid var(--char);
+      transition: box-shadow 0.3s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 0 var(--char); }
+    .brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
+    .brand-name {
+      font-family: 'Syne', sans-serif; font-size: 1.02rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.04em; color: var(--char);
+    }
+    .brand-name em { color: var(--chili); font-style: normal; }
+    .brand-sub {
+      font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ink); margin-top: 3px;
+    }
+    .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--chili); }
+    .nav-cta {
+      display: inline-block; background: var(--chili); color: #fff !important;
+      padding: 9px 18px; border: 1.5px solid var(--chili);
+      font-family: 'Syne', sans-serif; font-size: 0.72rem !important; font-weight: 700 !important;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav-cta:hover { background: var(--char); border-color: var(--char); }
+    .hamburger {
+      display: none; background: none; border: 1.5px solid var(--char);
+      color: var(--char); font-size: 1rem; cursor: pointer; padding: 6px 11px;
+      font-family: 'Syne', sans-serif; font-weight: 700;
+    }
+    .mob-menu {
+      display: none; position: fixed; inset: 0; background: var(--char); z-index: 210;
+      flex-direction: column; align-items: center; justify-content: center; gap: 34px;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a {
+      font-family: 'Syne', sans-serif; font-size: 2.1rem; font-weight: 800;
+      text-transform: uppercase; color: var(--paper); text-decoration: none;
+    }
+    .mob-menu a:hover { color: var(--saffron); }
+    .mob-close {
+      position: absolute; top: 18px; right: 5%; background: none; border: none;
+      color: var(--paper); font-size: 1.8rem; cursor: pointer;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-block; background: var(--chili); color: #fff;
+      padding: 15px 30px; border: 1.5px solid var(--chili);
+      font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--char); border-color: var(--char); }
+    .btn-outline {
+      display: inline-block; background: transparent; color: var(--char);
+      padding: 15px 30px; border: 1.5px solid var(--char);
+      font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+      transition: background 0.2s, color 0.2s; cursor: pointer;
+    }
+    .btn-outline:hover { background: var(--char); color: var(--paper); }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 150px 5% 90px; border-bottom: 1.5px solid var(--char);
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(229,155,26,0.18), transparent 60%),
+        radial-gradient(700px 500px at 0% 110%, rgba(194,51,39,0.10), transparent 55%),
+        var(--paper);
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ink); margin-bottom: 28px;
+      border: 1.5px solid var(--char); padding: 7px 14px;
+    }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--herb); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(2.6rem, 6vw, 5.2rem); text-transform: uppercase;
+      letter-spacing: -0.03em; line-height: 0.95; color: var(--char); max-width: 16ch;
+    }
+    .hero h1 em { color: var(--chili); font-style: normal; }
+    .hero-sub {
+      font-family: 'Fraunces', serif; font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-style: italic; color: var(--ink); max-width: 560px; line-height: 1.7;
+      margin: 28px 0 40px;
+    }
+    .hero-acts { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-trust {
+      margin-top: 40px; padding-top: 28px; border-top: 1.5px solid var(--char);
+      display: flex; gap: 40px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; flex-direction: column; }
+    .trust-n {
+      font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800;
+      color: var(--char); line-height: 1; letter-spacing: -0.02em;
+    }
+    .trust-l {
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink); margin-top: 6px;
+    }
+
+    /* ─── SECTION BASE ─── */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 92px 5%; }
+    .sec-head { margin-bottom: 52px; max-width: 640px; }
+    .eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--chili); display: block; margin-bottom: 14px;
+    }
+    .sec-head h2 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 3rem); text-transform: uppercase;
+      letter-spacing: -0.02em; color: var(--char); line-height: 1.02;
+    }
+    .sec-head h2 em { color: var(--chili); font-style: normal; }
+    .sec-head p {
+      margin-top: 18px; font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 1.08rem; color: var(--ink); line-height: 1.7;
+    }
+
+    /* ─── WHY (problem) ─── */
+    .why-band { background: var(--paper2); border-top: 1.5px solid var(--char); border-bottom: 1.5px solid var(--char); }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1.5px solid var(--char); }
+    .why-card { padding: 34px 30px; border-right: 1.5px solid var(--char); background: var(--paper); }
+    .why-card:last-child { border-right: none; }
+    .why-num {
+      font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.16em;
+      color: var(--chili); display: block; margin-bottom: 16px;
+    }
+    .why-card h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.12rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: -0.01em; color: var(--char); margin-bottom: 12px;
+    }
+    .why-card p { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--ink); line-height: 1.7; }
+
+    /* ─── FEATURES ─── */
+    .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1.5px solid var(--char); }
+    .feat {
+      padding: 30px 24px; border-right: 1.5px solid var(--char); border-bottom: 1.5px solid var(--char);
+      transition: background 0.2s;
+    }
+    .feat:hover { background: var(--paper2); }
+    .feat:nth-child(4n) { border-right: none; }
+    .feat:nth-child(n+5) { border-bottom: none; }
+    .feat-ic { font-size: 1.5rem; display: block; margin-bottom: 14px; }
+    .feat h3 {
+      font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.01em; color: var(--char); margin-bottom: 8px;
+    }
+    .feat p { font-family: 'Fraunces', serif; font-size: 0.86rem; color: var(--ink); line-height: 1.6; }
+
+    /* ─── DEMO ─── */
+    .demo-band { background: var(--char); border-top: 1.5px solid var(--char); border-bottom: 1.5px solid var(--char); }
+    .demo-grid {
+      max-width: 1100px; margin: 0 auto; padding: 80px 5%;
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center;
+    }
+    .demo-txt .eyebrow { color: var(--saffron); }
+    .demo-txt h2 {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 800;
+      text-transform: uppercase; letter-spacing: -0.02em; color: var(--paper); line-height: 1.04; margin-bottom: 18px;
+    }
+    .demo-txt h2 em { color: var(--saffron); font-style: normal; }
+    .demo-txt p {
+      font-family: 'Fraunces', serif; font-size: 1.02rem; font-style: italic;
+      color: rgba(250,245,234,0.72); line-height: 1.7; margin-bottom: 28px; max-width: 420px;
+    }
+    .demo-list { list-style: none; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; }
+    .demo-list li {
+      font-family: 'DM Mono', monospace; font-size: 0.74rem; letter-spacing: 0.04em;
+      color: rgba(250,245,234,0.85); display: flex; gap: 12px; align-items: flex-start;
+    }
+    .demo-list li::before { content: "→"; color: var(--saffron); flex: none; }
+    .demo-shot { position: relative; border: 1.5px solid var(--saffron); }
+    .demo-shot img { width: 100%; display: block; }
+    .demo-tag {
+      position: absolute; top: -1.5px; left: -1.5px;
+      background: var(--saffron); color: var(--char);
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 6px 12px;
+    }
+
+    /* ─── PRICING ─── */
+    .price-band { border-top: 1.5px solid var(--char); border-bottom: 1.5px solid var(--char); }
+    .ph-banner {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 36px;
+      border: 1.5px dashed var(--chili); background: rgba(194,51,39,0.06);
+      padding: 12px 18px; font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.05em; text-transform: uppercase; color: var(--chili);
+    }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1.5px solid var(--char); }
+    .price-card { padding: 38px 30px; border-right: 1.5px solid var(--char); display: flex; flex-direction: column; }
+    .price-card:last-child { border-right: none; }
+    .price-card.featured { background: var(--char); }
+    .price-tier {
+      font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.01em; color: var(--char); margin-bottom: 4px;
+    }
+    .price-card.featured .price-tier { color: var(--paper); }
+    .price-pop {
+      display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--saffron);
+      border: 1px solid var(--saffron); padding: 2px 8px; margin-bottom: 14px;
+    }
+    .price-amt {
+      font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800;
+      color: var(--char); line-height: 1; letter-spacing: -0.03em; margin: 8px 0 2px;
+    }
+    .price-card.featured .price-amt { color: var(--paper); }
+    .price-amt sup { font-size: 0.9rem; vertical-align: super; color: var(--chili); }
+    .price-note { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 24px; }
+    .price-card.featured .price-note { color: rgba(250,245,234,0.6); }
+    .price-feats { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; flex: 1; }
+    .price-feats li { font-family: 'Fraunces', serif; font-size: 0.9rem; color: var(--ink); line-height: 1.5; display: flex; gap: 10px; }
+    .price-card.featured .price-feats li { color: rgba(250,245,234,0.82); }
+    .price-feats li::before { content: "✓"; color: var(--herb); font-weight: 700; flex: none; }
+    .price-card.featured .price-feats li::before { color: var(--saffron); }
+    .price-card .btn-primary, .price-card .btn-outline { text-align: center; }
+    .price-card.featured .btn-outline { color: var(--paper); border-color: var(--paper); }
+    .price-card.featured .btn-outline:hover { background: var(--paper); color: var(--char); }
+
+    /* ─── DIRECTORY ─── */
+    .dir-band { background: var(--paper2); border-top: 1.5px solid var(--char); border-bottom: 1.5px solid var(--char); }
+    .dir-filters { display: flex; gap: 0; margin-bottom: 36px; border: 1.5px solid var(--char); width: fit-content; flex-wrap: wrap; }
+    .dir-fbtn {
+      padding: 9px 20px; border: none; border-right: 1.5px solid var(--char); background: var(--paper);
+      color: var(--ink); font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+    }
+    .dir-fbtn:last-child { border-right: none; }
+    .dir-fbtn.on { background: var(--char); color: var(--paper); }
+    .dir-fbtn:hover:not(.on) { background: var(--paper); color: var(--chili); }
+    .dir-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1.5px solid var(--char); background: var(--char); }
+    .truck {
+      background: var(--paper); padding: 24px 22px;
+      border-right: 1.5px solid var(--char); border-bottom: 1.5px solid var(--char);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .truck-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .truck-name { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; color: var(--char); }
+    .truck-area {
+      font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink); border: 1px solid var(--char); padding: 3px 7px; white-space: nowrap; flex: none;
+    }
+    .truck-cuisine { font-family: 'DM Mono', monospace; font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--chili); }
+    .truck-desc { font-family: 'Fraunces', serif; font-size: 0.88rem; font-style: italic; color: var(--ink); line-height: 1.55; flex: 1; }
+    .truck-claim {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--herb); text-decoration: none; margin-top: 4px;
+    }
+    .truck-claim:hover { color: var(--chili); }
+    .dir-empty { padding: 40px; text-align: center; font-family: 'Fraunces', serif; font-style: italic; color: var(--ink); }
+    .dir-disclaim {
+      margin-top: 24px; font-family: 'DM Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 0.04em; color: var(--ink); line-height: 1.7; max-width: 720px;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-band { background: var(--char); border-top: 1.5px solid var(--char); }
+    .contact-grid {
+      max-width: 1100px; margin: 0 auto; padding: 84px 5%;
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start;
+    }
+    .contact-txt .eyebrow { color: var(--saffron); }
+    .contact-txt h2 {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
+      text-transform: uppercase; letter-spacing: -0.02em; color: var(--paper); line-height: 1.04; margin-bottom: 18px;
+    }
+    .contact-txt h2 em { color: var(--saffron); font-style: normal; }
+    .contact-txt p { font-family: 'Fraunces', serif; font-size: 1.02rem; font-style: italic; color: rgba(250,245,234,0.72); line-height: 1.7; max-width: 380px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,245,234,0.6); }
+    .field input, .field textarea {
+      padding: 12px 14px; background: rgba(250,245,234,0.05); color: var(--paper);
+      border: 1.5px solid rgba(250,245,234,0.3);
+      font-family: 'Fraunces', serif; font-size: 0.95rem; outline: none; transition: border-color 0.2s;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(250,245,234,0.35); }
+    .field input:focus, .field textarea:focus { border-color: var(--saffron); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .check-row { display: flex; align-items: center; gap: 10px; margin: 4px 0 18px; }
+    .check-row input { width: 17px; height: 17px; accent-color: var(--chili); }
+    .check-row label { font-family: 'Fraunces', serif; font-size: 0.9rem; color: rgba(250,245,234,0.8); font-style: italic; }
+    .form-msg { font-family: 'Fraunces', serif; font-style: italic; color: var(--saffron); font-size: 0.92rem; margin-top: 14px; min-height: 1.2em; }
+    .hp { position: absolute; left: -9999px; opacity: 0; }
+    .contact-form .btn-primary { width: 100%; text-align: center; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--char); border-top: 1.5px solid rgba(250,245,234,0.2); }
+    .foot-top {
+      max-width: 1100px; margin: 0 auto; padding: 56px 5% 40px;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+      border-bottom: 1px solid rgba(250,245,234,0.15);
+    }
+    .foot-brand-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; color: var(--paper); }
+    .foot-brand-name em { color: var(--chili); font-style: normal; }
+    .foot-brand p { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.88rem; color: rgba(250,245,234,0.55); margin-top: 12px; max-width: 280px; line-height: 1.7; }
+    .foot-links2 { display: flex; gap: 28px; flex-wrap: wrap; }
+    .foot-links2 a { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,245,234,0.7); text-decoration: none; transition: color 0.2s; }
+    .foot-links2 a:hover { color: var(--saffron); }
+    .foot-bottom {
+      max-width: 1100px; margin: 0 auto; padding: 18px 5%;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .foot-bottom p, .foot-bottom a { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,245,234,0.4); text-decoration: none; }
+    .foot-bottom a:hover { color: var(--saffron); }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ─── FOCUS ─── */
+    :focus-visible { outline: 3px solid var(--chili); outline-offset: 2px; }
+    .demo-band :focus-visible, .contact-band :focus-visible, footer :focus-visible { outline-color: var(--saffron); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .demo-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card { border-right: none; border-bottom: 1.5px solid var(--char); }
+      .why-card:last-child { border-bottom: none; }
+      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .feat:nth-child(4n) { border-right: 1.5px solid var(--char); }
+      .feat:nth-child(2n) { border-right: none; }
+      .feat:nth-child(n+5) { border-bottom: 1.5px solid var(--char); }
+      .feat:nth-child(n+7) { border-bottom: none; }
+      .dir-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 940px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 120px 5% 70px; }
+      .hero-acts { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-outline { text-align: center; }
+      .price-grid { grid-template-columns: 1fr; }
+      .price-card { border-right: none; border-bottom: 1.5px solid var(--char); }
+      .price-card:last-child { border-bottom: none; }
+      .dir-grid { grid-template-columns: 1fr; }
+      .truck { border-right: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .feat { border-right: none !important; border-bottom: 1.5px solid var(--char) !important; }
+      .feat:last-child { border-bottom: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="mob-close" onclick="closeMob()" aria-label="Close menu">✕</button>
+  <a href="#why" onclick="closeMob()">Why</a>
+  <a href="#features" onclick="closeMob()">What You Get</a>
+  <a href="#demo" onclick="closeMob()">Live Demo</a>
+  <a href="#pricing" onclick="closeMob()">Pricing</a>
+  <a href="#directory" onclick="closeMob()">Directory</a>
+  <a href="#quote" onclick="closeMob()">Free Quote</a>
+</div>
+
+<!-- NAV -->
+<header>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <a href="#top" class="brand" aria-label="Maui Food Truck Websites home">
+    <span class="brand-name">Maui Food Truck <em>Websites</em></span>
+    <span class="brand-sub">by Frontline Web Designs</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#why">Why</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#directory">Directory</a></li>
+    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMob()" aria-label="Open navigation menu" aria-expanded="false" id="hamBtn">☰</button>
+</nav>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-inner">
+    <span class="hero-eyebrow"><span class="live-dot" aria-hidden="true"></span> Maui County · Food Trucks Only</span>
+    <h1>Websites built for <em>Maui food trucks</em></h1>
+    <p class="hero-sub">Your customers shouldn't have to dig through Instagram comments to find where you're parked today. We build fast, mobile-first sites that show your location, hours, menu, and catering — and pull in real bookings.</p>
+    <div class="hero-acts">
+      <a href="#quote" class="btn-primary">Get a free quote</a>
+      <a href="#demo" class="btn-outline">See a live demo →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="trust-n">Maui-made</span><span class="trust-l">Built on island, for the island</span></div>
+      <div class="trust-item"><span class="trust-n">Mobile-first</span><span class="trust-l">80%+ of truck traffic is phones</span></div>
+      <div class="trust-item"><span class="trust-n">You own it</span><span class="trust-l">Your domain, your site, no lock-in</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="why-band" aria-label="Why a food truck needs a website">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Problem</span>
+      <h2>Social media <em>isn't</em> a website</h2>
+      <p>Instagram is great for photos. It's terrible at answering the three questions that actually sell plates: where are you, when are you open, and how do I book you?</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <span class="why-num">01</span>
+        <h3>They can't find you</h3>
+        <p>Posting "we're at the usual spot 🌮" buries your location in a feed. Visitors searching "food trucks near me" never see it — and drive past.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">02</span>
+        <h3>Catering leads vanish</h3>
+        <p>A wedding or office lunch is worth hundreds. If booking means DM'ing you and hoping, most of those people just hire the truck with a real "Request catering" button.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-num">03</span>
+        <h3>You don't own the algorithm</h3>
+        <p>Reach changes overnight and the platform owns your audience. Your own site shows up in Google, works 24/7, and is yours for good.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" aria-label="What you get">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What You Get</span>
+      <h2>Everything a truck <em>actually</em> needs</h2>
+      <p>Not a bloated template — the exact features that turn a phone screen into a customer in line.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="feat"><span class="feat-ic" aria-hidden="true">📍</span><h3>Live Find-Us</h3><p>Today's location and a real map, updated in seconds — no app required.</p></div>
+      <div class="feat"><span class="feat-ic" aria-hidden="true">🕒</span><h3>Open / Closed</h3><p>Auto-computed hours so customers always know if you're serving right now.</p></div>
+      <div class="feat"><span class="feat-ic" aria-hidden="true">🌮</span><h3>Live Menu</h3><p>Filterable menu with prices, tags (vegan, GF, spicy) and your specials.</p></div>
+      <div class="feat"><span class="feat-ic" aria-hidden="true">🗓️</span><h3>Weekly Schedule</h3><p>Show your rotation across the island so regulars can plan around you.</p></div>
+      <div class="feat"><span class="feat-ic" aria-hidden="true">🎉</span><h3>Catering Leads</h3><p>A real "Request catering" form that lands inquiries in your inbox.</p></div>
+      <div class="feat"><span class="feat-ic" aria-hidden="true">🔍</span><h3>Google-Ready</h3><p>SEO + business schema so you show up when people search Maui food trucks.</p></div>
+      <div class="feat"><span class="feat-ic" aria-hidden="true">♿</span><h3>Accessible</h3><p>WCAG-AA built in — readable, keyboard-friendly, works for everyone.</p></div>
+      <div class="feat"><span class="feat-ic" aria-hidden="true">🔑</span><h3>You Own It</h3><p>Your domain and your files. Cancel anytime — nothing held hostage.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="demo-band" aria-label="Live demo">
+  <div class="demo-grid">
+    <div class="demo-txt reveal">
+      <span class="eyebrow">See It Live</span>
+      <h2>This is the kind of site <em>we'll build you</em></h2>
+      <p>"Fuego &amp; Flame" is a full demo truck site we built — every feature on this page, working. Tap through it on your phone.</p>
+      <ul class="demo-list">
+        <li>Real-time open/closed &amp; today's location</li>
+        <li>Filterable menu with dietary tags</li>
+        <li>Weekly schedule across Maui</li>
+        <li>Catering request &amp; reviews</li>
+      </ul>
+      <a href="https://frontlinewebdesign.tech/samples/food-truck.html" target="_blank" rel="noopener" class="btn-primary">Open the live demo →</a>
+    </div>
+    <div class="demo-shot reveal">
+      <span class="demo-tag">Live demo</span>
+      <a href="https://frontlinewebdesign.tech/samples/food-truck.html" target="_blank" rel="noopener" aria-label="Open the Fuego and Flame live demo site">
+        <img src="assets/demo-foodtruck.webp" alt="Preview of the Fuego &amp; Flame demo food-truck website" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="price-band" aria-label="Pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Packages</span>
+      <h2>Built for a <em>truck budget</em></h2>
+      <p>Straightforward packages — pick a starting point, and we'll tailor it to your truck.</p>
+    </div>
+    <div class="ph-banner reveal" role="note">⚠ Placeholder pricing — final numbers confirmed before launch.</div>
+    <div class="price-grid reveal">
+      <div class="price-card">
+        <div class="price-tier">The One-Pager</div>
+        <div class="price-amt"><sup>$</sup>—</div>
+        <div class="price-note">Placeholder · one-time</div>
+        <ul class="price-feats">
+          <li>Single-page site</li>
+          <li>Find-us map &amp; hours</li>
+          <li>Menu &amp; social links</li>
+          <li>Mobile-first &amp; accessible</li>
+        </ul>
+        <a href="#quote" class="btn-outline">Start here</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">The Full Truck</div>
+        <span class="price-pop">Most popular</span>
+        <div class="price-amt"><sup>$</sup>—</div>
+        <div class="price-note">Placeholder · one-time</div>
+        <ul class="price-feats">
+          <li>Everything in One-Pager</li>
+          <li>Live weekly schedule</li>
+          <li>Filterable full menu</li>
+          <li>Catering lead form</li>
+          <li>Your own domain + SEO</li>
+        </ul>
+        <a href="#quote" class="btn-primary">Get a quote</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Catering+</div>
+        <div class="price-amt"><sup>$</sup>—</div>
+        <div class="price-note">Placeholder · one-time</div>
+        <ul class="price-feats">
+          <li>Everything in Full Truck</li>
+          <li>Dedicated events page</li>
+          <li>Photo gallery &amp; reviews</li>
+          <li>Online ordering links</li>
+        </ul>
+        <a href="#quote" class="btn-outline">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTORY -->
+<section id="directory" class="dir-band" aria-label="Maui food truck directory">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Free Community Directory</span>
+      <h2>Maui County <em>food trucks</em></h2>
+      <p>A growing directory of trucks across the island. Own one of these? Claim your listing — and let's get you a real website.</p>
+    </div>
+    <div class="dir-filters reveal" role="group" aria-label="Filter trucks by area">
+      <button type="button" class="dir-fbtn on" data-area="all" aria-pressed="true">All</button>
+      <button type="button" class="dir-fbtn" data-area="kihei" aria-pressed="false">Kihei</button>
+      <button type="button" class="dir-fbtn" data-area="kahului" aria-pressed="false">Kahului</button>
+      <button type="button" class="dir-fbtn" data-area="lahaina" aria-pressed="false">Lahaina</button>
+    </div>
+    <div class="dir-grid reveal" id="dirGrid">
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Geste Shrimp Truck</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Garlic Shrimp · Seafood</span>
+        <p class="truck-desc">Famous Hawaiian scampi and spicy-pineapple shrimp plates — a Maui must-try.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Thai Mee Up</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Thai</span>
+        <p class="truck-desc">Maui-style Thai — pad see ew, curries and fried rice at the Plate Lunch Market.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Like Poke</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Poke</span>
+        <p class="truck-desc">Fresh, well-priced poke bowls — a local readers' lunch favorite.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Mo'Ono Hawai'i</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Açaí Bowls</span>
+        <p class="truck-desc">Açaí bowls from a recipe perfected over three years — bright and fresh.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Tacos Maui</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Mexican · Tacos</span>
+        <p class="truck-desc">Street tacos and burritos at the Plate Lunch Market near the airport.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Ono Teppanyaki &amp; Seafood</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Teppanyaki · Seafood</span>
+        <p class="truck-desc">Hibachi-style plates and fresh seafood, cooked to order.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Kitoko Maui</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Hawaiian-Japanese-French Fusion</span>
+        <p class="truck-desc">Creative fusion plates at South Maui Gardens on Auhana Road.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Kina'ole Grill</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Hawaiian · Plate Lunch</span>
+        <p class="truck-desc">Local plates with standout seared ahi near Kamaole Beach Park.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Horhitos Maui</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Mexican · Tacos</span>
+        <p class="truck-desc">Shrimp, ono and mahi-mahi fish tacos on South Kihei Road.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">South Maui Fish Company</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Seafood · Poke</span>
+        <p class="truck-desc">Fresh-caught fish plates and poke bowls in South Maui.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Happy Belly</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Local Comfort</span>
+        <p class="truck-desc">Hearty local comfort grindz that keep the regulars coming back.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Suns Out Buns Out</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Burgers</span>
+        <p class="truck-desc">Smash burgers and loaded buns — a South Maui crowd-pleaser.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="lahaina">
+        <div class="truck-top"><span class="truck-name">808 Grindz</span><span class="truck-area">Lahaina</span></div>
+        <span class="truck-cuisine">Local Plate Lunch</span>
+        <p class="truck-desc">West-side local favorites — generous plates done right.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Da Soriano Grindz</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Local Plate Lunch</span>
+        <p class="truck-desc">Big, hearty island plate lunches with a loyal following.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+    </div>
+    <p class="dir-empty" id="dirEmpty" hidden role="status">No trucks listed in that area yet — <a href="#quote" style="color:var(--chili);">add yours →</a></p>
+    <p class="dir-disclaim">Listings are a free community directory compiled from publicly available information and may change. Own a truck and want your details updated, added, or removed? <a href="#quote" style="color:var(--herb);text-decoration:underline;">Let us know.</a></p>
+  </div>
+</section>
+
+<!-- CONTACT / QUOTE -->
+<section id="quote" class="contact-band" aria-label="Request a quote">
+  <div class="contact-grid">
+    <div class="contact-txt reveal">
+      <span class="eyebrow">Get Started</span>
+      <h2>Let's get your truck <em>online</em></h2>
+      <p>Tell us about your truck and we'll send a quote — usually within a day. No pressure, no jargon, no lock-in.</p>
+    </div>
+    <form class="contact-form reveal" id="quoteForm" novalidate>
+      <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
+      <input type="hidden" name="subject" value="New Maui Food Truck Websites lead">
+      <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-row">
+        <div class="field">
+          <label for="fName">Your name</label>
+          <input id="fName" name="name" type="text" autocomplete="name" placeholder="Kai" required>
+        </div>
+        <div class="field">
+          <label for="fTruck">Truck name</label>
+          <input id="fTruck" name="truck_name" type="text" placeholder="Your food truck" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="fEmail">Email</label>
+          <input id="fEmail" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+        </div>
+        <div class="field">
+          <label for="fPhone">Phone <span style="text-transform:none;">(optional)</span></label>
+          <input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="(808) 555-0123">
+        </div>
+      </div>
+      <div class="field full">
+        <label for="fMsg">What do you need?</label>
+        <textarea id="fMsg" name="message" placeholder="Where you park, what you sell, catering — anything helps."></textarea>
+      </div>
+      <div class="check-row">
+        <input id="fClaim" name="claim_listing" type="checkbox" value="yes">
+        <label for="fClaim">Also claim / update my directory listing</label>
+      </div>
+      <button type="submit" class="btn-primary">Send my request</button>
+      <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="foot-brand-name">Maui Food Truck <em>Websites</em></div>
+      <p>A niche web-design service for Maui County food trucks — by Frontline Web Designs.</p>
+    </div>
+    <nav class="foot-links2" aria-label="Footer">
+      <a href="#why">Why</a>
+      <a href="#features">What You Get</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#directory">Directory</a>
+      <a href="#quote">Free Quote</a>
+    </nav>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 Frontline Web Designs · Maui, Hawaiʻi</p>
+    <a href="https://frontlinewebdesign.tech" target="_blank" rel="noopener">frontlinewebdesign.tech ↗</a>
+  </div>
+</footer>
+
+<script>
+  /* ─── Mobile menu (focus-trapped) ─── */
+  const mobMenu = document.getElementById('mobMenu');
+  const hamBtn  = document.getElementById('hamBtn');
+  let lastFocus = null;
+  function openMob() {
+    lastFocus = document.activeElement;
+    mobMenu.classList.add('open');
+    hamBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    const first = mobMenu.querySelector('a, button');
+    if (first) first.focus();
+  }
+  function closeMob() {
+    mobMenu.classList.remove('open');
+    hamBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  mobMenu.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { closeMob(); return; }
+    if (e.key !== 'Tab') return;
+    const f = mobMenu.querySelectorAll('a, button');
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* ─── Sticky nav shadow ─── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ─── Scroll reveal ─── */
+  const revObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 60); revObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+  /* ─── Directory area filter ─── */
+  const trucks = [...document.querySelectorAll('.truck')];
+  const dirEmpty = document.getElementById('dirEmpty');
+  document.querySelectorAll('.dir-fbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.dir-fbtn').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true');
+      const area = btn.dataset.area;
+      let shown = 0;
+      trucks.forEach(t => {
+        const vis = area === 'all' || t.dataset.area === area;
+        t.hidden = !vis;
+        if (vis) shown++;
+      });
+      if (dirEmpty) dirEmpty.hidden = shown > 0;
+    });
+  });
+
+  /* ─── Quote form (Web3Forms, with local demo fallback) ─── */
+  const form = document.getElementById('quoteForm');
+  const formMsg = document.getElementById('formMsg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.botcheck.value) return; // honeypot
+    if (!form.name.value || !form.truck_name.value || !form.email.value.includes('@')) {
+      formMsg.textContent = 'Please add your name, truck name, and a valid email.';
+      return;
+    }
+    const key = form.access_key.value;
+    if (!key || key.startsWith('REPLACE_')) {
+      // No live key yet — demo the success state locally.
+      formMsg.textContent = "✓ Thanks! (Demo mode — add the Web3Forms key to send for real.)";
+      form.reset();
+      return;
+    }
+    formMsg.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data = await res.json();
+      if (data.success) { formMsg.textContent = "✓ Got it — we'll be in touch within a day."; form.reset(); }
+      else { formMsg.textContent = 'Something went wrong. Email us at FrontlineWebDesigns@gmail.com.'; }
+    } catch (err) {
+      formMsg.textContent = 'Network error. Email us at FrontlineWebDesigns@gmail.com.';
+    }
+  });
+</script>
+</body>
+</html>
