@@ -21,13 +21,18 @@ top of the funnel; the conversion goal is owners requesting a site.
 7. Quote — Web3Forms lead form (demo fallback until a real key is set).
 8. Footer — Frontline sub-brand + cross-link.
 
-## ⚠ Placeholders to confirm BEFORE launch (do not publish as-is)
+## ⚠ Confirm BEFORE launch (do not publish as-is)
 - **Pricing** — all three tiers show `$—`. Replace with real package prices.
-- **Web3Forms key** — `index.html` has `REPLACE_WITH_WEB3FORMS_KEY`; form runs in demo mode until set.
-- **Directory data** — `assets`/inline truck list is a researched starter set from public info.
+- **Directory data** — the inline truck list is a researched starter set from public info.
   Verify each truck (name, cuisine, area) and the free-directory disclaimer before going live.
 - **Domain + host** — register `mauifoodtruckwebsites.com`, set up hosting (Hostinger like the main
-  site), then point DNS. The site is `noindex` until launch-ready.
+  site), point DNS, then flip the page off `noindex`.
+
+## Done / wired
+- **Web3Forms** lead form — live key (emails FrontlineWebDesigns@gmail.com, same inbox as the main
+  Frontline site). Submitting the quote form sends a real email — it is NOT in demo mode.
+- **Brand assets** — `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`, an `og-image.png`
+  social card, and `ProfessionalService` schema.org JSON-LD.
 
 ## Roadmap (post-v1)
 - Per-truck listing pages + dedicated `/directory`.
