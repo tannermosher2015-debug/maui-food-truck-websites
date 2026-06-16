@@ -1,42 +1,34 @@
 # Maui Food Truck Websites — by Frontline Web Designs
 
-A **niche lead-generation property**: a single-page static site that sells websites to
-Maui County food-truck **owners**. A free, real **food-truck directory** is the SEO draw and
-top of the funnel; the conversion goal is owners requesting a site.
+A niche **lead-generation property** that sells websites to Maui County food-truck **owners**.
+The homepage is a complete, gorgeous **"demo-as-pitch"** food-truck site for a fictional truck
+(**Pā'ina Maui**) — it answers every question a food truck's customers have (where, hours, menu,
+photos, story, ordering, catering, social) and is framed throughout as *"this is a free sample
+we built — get one for your truck."* Every conversion CTA → the intake form.
 
-- **Owner / type:** Frontline-owned real niche property (sub-brand of Frontline Web Designs).
-- **Stack:** lightweight static HTML/CSS/JS, single `index.html` (Frontline default).
-- **Domain (target):** `mauifoodtruckwebsites.com` (not yet registered/wired).
-- **Deploy:** none yet — **push ≠ live** until a host + DNS are set up. Build + verify locally first.
-- **Accessibility:** WCAG 2.1 AA — skip link, landmarks, `:focus-visible`, labeled controls,
-  `aria-live` on the directory filter and quote form, reduced-motion.
+- **Live:** `mauifoodtruckwebsites.com` — **soft launch, `noindex`** until the full public launch.
+- **Deploy:** GitHub `tannermosher2015-debug/maui-food-truck-websites` is connected to **Hostinger
+  Git**, so **a push to `main` auto-deploys** to `public_html`. *(Push = publish.)*
+- **Stack:** lightweight static HTML/CSS/JS, no build step.
 
-## Page structure (`index.html`)
-1. Hero — "Websites built for Maui food trucks" + quote / demo CTAs.
-2. Why — social media isn't a website (3 problem cards).
-3. What You Get — feature grid mirroring the demo build.
-4. Live Demo — the Fuego & Flame sample as "the site we'll build you".
-5. Pricing — 3 tiers (**placeholder prices**, clearly marked).
-6. Directory — filterable grid of **real** Maui trucks (area filter) + "claim your listing".
-7. Quote — Web3Forms quick lead form. Primary CTAs route to the multi-step intake (`intake.html`).
-8. Footer — Frontline sub-brand + cross-link.
+## Design system (Laurel-inspired)
+- **Palette:** warm ivory `#F7F1E4` · forest green `#2E3A2B` · gold `#B98A3C` · espresso `#2A211A` (WCAG-AA).
+- **Type:** Playfair Display (display serif) · Karla (body/UI) · Ephesis (script accents).
+- **Icons:** inline SVG (no emoji). Appetizing photography (Unsplash; real client builds swap their own).
 
-## ⚠ Confirm BEFORE launch
-- **Directory** — deep-dived & verified against public sources (Yelp / Maui guides, 2026). Give it a
-  final local eyeball before publishing real businesses. Framed as a free community directory with a
-  claim / update / remove path.
-- **Domain + host** — register `mauifoodtruckwebsites.com`, set up Hostinger, point DNS, then flip the
-  page off `noindex`. (A temporary `*.hostingersite.com` subdomain is fine for review.)
+## Pages
+- **`index.html`** — the Pā'ina Maui demo-as-pitch homepage: sticky "free sample" bar, hero,
+  find-us + Google map, menu w/ prices, today's special + review, gallery, owner story,
+  order/catering, and the closing pitch (*"that's the free sample"*) with the $249 / $449 / $699
+  packages (+ $49/mo maintenance).
+- **`directory.html`** — free community directory of ~14 real Maui County food trucks (area filter,
+  "claim your listing" → intake).
+- **`intake.html`** — multi-step React brief (recolored to match). On submit it emails the brief to
+  FrontlineWebDesigns@gmail.com via Web3Forms (live key). Primary CTAs route here.
 
-## Done / wired
-- **Pricing** — real packages: Single Page **$249**, Full Site **$449**, Pro **$699**, plus optional
-  Monthly Maintenance **$49/mo** (3-month minimum).
-- **Intake form** (`intake.html`) — multi-step React brief; the primary CTAs route here. On submit it
-  emails the completed brief to FrontlineWebDesigns@gmail.com via Web3Forms (live key).
-- **Quick quote form** (`#quote`) — Web3Forms, same inbox (live).
-- **Brand assets** — favicon set, `og-image.png` social card, `ProfessionalService` schema.org JSON-LD.
+## Going fully public (later)
+Flip `index.html` + `directory.html` off `noindex`, add `robots.txt` + `sitemap.xml`, then push.
 
-## Roadmap (post-v1)
-- Per-truck listing pages + dedicated `/directory`.
-- Optional blog/guide engine for long-tail SEO.
-- "Claim your listing" → upgrade funnel automation.
+## Notes
+- "Pā'ina Maui" is a **fictional sample** — labeled as such in the sample bar and footer.
+- Directory listings are public-info; a final local verify before wide promotion is wise.
