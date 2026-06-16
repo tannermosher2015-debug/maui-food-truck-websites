@@ -47,7 +47,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400;1,9..144,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400;1,9..144,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     /* ─── TOKENS ─── */
@@ -82,7 +82,7 @@
     .skip {
       position: absolute; left: -999px; top: 0; z-index: 500;
       background: var(--char); color: var(--paper); padding: 10px 18px;
-      font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+      font-family: 'Archivo', sans-serif; font-size: 0.8rem; font-weight: 700;
       text-decoration: none;
     }
     .skip:focus { left: 8px; top: 8px; }
@@ -98,7 +98,7 @@
     .nav.scrolled { box-shadow: 0 2px 0 var(--char); }
     .brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
     .brand-name {
-      font-family: 'Syne', sans-serif; font-size: 1.02rem; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: 1.02rem; font-weight: 800;
       text-transform: uppercase; letter-spacing: 0.04em; color: var(--char);
     }
     .brand-name em { color: var(--chili); font-style: normal; }
@@ -108,7 +108,7 @@
     }
     .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
     .nav-links a {
-      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600;
+      font-family: 'Archivo', sans-serif; font-size: 0.72rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
       text-decoration: none; transition: color 0.2s;
     }
@@ -116,7 +116,7 @@
     .nav-cta {
       display: inline-block; background: var(--chili); color: #fff !important;
       padding: 9px 18px; border: 1.5px solid var(--chili);
-      font-family: 'Syne', sans-serif; font-size: 0.72rem !important; font-weight: 700 !important;
+      font-family: 'Archivo', sans-serif; font-size: 0.72rem !important; font-weight: 700 !important;
       letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
       transition: background 0.2s, border-color 0.2s;
     }
@@ -124,7 +124,7 @@
     .hamburger {
       display: none; background: none; border: 1.5px solid var(--char);
       color: var(--char); font-size: 1rem; cursor: pointer; padding: 6px 11px;
-      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-family: 'Archivo', sans-serif; font-weight: 700;
     }
     .mob-menu {
       display: none; position: fixed; inset: 0; background: var(--char); z-index: 210;
@@ -132,7 +132,7 @@
     }
     .mob-menu.open { display: flex; }
     .mob-menu a {
-      font-family: 'Syne', sans-serif; font-size: 2.1rem; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: 2.1rem; font-weight: 800;
       text-transform: uppercase; color: var(--paper); text-decoration: none;
     }
     .mob-menu a:hover { color: var(--saffron); }
@@ -145,7 +145,7 @@
     .btn-primary {
       display: inline-block; background: var(--chili); color: #fff;
       padding: 15px 30px; border: 1.5px solid var(--chili);
-      font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700;
+      font-family: 'Archivo', sans-serif; font-size: 0.82rem; font-weight: 700;
       letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
       transition: background 0.2s, border-color 0.2s; cursor: pointer;
     }
@@ -153,7 +153,7 @@
     .btn-outline {
       display: inline-block; background: transparent; color: var(--char);
       padding: 15px 30px; border: 1.5px solid var(--char);
-      font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700;
+      font-family: 'Archivo', sans-serif; font-size: 0.82rem; font-weight: 700;
       letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
       transition: background 0.2s, color 0.2s; cursor: pointer;
     }
@@ -177,7 +177,7 @@
     .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--herb); animation: blink 2s infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
     .hero h1 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-weight: 800;
       font-size: clamp(2.6rem, 6vw, 5.2rem); text-transform: uppercase;
       letter-spacing: -0.03em; line-height: 0.95; color: var(--char); max-width: 16ch;
     }
@@ -194,7 +194,7 @@
     }
     .trust-item { display: flex; flex-direction: column; }
     .trust-n {
-      font-family: 'Syne', sans-serif; font-size: 1.7rem; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: 1.7rem; font-weight: 800;
       color: var(--char); line-height: 1; letter-spacing: -0.02em;
     }
     .trust-l {
@@ -210,7 +210,7 @@
       text-transform: uppercase; color: var(--chili); display: block; margin-bottom: 14px;
     }
     .sec-head h2 {
-      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-weight: 800;
       font-size: clamp(1.8rem, 4vw, 3rem); text-transform: uppercase;
       letter-spacing: -0.02em; color: var(--char); line-height: 1.02;
     }
@@ -230,7 +230,7 @@
       color: var(--chili); display: block; margin-bottom: 16px;
     }
     .why-card h3 {
-      font-family: 'Syne', sans-serif; font-size: 1.12rem; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: 1.12rem; font-weight: 800;
       text-transform: uppercase; letter-spacing: -0.01em; color: var(--char); margin-bottom: 12px;
     }
     .why-card p { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--ink); line-height: 1.7; }
@@ -246,7 +246,7 @@
     .feat:nth-child(n+5) { border-bottom: none; }
     .feat-ic { font-size: 1.5rem; display: block; margin-bottom: 14px; }
     .feat h3 {
-      font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700;
+      font-family: 'Archivo', sans-serif; font-size: 0.92rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.01em; color: var(--char); margin-bottom: 8px;
     }
     .feat p { font-family: 'Fraunces', serif; font-size: 0.86rem; color: var(--ink); line-height: 1.6; }
@@ -259,7 +259,7 @@
     }
     .demo-txt .eyebrow { color: var(--saffron); }
     .demo-txt h2 {
-      font-family: 'Syne', sans-serif; font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 800;
       text-transform: uppercase; letter-spacing: -0.02em; color: var(--paper); line-height: 1.04; margin-bottom: 18px;
     }
     .demo-txt h2 em { color: var(--saffron); font-style: normal; }
@@ -295,7 +295,7 @@
     .price-card:last-child { border-right: none; }
     .price-card.featured { background: var(--char); }
     .price-tier {
-      font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: 1.15rem; font-weight: 800;
       text-transform: uppercase; letter-spacing: 0.01em; color: var(--char); margin-bottom: 4px;
     }
     .price-card.featured .price-tier { color: var(--paper); }
@@ -305,7 +305,7 @@
       border: 1px solid var(--saffron); padding: 2px 8px; margin-bottom: 14px;
     }
     .price-amt {
-      font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: 2.6rem; font-weight: 800;
       color: var(--char); line-height: 1; letter-spacing: -0.03em; margin: 8px 0 2px;
     }
     .price-card.featured .price-amt { color: var(--paper); }
@@ -321,11 +321,11 @@
     .price-card.featured .btn-outline { color: var(--paper); border-color: var(--paper); }
     .price-card.featured .btn-outline:hover { background: var(--paper); color: var(--char); }
     .maint { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; border: 1.5px solid var(--char); border-top: none; background: var(--char); padding: 26px 30px; }
-    .maint-tier { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; color: var(--paper); margin-bottom: 8px; }
+    .maint-tier { font-family: 'Archivo', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; color: var(--paper); margin-bottom: 8px; }
     .maint-tier span { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.12em; color: var(--saffron); border: 1px solid var(--saffron); padding: 2px 7px; margin-left: 8px; vertical-align: middle; }
     .maint-l p { font-family: 'Fraunces', serif; font-size: 0.92rem; color: rgba(250,245,234,0.7); line-height: 1.6; max-width: 580px; }
     .maint-r { display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
-    .maint-amt { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--saffron); line-height: 1; white-space: nowrap; }
+    .maint-amt { font-family: 'Archivo', sans-serif; font-size: 2rem; font-weight: 800; color: var(--saffron); line-height: 1; white-space: nowrap; }
     .maint-amt sup { font-size: 0.85rem; vertical-align: super; }
     .maint-amt small { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: rgba(250,245,234,0.6); }
     .maint-r .btn-outline { color: var(--paper); border-color: var(--paper); }
@@ -336,7 +336,7 @@
     .dir-filters { display: flex; gap: 0; margin-bottom: 36px; border: 1.5px solid var(--char); width: fit-content; flex-wrap: wrap; }
     .dir-fbtn {
       padding: 9px 20px; border: none; border-right: 1.5px solid var(--char); background: var(--paper);
-      color: var(--ink); font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+      color: var(--ink); font-family: 'Archivo', sans-serif; font-size: 0.7rem; font-weight: 700;
       letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s;
     }
     .dir-fbtn:last-child { border-right: none; }
@@ -349,7 +349,7 @@
       display: flex; flex-direction: column; gap: 8px;
     }
     .truck-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-    .truck-name { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; color: var(--char); }
+    .truck-name { font-family: 'Archivo', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; color: var(--char); }
     .truck-area {
       font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--ink); border: 1px solid var(--char); padding: 3px 7px; white-space: nowrap; flex: none;
@@ -375,7 +375,7 @@
     }
     .contact-txt .eyebrow { color: var(--saffron); }
     .contact-txt h2 {
-      font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
+      font-family: 'Archivo', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
       text-transform: uppercase; letter-spacing: -0.02em; color: var(--paper); line-height: 1.04; margin-bottom: 18px;
     }
     .contact-txt h2 em { color: var(--saffron); font-style: normal; }
@@ -406,11 +406,11 @@
       display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap;
       border-bottom: 1px solid rgba(250,245,234,0.15);
     }
-    .foot-brand-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; color: var(--paper); }
+    .foot-brand-name { font-family: 'Archivo', sans-serif; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; color: var(--paper); }
     .foot-brand-name em { color: var(--chili); font-style: normal; }
     .foot-brand p { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.88rem; color: rgba(250,245,234,0.55); margin-top: 12px; max-width: 280px; line-height: 1.7; }
     .foot-links2 { display: flex; gap: 28px; flex-wrap: wrap; }
-    .foot-links2 a { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,245,234,0.7); text-decoration: none; transition: color 0.2s; }
+    .foot-links2 a { font-family: 'Archivo', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,245,234,0.7); text-decoration: none; transition: color 0.2s; }
     .foot-links2 a:hover { color: var(--saffron); }
     .foot-bottom {
       max-width: 1100px; margin: 0 auto; padding: 18px 5%;
