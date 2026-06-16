@@ -213,6 +213,8 @@ function App() {
   const [step, setStep]   = useState(1);
   const [copied, setCopied] = useState(null);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitErr, setSubmitErr] = useState("");
   /* palette recolored to match the Laurel site (ivory / forest-green / gold) */
 
   const [d, setD] = useState({
@@ -235,24 +237,41 @@ function App() {
     setTimeout(() => setCopied(null), 2500);
   };
 
-  // Email the brief to Frontline (Web3Forms) when the owner submits.
+  // Email the brief to Frontline via Web3Forms. Returns true ONLY on a confirmed send.
   const submitToFrontline = async () => {
-    if (sent) return;
-    setSent(true);
+    if (sent) return true;
+    if (!d.name.trim() || !/.+@.+\..+/.test(d.email)) {
+      setSubmitErr("Add your name and a valid email so we can send your free sample.");
+      return false;
+    }
+    setSubmitErr("");
+    setSending(true);
     try {
-      await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: "27a01d1c-8f66-495f-9083-39a77467a130",
           subject: "New food-truck website intake — " + (d.bizName || "Unnamed truck"),
-          name: d.name || d.bizName || "Food truck owner",
-          email: d.email || "no-reply@mauifoodtruckwebsites.com",
-          phone: d.phone || "",
+          from_name: "Maui Food Truck Websites",
+          name: d.name,
+          email: d.email,
+          replyto: d.email,
+          phone: d.phone || "—",
+          botcheck: "",
           message: buildBrief(d),
         }),
       });
-    } catch (e) { /* non-blocking — copy buttons still work */ }
+      const data = await res.json().catch(() => ({}));
+      setSending(false);
+      if (data && data.success) { setSent(true); return true; }
+      setSubmitErr("Couldn't send that — please email FrontlineWebDesigns@gmail.com and we'll jump on it.");
+      return false;
+    } catch (e) {
+      setSending(false);
+      setSubmitErr("Network hiccup — please try again, or email FrontlineWebDesigns@gmail.com.");
+      return false;
+    }
   };
 
   const Radio = ({ options, value, onChange }) => (
@@ -617,21 +636,28 @@ function App() {
           position: "fixed", bottom: 0, left: 0, right: 0,
           background: WHITE, borderTop: "1px solid " + BORDER, padding: "12px 20px",
         }}>
-          <div style={{ maxWidth: 600, margin: "0 auto", display: "flex", gap: 10 }}>
-            {step > 1 && (
-              <button onClick={() => setStep(s => s - 1)} style={{
-                flex: 1, padding: 13, background: WHITE, color: "#444",
-                border: "1.5px solid " + BORDER, borderRadius: 10,
-                fontSize: 15, fontWeight: 500, cursor: "pointer",
-              }}>← Back</button>
-            )}
-            <button onClick={() => { if (step === TOTAL - 1) submitToFrontline(); setStep(s => s + 1); }} style={{
-              flex: step > 1 ? 2 : 1, padding: 13,
-              background: R, color: WHITE, border: "none",
-              borderRadius: 10, fontSize: 15, fontWeight: 700, cursor: "pointer",
-            }}>
-              {step === TOTAL - 1 ? "Submit →" : "Next →"}
-            </button>
+          <div style={{ maxWidth: 600, margin: "0 auto" }}>
+            {submitErr && <p style={{ color: "#C0392B", fontSize: 13, margin: "0 0 8px", textAlign: "center" }}>{submitErr}</p>}
+            <div style={{ display: "flex", gap: 10 }}>
+              {step > 1 && (
+                <button onClick={() => setStep(s => s - 1)} style={{
+                  flex: 1, padding: 13, background: WHITE, color: "#444",
+                  border: "1.5px solid " + BORDER, borderRadius: 10,
+                  fontSize: 15, fontWeight: 500, cursor: "pointer",
+                }}>← Back</button>
+              )}
+              <button disabled={sending} onClick={async () => {
+                if (step === TOTAL - 1) { const ok = await submitToFrontline(); if (ok) setStep(s => s + 1); }
+                else { setStep(s => s + 1); }
+              }} style={{
+                flex: step > 1 ? 2 : 1, padding: 13,
+                background: R, color: WHITE, border: "none",
+                borderRadius: 10, fontSize: 15, fontWeight: 700, cursor: sending ? "default" : "pointer",
+                opacity: sending ? 0.7 : 1,
+              }}>
+                {sending ? "Sending…" : (step === TOTAL - 1 ? "Submit →" : "Next →")}
+              </button>
+            </div>
           </div>
         </div>
       )}
