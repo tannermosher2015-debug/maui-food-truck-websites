@@ -320,6 +320,16 @@
     .price-card .btn-primary, .price-card .btn-outline { text-align: center; }
     .price-card.featured .btn-outline { color: var(--paper); border-color: var(--paper); }
     .price-card.featured .btn-outline:hover { background: var(--paper); color: var(--char); }
+    .maint { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; border: 1.5px solid var(--char); border-top: none; background: var(--char); padding: 26px 30px; }
+    .maint-tier { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; color: var(--paper); margin-bottom: 8px; }
+    .maint-tier span { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.12em; color: var(--saffron); border: 1px solid var(--saffron); padding: 2px 7px; margin-left: 8px; vertical-align: middle; }
+    .maint-l p { font-family: 'Fraunces', serif; font-size: 0.92rem; color: rgba(250,245,234,0.7); line-height: 1.6; max-width: 580px; }
+    .maint-r { display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
+    .maint-amt { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--saffron); line-height: 1; white-space: nowrap; }
+    .maint-amt sup { font-size: 0.85rem; vertical-align: super; }
+    .maint-amt small { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: rgba(250,245,234,0.6); }
+    .maint-r .btn-outline { color: var(--paper); border-color: var(--paper); }
+    .maint-r .btn-outline:hover { background: var(--paper); color: var(--char); }
 
     /* ─── DIRECTORY ─── */
     .dir-band { background: var(--paper2); border-top: 1.5px solid var(--char); border-bottom: 1.5px solid var(--char); }
@@ -462,7 +472,7 @@
   <a href="#demo" onclick="closeMob()">Live Demo</a>
   <a href="#pricing" onclick="closeMob()">Pricing</a>
   <a href="#directory" onclick="closeMob()">Directory</a>
-  <a href="#quote" onclick="closeMob()">Free Quote</a>
+  <a href="intake.html" onclick="closeMob()">Free Quote</a>
 </div>
 
 <!-- NAV -->
@@ -478,7 +488,7 @@
     <li><a href="#demo">Demo</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#directory">Directory</a></li>
-    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+    <li><a href="intake.html" class="nav-cta">Free Quote</a></li>
   </ul>
   <button class="hamburger" onclick="openMob()" aria-label="Open navigation menu" aria-expanded="false" id="hamBtn">☰</button>
 </nav>
@@ -494,7 +504,7 @@
     <h1>Websites built for <em>Maui food trucks</em></h1>
     <p class="hero-sub">Your customers shouldn't have to dig through Instagram comments to find where you're parked today. We build fast, mobile-first sites that show your location, hours, menu, and catering — and pull in real bookings.</p>
     <div class="hero-acts">
-      <a href="#quote" class="btn-primary">Get a free quote</a>
+      <a href="intake.html" class="btn-primary">Get a free quote</a>
       <a href="#demo" class="btn-outline">See a live demo →</a>
     </div>
     <div class="hero-trust">
@@ -586,45 +596,53 @@
       <h2>Built for a <em>truck budget</em></h2>
       <p>Straightforward packages — pick a starting point, and we'll tailor it to your truck.</p>
     </div>
-    <div class="ph-banner reveal" role="note">⚠ Placeholder pricing — final numbers confirmed before launch.</div>
     <div class="price-grid reveal">
       <div class="price-card">
-        <div class="price-tier">The One-Pager</div>
-        <div class="price-amt"><sup>$</sup>—</div>
-        <div class="price-note">Placeholder · one-time</div>
+        <div class="price-tier">Single Page</div>
+        <div class="price-amt"><sup>$</sup>249</div>
+        <div class="price-note">One-time · 1 scrolling page</div>
         <ul class="price-feats">
-          <li>Single-page site</li>
-          <li>Find-us map &amp; hours</li>
-          <li>Menu &amp; social links</li>
+          <li>Menu, hours &amp; location</li>
+          <li>Photo gallery</li>
+          <li>Social links &amp; contact</li>
           <li>Mobile-first &amp; accessible</li>
         </ul>
-        <a href="#quote" class="btn-outline">Start here</a>
+        <a href="intake.html" class="btn-outline">Start here</a>
       </div>
       <div class="price-card featured">
-        <div class="price-tier">The Full Truck</div>
+        <div class="price-tier">Full Site</div>
         <span class="price-pop">Most popular</span>
-        <div class="price-amt"><sup>$</sup>—</div>
-        <div class="price-note">Placeholder · one-time</div>
+        <div class="price-amt"><sup>$</sup>449</div>
+        <div class="price-note">One-time · up to 3 pages</div>
         <ul class="price-feats">
-          <li>Everything in One-Pager</li>
-          <li>Live weekly schedule</li>
-          <li>Filterable full menu</li>
-          <li>Catering lead form</li>
+          <li>Home + a dedicated menu page</li>
+          <li>One more: About, Catering or Contact</li>
           <li>Your own domain + SEO</li>
+          <li>For trucks with a story to tell</li>
         </ul>
-        <a href="#quote" class="btn-primary">Get a quote</a>
+        <a href="intake.html" class="btn-primary">Get a quote</a>
       </div>
       <div class="price-card">
-        <div class="price-tier">Catering+</div>
-        <div class="price-amt"><sup>$</sup>—</div>
-        <div class="price-note">Placeholder · one-time</div>
+        <div class="price-tier">Pro</div>
+        <div class="price-amt"><sup>$</sup>699</div>
+        <div class="price-note">One-time · up to 5 pages</div>
         <ul class="price-feats">
-          <li>Everything in Full Truck</li>
-          <li>Dedicated events page</li>
-          <li>Photo gallery &amp; reviews</li>
-          <li>Online ordering links</li>
+          <li>Home, Menu &amp; About</li>
+          <li>Catering &amp; Events page</li>
+          <li>Contact</li>
+          <li>Built to land catering gigs</li>
         </ul>
-        <a href="#quote" class="btn-outline">Talk to us</a>
+        <a href="intake.html" class="btn-outline">Talk to us</a>
+      </div>
+    </div>
+    <div class="maint reveal">
+      <div class="maint-l">
+        <div class="maint-tier">Monthly Maintenance <span>optional</span></div>
+        <p>Up to 4 updates a month — new photos, menu changes, hours, location. 48-hour turnaround, 3-month minimum. You focus on the food; we keep the site current.</p>
+      </div>
+      <div class="maint-r">
+        <div class="maint-amt"><sup>$</sup>49<small>/mo</small></div>
+        <a href="intake.html" class="btn-outline">Add it on</a>
       </div>
     </div>
   </div>
@@ -648,19 +666,31 @@
       <article class="truck" data-area="kahului">
         <div class="truck-top"><span class="truck-name">Geste Shrimp Truck</span><span class="truck-area">Kahului</span></div>
         <span class="truck-cuisine">Garlic Shrimp · Seafood</span>
-        <p class="truck-desc">Famous Hawaiian scampi and spicy-pineapple shrimp plates — a Maui must-try.</p>
+        <p class="truck-desc">Maui's famous garlic shrimp (and hot dogs), usually parked on Kahului Beach Rd by the MACC.</p>
         <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
       </article>
       <article class="truck" data-area="kahului">
         <div class="truck-top"><span class="truck-name">Thai Mee Up</span><span class="truck-area">Kahului</span></div>
         <span class="truck-cuisine">Thai</span>
-        <p class="truck-desc">Maui-style Thai — pad see ew, curries and fried rice at the Plate Lunch Market.</p>
+        <p class="truck-desc">'Aipono Award Best Food Truck (2018 &amp; 2022) — Thai done Maui-style at Plate Lunch Marketplace.</p>
         <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
       </article>
       <article class="truck" data-area="kahului">
         <div class="truck-top"><span class="truck-name">Like Poke</span><span class="truck-area">Kahului</span></div>
         <span class="truck-cuisine">Poke</span>
-        <p class="truck-desc">Fresh, well-priced poke bowls — a local readers' lunch favorite.</p>
+        <p class="truck-desc">Fresh, well-priced poke — voted Best Food Truck Lunch 2023 by Maui Time readers.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Ono Teppanyaki &amp; Seafood</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Teppanyaki · Seafood</span>
+        <p class="truck-desc">Thai Mee Up's sister truck — teppanyaki &amp; seafood, plate-lunch style.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kahului">
+        <div class="truck-top"><span class="truck-name">Tacos Maui</span><span class="truck-area">Kahului</span></div>
+        <span class="truck-cuisine">Mexican · Tacos</span>
+        <p class="truck-desc">Street tacos and burritos at Plate Lunch Marketplace near the airport.</p>
         <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
       </article>
       <article class="truck" data-area="kahului">
@@ -670,63 +700,51 @@
         <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
       </article>
       <article class="truck" data-area="kahului">
-        <div class="truck-top"><span class="truck-name">Tacos Maui</span><span class="truck-area">Kahului</span></div>
-        <span class="truck-cuisine">Mexican · Tacos</span>
-        <p class="truck-desc">Street tacos and burritos at the Plate Lunch Market near the airport.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="kahului">
-        <div class="truck-top"><span class="truck-name">Ono Teppanyaki &amp; Seafood</span><span class="truck-area">Kahului</span></div>
-        <span class="truck-cuisine">Teppanyaki · Seafood</span>
-        <p class="truck-desc">Hibachi-style plates and fresh seafood, cooked to order.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="kihei">
-        <div class="truck-top"><span class="truck-name">Kitoko Maui</span><span class="truck-area">Kihei</span></div>
-        <span class="truck-cuisine">Hawaiian-Japanese-French Fusion</span>
-        <p class="truck-desc">Creative fusion plates at South Maui Gardens on Auhana Road.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="kihei">
-        <div class="truck-top"><span class="truck-name">Kina'ole Grill</span><span class="truck-area">Kihei</span></div>
-        <span class="truck-cuisine">Hawaiian · Plate Lunch</span>
-        <p class="truck-desc">Local plates with standout seared ahi near Kamaole Beach Park.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="kihei">
-        <div class="truck-top"><span class="truck-name">Horhitos Maui</span><span class="truck-area">Kihei</span></div>
-        <span class="truck-cuisine">Mexican · Tacos</span>
-        <p class="truck-desc">Shrimp, ono and mahi-mahi fish tacos on South Kihei Road.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="kihei">
-        <div class="truck-top"><span class="truck-name">South Maui Fish Company</span><span class="truck-area">Kihei</span></div>
-        <span class="truck-cuisine">Seafood · Poke</span>
-        <p class="truck-desc">Fresh-caught fish plates and poke bowls in South Maui.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="kihei">
-        <div class="truck-top"><span class="truck-name">Happy Belly</span><span class="truck-area">Kihei</span></div>
-        <span class="truck-cuisine">Local Comfort</span>
-        <p class="truck-desc">Hearty local comfort grindz that keep the regulars coming back.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="kihei">
-        <div class="truck-top"><span class="truck-name">Suns Out Buns Out</span><span class="truck-area">Kihei</span></div>
-        <span class="truck-cuisine">Burgers</span>
-        <p class="truck-desc">Smash burgers and loaded buns — a South Maui crowd-pleaser.</p>
-        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
-      </article>
-      <article class="truck" data-area="lahaina">
-        <div class="truck-top"><span class="truck-name">808 Grindz</span><span class="truck-area">Lahaina</span></div>
+        <div class="truck-top"><span class="truck-name">Kalei's Lunch Box</span><span class="truck-area">Kahului</span></div>
         <span class="truck-cuisine">Local Plate Lunch</span>
-        <p class="truck-desc">West-side local favorites — generous plates done right.</p>
+        <p class="truck-desc">A go-to for local comfort grindz — Kahului, Wailuku &amp; Pukalani.</p>
         <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
       </article>
       <article class="truck" data-area="kahului">
         <div class="truck-top"><span class="truck-name">Da Soriano Grindz</span><span class="truck-area">Kahului</span></div>
         <span class="truck-cuisine">Local Plate Lunch</span>
         <p class="truck-desc">Big, hearty island plate lunches with a loyal following.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Kitoko Maui</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Hawaiian-Japanese-French Fusion</span>
+        <p class="truck-desc">Creative fusion plates at South Maui Gardens, 35 Auhana Rd.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Kina'ole Grill</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Hawaiian · Seafood</span>
+        <p class="truck-desc">Local plates &amp; standout seared ahi, steps from Kamaole Beach I.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Horhitos Mobile Taqueria</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Tacos · Local Plate Lunch</span>
+        <p class="truck-desc">One of Maui's OG trucks — street tacos, local plates, burgers &amp; mac salad.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">South Maui Fish Company</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Seafood · Poke</span>
+        <p class="truck-desc">Fresh-caught seafood by Azeka — locally sourced, prepared to order.</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="kihei">
+        <div class="truck-top"><span class="truck-name">Suns Out Buns Out</span><span class="truck-area">Kihei</span></div>
+        <span class="truck-cuisine">Bao Buns · Street Food</span>
+        <p class="truck-desc">Inventive bao buns &amp; street food on Piikea Ave (also at Plate Lunch Marketplace).</p>
+        <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
+      </article>
+      <article class="truck" data-area="lahaina">
+        <div class="truck-top"><span class="truck-name">808 Grindz</span><span class="truck-area">Lahaina</span></div>
+        <span class="truck-cuisine">Local Plate Lunch</span>
+        <p class="truck-desc">West-side local favorites — back serving Lahaina with generous plates.</p>
         <a href="#quote" class="truck-claim">Is this your truck? Claim it →</a>
       </article>
     </div>

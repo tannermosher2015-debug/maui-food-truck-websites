@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Truck Intake — Frontline Web Designs</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #F8F8F8; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+input:focus, textarea:focus { border-color: #CC1E1E !important; box-shadow: 0 0 0 3px rgba(204,30,30,0.1); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+const R = "#CC1E1E";
+const DARK = "#111111";
+const MID = "#555555";
+const FAINT = "#999999";
+const BORDER = "#E5E5E5";
+const OFF = "#F8F8F8";
+const WHITE = "#FFFFFF";
+
+const VIBES = [
+  { id: "high-energy",  label: "High Energy",       desc: "Dynamic, vibrant, action-first",  swatch: "#CC1E1E" },
+  { id: "warm-organic", label: "Warm & Natural",     desc: "Earthy, approachable, inviting",  swatch: "#C9A87C" },
+  { id: "bold-modern",  label: "Bold & Modern",      desc: "Clean, confident, sharp",         swatch: "#1D4ED8" },
+  { id: "retro",        label: "Retro / Character",  desc: "Nostalgic, personality-forward",  swatch: "#D97706" },
+  { id: "dark-luxury",  label: "Dark & Luxury",      desc: "Premium, moody, high-end",        swatch: "#1A1A1A" },
+  { id: "editorial",    label: "Editorial",           desc: "Typographic, minimal, refined",   swatch: "#1A1A1A", border: true },
+];
+
+const TIERS = [
+  {
+    id: "single", label: "Single Page", price: "$249", pageCount: "1 scrolling page",
+    pages: ["Menu", "Hours & Location", "Photo Gallery", "Social Links", "Contact"],
+    note: "Best for getting online fast",
+  },
+  {
+    id: "full", label: "Full Site", price: "$449", pageCount: "Up to 3 pages",
+    pages: ["Home", "Menu", "About / Catering / Contact (choose one)"],
+    note: "Best for established trucks",
+  },
+  {
+    id: "pro", label: "Pro", price: "$699", pageCount: "Up to 5 pages",
+    pages: ["Home", "Menu", "About", "Catering / Events", "Contact"],
+    note: "Best for catering & events focus",
+  },
+];
+
+const TIMELINES  = ["ASAP", "Within 1 month", "1–2 months", "Flexible — no rush"];
+const PHOTO_OPTS = ["Yes — professional photos ready", "Phone photos (usable)", "No photos — need stock or generated"];
+const LOGO_OPTS  = ["Yes — ready to use", "I have one but needs work", "No — I'll need one designed"];
+const MENU_OPTS  = ["Yes — digital menu / PDF ready", "Handwritten / photo of menu", "I'll type it out for you"];
+const CATERING_OPTS = ["Yes — catering is a big part of my business", "Occasionally", "No — walk-up / events only"];
+
+const Label = ({ children }) => (
+  <div style={{ fontSize: 11, fontWeight: 800, color: MID, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 8 }}>
+    {children}
+  </div>
+);
+const Hint = ({ children }) => (
+  <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0, color: FAINT }}> {children}</span>
+);
+const Field = ({ children }) => <div style={{ marginBottom: 24 }}>{children}</div>;
+
+const inp = {
+  width: "100%", padding: "11px 14px", border: `1.5px solid ${BORDER}`,
+  borderRadius: 8, fontSize: 15, outline: "none", fontFamily: "inherit",
+  boxSizing: "border-box", background: WHITE, color: DARK, WebkitAppearance: "none",
+};
+
+function buildPrompt(d) {
+  const tier = TIERS.find(t => t.id === d.tier);
+  const v    = VIBES.find(x => x.id === d.vibe);
+  return `Build a complete, single-file HTML/CSS/JS food truck website. No frameworks. No templates.
+
+CLIENT BRIEF
+Business: ${d.bizName || "[BUSINESS NAME]"}
+What they sell: ${d.whatTheySell || "[FOOD TYPE]"}
+Service area: ${d.serviceArea || "[SERVICE AREA]"}
+Schedule / spots: ${d.schedule || "[SCHEDULE]"}
+Catering: ${d.catering || "TBD"}
+Ideal customer: ${d.idealCustomer || "[TARGET CUSTOMER]"}
+#1 goal for the site: ${d.mainGoal || "[MAIN GOAL]"}
+
+TIER: ${tier ? tier.label + " — " + tier.price + " — " + tier.pageCount : "TBD"}
+PAGES: ${tier ? tier.pages.join(", ") : "[TBD]"}
+
+DESIGN DIRECTION: ${v ? v.label : "[VIBE]"}
+${v ? "— " + v.desc : ""}
+Brand colors: ${d.brandColors || "designer's choice"}
+Colors to avoid: ${d.colorsAvoid || "none specified"}
+Sites they admire: ${d.sitesLove.filter(Boolean).join(", ") || "none provided"}
+
+CONTENT STATUS
+Logo: ${d.hasLogo || "TBD"}
+Photography: ${d.hasPhotos || "TBD"}
+Menu: ${d.hasMenu || "TBD"}
+Special features: ${d.specialFeatures || "none"}
+Social: Instagram ${d.instagram || "—"} · Facebook ${d.facebook || "—"} · TikTok ${d.tiktok || "—"}
+
+PROJECT
+Timeline: ${d.timeline || "TBD"}
+Extra context: ${d.notes || "none"}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DESIGN RULES — FOLLOW ALL WITHOUT EXCEPTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FOOD TRUCK SPECIFIC
+Hero must communicate what they sell and where to find them within 2 seconds.
+Hours and location/schedule must be prominent — mobile users are deciding right now.
+Menu must be readable on phone without zooming. Static grid photo gallery — no JS carousels.
+Social links (Instagram, Facebook, TikTok) in header AND footer. THIS SITE IS MOBILE FIRST.
+
+POINT OF VIEW
+Commit fully to the "${v ? v.label : "chosen"}" direction. Every decision — spacing,
+radius, weight, contrast — must serve that direction. No hedging. No generic fallbacks.
+
+TYPOGRAPHY
+Pair a distinctive display + body font from Google Fonts. NOT Inter, Roboto, Open Sans, or Lato.
+Real type scale: H1, H2, H3, body (16–18px), caption. Weight and scale carry hierarchy.
+
+COLOR SYSTEM
+Max 5 named colors: background, surface, primary, accent, text.
+Restraint signals quality. No rainbow palettes. WCAG AA contrast (4.5:1 min) on all text.
+
+HIERARCHY
+Every section: clear primary, secondary, tertiary element.
+Whitespace: min 80px between sections desktop, 48px mobile. The eye must always know where to go.
+
+IMAGERY
+No stock Unsplash images. CSS-generated visuals OR intentional blank areas with HTML comments
+describing exactly what photo belongs there.
+
+MOBILE
+Nav collapses to hamburger. Touch targets min 44px. Headlines scale intentionally.
+Test at 375px and 390px. Layout decisions for phone are different from desktop.
+
+TECHNICAL FLOOR
+- Semantic HTML: header, main, section, footer, nav, single H1 per page
+- Meta: title, description, og:title, og:description
+- Google Maps embed for location if address known
+- Visible focus ring on all interactive elements. Alt text on all images.
+- No render-blocking resources.
+- One scroll-triggered entrance per section via IntersectionObserver. No AOS.
+- All animations wrapped in prefers-reduced-motion media query.
+
+OUTPUT
+Deliver the complete, production-ready HTML file. No explanations. No preamble. Just the code.`;
+}
+
+function buildBrief(d) {
+  const tier = TIERS.find(t => t.id === d.tier);
+  const v    = VIBES.find(x => x.id === d.vibe);
+  return `FRONTLINE WEB DESIGNS — FOOD TRUCK CLIENT BRIEF
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Date: ${new Date().toLocaleDateString("en-US", { dateStyle: "long" })}
+
+CLIENT
+Business:  ${d.bizName || "—"}
+Contact:   ${d.name || "—"} · ${d.email || "—"}${d.phone ? " · " + d.phone : ""}
+
+THE BUSINESS
+What they sell:   ${d.whatTheySell || "—"}
+Service area:     ${d.serviceArea || "—"}
+Schedule / spots: ${d.schedule || "—"}
+Catering:         ${d.catering || "—"}
+Ideal customer:   ${d.idealCustomer || "—"}
+#1 site goal:     ${d.mainGoal || "—"}
+
+SOCIAL MEDIA
+Instagram: ${d.instagram || "—"}
+Facebook:  ${d.facebook || "—"}
+TikTok:    ${d.tiktok || "—"}
+
+DESIGN DIRECTION
+Vibe:             ${v ? v.label + " — " + v.desc : "—"}
+Brand colors:     ${d.brandColors || "—"}
+Avoid:            ${d.colorsAvoid || "—"}
+Sites they love:  ${d.sitesLove.filter(Boolean).join(" / ") || "—"}
+
+PACKAGE
+Tier:        ${tier ? tier.label + " — " + tier.price + " — " + tier.pageCount : "—"}
+Maintenance: ${d.maintenance ? "$49/mo — 3-month minimum" : "Not added"}
+
+CONTENT STATUS
+Logo:             ${d.hasLogo || "—"}
+Photography:      ${d.hasPhotos || "—"}
+Menu:             ${d.hasMenu || "—"}
+Special features: ${d.specialFeatures || "—"}
+Domain:           ${d.hasDomain === "yes" ? d.domainName || "Yes (TBD)" : d.hasDomain || "—"}
+Existing site:    ${d.existingSite || "None"}
+
+PROJECT
+Timeline: ${d.timeline || "—"}
+
+NOTES
+${d.notes || "None"}`;
+}
+
+function App() {
+  const TOTAL = 5;
+  const [step, setStep]   = useState(1);
+  const [copied, setCopied] = useState(null);
+  const [sent, setSent] = useState(false);
+
+  const [d, setD] = useState({
+    bizName: "", whatTheySell: "", serviceArea: "", schedule: "",
+    catering: "", idealCustomer: "", mainGoal: "",
+    instagram: "", facebook: "", tiktok: "",
+    vibe: "", sitesLove: ["", "", ""], brandColors: "", colorsAvoid: "",
+    tier: "", maintenance: false,
+    hasLogo: "", hasPhotos: "", hasMenu: "", specialFeatures: "",
+    hasDomain: "", domainName: "", existingSite: "", timeline: "",
+    name: "", email: "", phone: "", notes: "",
+  });
+
+  const set = (k, v) => setD(p => ({ ...p, [k]: v }));
+
+  const copy = async (type) => {
+    const text = type === "prompt" ? buildPrompt(d) : buildBrief(d);
+    try { await navigator.clipboard.writeText(text); } catch(e) {}
+    setCopied(type);
+    setTimeout(() => setCopied(null), 2500);
+  };
+
+  // Email the brief to Frontline (Web3Forms) when the owner submits.
+  const submitToFrontline = async () => {
+    if (sent) return;
+    setSent(true);
+    try {
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "27a01d1c-8f66-495f-9083-39a77467a130",
+          subject: "New food-truck website intake — " + (d.bizName || "Unnamed truck"),
+          name: d.name || d.bizName || "Food truck owner",
+          email: d.email || "no-reply@mauifoodtruckwebsites.com",
+          phone: d.phone || "",
+          message: buildBrief(d),
+        }),
+      });
+    } catch (e) { /* non-blocking — copy buttons still work */ }
+  };
+
+  const Radio = ({ options, value, onChange }) => (
+    <div>
+      {options.map(opt => (
+        <div key={opt} onClick={() => onChange(opt)}
+          style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10, cursor: "pointer" }}>
+          <div style={{
+            width: 18, height: 18, borderRadius: "50%", flexShrink: 0, marginTop: 1,
+            border: "2px solid " + (value === opt ? R : BORDER),
+            background: value === opt ? R : WHITE,
+            display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.12s",
+          }}>
+            {value === opt && <div style={{ width: 6, height: 6, borderRadius: "50%", background: WHITE }} />}
+          </div>
+          <span style={{ fontSize: 14, color: DARK, lineHeight: 1.4 }}>{opt}</span>
+        </div>
+      ))}
+    </div>
+  );
+
+  const Chip = ({ label, active, onClick }) => (
+    <div onClick={onClick} style={{
+      padding: "7px 14px", borderRadius: 100, cursor: "pointer",
+      border: "1.5px solid " + (active ? R : BORDER),
+      fontSize: 13, fontWeight: 500, userSelect: "none",
+      background: active ? "#FFF1F1" : WHITE,
+      color: active ? R : "#444", transition: "all 0.12s",
+    }}>{label}</div>
+  );
+
+  const STEP_LABELS = ["Business", "Design", "Package", "Details", "Done"];
+
+  const steps = [
+
+    // ── Step 1 — Business ──
+    <div key={1}>
+      <div style={{ marginBottom: 28 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>Your Food Truck</h2>
+        <p style={{ color: MID, fontSize: 14, margin: 0 }}>Tell us who you are and what you're serving.</p>
+      </div>
+      <Field><Label>Business Name</Label>
+        <input style={inp} value={d.bizName} onChange={e => set("bizName", e.target.value)} placeholder="e.g. Maui Smoke BBQ" />
+      </Field>
+      <Field><Label>What do you sell?</Label>
+        <input style={inp} value={d.whatTheySell} onChange={e => set("whatTheySell", e.target.value)} placeholder="e.g. Hawaiian BBQ, tacos, shave ice, plate lunch…" />
+      </Field>
+      <Field><Label>Where do you operate?</Label>
+        <input style={inp} value={d.serviceArea} onChange={e => set("serviceArea", e.target.value)} placeholder="e.g. Kahului, Kihei, Lahaina — or all of Maui" />
+      </Field>
+      <Field><Label>Regular schedule / spots<Hint>(or events)</Hint></Label>
+        <textarea style={{ ...inp, height: 80, resize: "vertical" }} value={d.schedule}
+          onChange={e => set("schedule", e.target.value)}
+          placeholder="e.g. Tue–Sat 11am–3pm at Kahului Harbor, Fri nights at Kihei Farmers Market…" />
+      </Field>
+      <Field><Label>Do you do catering?</Label>
+        <Radio options={CATERING_OPTS} value={d.catering} onChange={v => set("catering", v)} />
+      </Field>
+      <Field><Label>Who is your ideal customer?</Label>
+        <input style={inp} value={d.idealCustomer} onChange={e => set("idealCustomer", e.target.value)} placeholder="e.g. Local families, tourists, office lunch crowd…" />
+      </Field>
+      <Field><Label>What's the #1 thing you want visitors to do?</Label>
+        <input style={inp} value={d.mainGoal} onChange={e => set("mainGoal", e.target.value)} placeholder="e.g. Find us, follow on Instagram, book catering…" />
+      </Field>
+      <Field>
+        <Label>Social Media<Hint>(fill in what you have)</Hint></Label>
+        <input style={{ ...inp, marginBottom: 8 }} value={d.instagram} onChange={e => set("instagram", e.target.value)} placeholder="Instagram — @yourhandle" />
+        <input style={{ ...inp, marginBottom: 8 }} value={d.facebook} onChange={e => set("facebook", e.target.value)} placeholder="Facebook — page name or URL" />
+        <input style={inp} value={d.tiktok} onChange={e => set("tiktok", e.target.value)} placeholder="TikTok — @yourhandle" />
+      </Field>
+    </div>,
+
+    // ── Step 2 — Design ──
+    <div key={2}>
+      <div style={{ marginBottom: 28 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>Look & Feel</h2>
+        <p style={{ color: MID, fontSize: 14, margin: 0 }}>This shapes every design decision we make.</p>
+      </div>
+      <Field>
+        <Label>Pick your design direction</Label>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+          {VIBES.map(v => (
+            <div key={v.id} onClick={() => set("vibe", v.id)} style={{
+              padding: "14px 14px 12px", borderRadius: 10, cursor: "pointer",
+              border: "2px solid " + (d.vibe === v.id ? R : BORDER),
+              background: d.vibe === v.id ? "#FFF1F1" : WHITE, transition: "all 0.12s",
+            }}>
+              <div style={{
+                width: 28, height: 28, borderRadius: "50%", background: v.swatch,
+                border: v.border ? "1.5px solid #CCC" : "none", marginBottom: 8,
+              }} />
+              <div style={{ fontWeight: 700, fontSize: 13, color: DARK, marginBottom: 3 }}>{v.label}</div>
+              <div style={{ fontSize: 11, color: FAINT, lineHeight: 1.4 }}>{v.desc}</div>
+            </div>
+          ))}
+        </div>
+      </Field>
+      <Field>
+        <Label>Sites or brands you admire<Hint>(optional)</Hint></Label>
+        {d.sitesLove.map((s, i) => (
+          <input key={i} style={{ ...inp, marginBottom: 8 }} value={s} onChange={e => {
+            const u = [...d.sitesLove]; u[i] = e.target.value; set("sitesLove", u);
+          }} placeholder={"Example " + (i+1) + " — e.g. instagram.com/somerestaurant"} />
+        ))}
+      </Field>
+      <Field><Label>Your brand colors<Hint>(if you have them)</Hint></Label>
+        <input style={inp} value={d.brandColors} onChange={e => set("brandColors", e.target.value)} placeholder="e.g. Red and black — or hex codes" />
+      </Field>
+      <Field><Label>Colors you absolutely don't want</Label>
+        <input style={inp} value={d.colorsAvoid} onChange={e => set("colorsAvoid", e.target.value)} placeholder="e.g. No neon, no purple…" />
+      </Field>
+    </div>,
+
+    // ── Step 3 — Package ──
+    <div key={3}>
+      <div style={{ marginBottom: 28 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>Package & Content</h2>
+        <p style={{ color: MID, fontSize: 14, margin: 0 }}>Pick your tier and tell us what you've got.</p>
+      </div>
+
+      <Field>
+        <Label>Choose your package</Label>
+        {TIERS.map(tier => (
+          <div key={tier.id} onClick={() => set("tier", tier.id)} style={{
+            padding: "14px 16px", border: "2px solid " + (d.tier === tier.id ? R : BORDER),
+            borderRadius: 12, cursor: "pointer", marginBottom: 10,
+            background: d.tier === tier.id ? "#FFF1F1" : WHITE, transition: "all 0.12s",
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div style={{
+                  width: 16, height: 16, borderRadius: "50%", flexShrink: 0, marginTop: 1,
+                  border: "2px solid " + (d.tier === tier.id ? R : BORDER),
+                  background: d.tier === tier.id ? R : WHITE, transition: "all 0.12s",
+                }} />
+                <div>
+                  <span style={{ fontWeight: 700, fontSize: 15, color: DARK }}>{tier.label}</span>
+                  <span style={{ fontSize: 12, color: FAINT, marginLeft: 8 }}>{tier.pageCount}</span>
+                </div>
+              </div>
+              <span style={{ fontWeight: 800, fontSize: 18, color: R }}>{tier.price}</span>
+            </div>
+            <div style={{ paddingLeft: 26 }}>
+              {tier.pages.map(p => (
+                <div key={p} style={{ fontSize: 12, color: MID, marginBottom: 3 }}>• {p}</div>
+              ))}
+              <div style={{ fontSize: 11, color: FAINT, marginTop: 6, fontStyle: "italic" }}>{tier.note}</div>
+            </div>
+          </div>
+        ))}
+      </Field>
+
+      <Field>
+        <Label>Monthly Maintenance Add-On</Label>
+        <div onClick={() => set("maintenance", !d.maintenance)} style={{
+          padding: "14px 16px", border: "2px solid " + (d.maintenance ? R : BORDER),
+          borderRadius: 12, cursor: "pointer",
+          background: d.maintenance ? "#FFF1F1" : WHITE, transition: "all 0.12s",
+        }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{
+                width: 16, height: 16, borderRadius: 4, flexShrink: 0,
+                border: "2px solid " + (d.maintenance ? R : BORDER),
+                background: d.maintenance ? R : WHITE,
+                display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.12s",
+              }}>
+                {d.maintenance && <span style={{ color: WHITE, fontSize: 11, lineHeight: 1, fontWeight: 900 }}>✓</span>}
+              </div>
+              <span style={{ fontWeight: 700, fontSize: 15, color: DARK }}>Monthly Maintenance</span>
+            </div>
+            <div>
+              <span style={{ fontWeight: 800, fontSize: 18, color: R }}>$49</span>
+              <span style={{ fontSize: 12, color: MID }}>/mo</span>
+            </div>
+          </div>
+          <div style={{ paddingLeft: 26 }}>
+            <div style={{ fontSize: 12, color: MID, marginBottom: 3 }}>• Up to 4 photo or content updates/month</div>
+            <div style={{ fontSize: 12, color: MID, marginBottom: 3 }}>• Hours, menu, or schedule changes</div>
+            <div style={{ fontSize: 12, color: MID, marginBottom: 6 }}>• 48-hour turnaround</div>
+            <div style={{ fontSize: 11, color: FAINT, fontStyle: "italic" }}>3-month minimum commitment</div>
+          </div>
+        </div>
+      </Field>
+
+      <Field><Label>Do you have a logo?</Label>
+        <Radio options={LOGO_OPTS} value={d.hasLogo} onChange={v => set("hasLogo", v)} />
+      </Field>
+      <Field><Label>Do you have food photos?</Label>
+        <Radio options={PHOTO_OPTS} value={d.hasPhotos} onChange={v => set("hasPhotos", v)} />
+      </Field>
+      <Field><Label>Do you have a menu ready?</Label>
+        <Radio options={MENU_OPTS} value={d.hasMenu} onChange={v => set("hasMenu", v)} />
+      </Field>
+      <Field><Label>Any special features?<Hint>(optional)</Hint></Label>
+        <textarea style={{ ...inp, height: 70, resize: "vertical" }} value={d.specialFeatures}
+          onChange={e => set("specialFeatures", e.target.value)}
+          placeholder="e.g. Online ordering link, catering inquiry form, email list signup…" />
+      </Field>
+    </div>,
+
+    // ── Step 4 — Details ──
+    <div key={4}>
+      <div style={{ marginBottom: 28 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: DARK, margin: "0 0 6px" }}>Almost Done</h2>
+        <p style={{ color: MID, fontSize: 14, margin: 0 }}>Last few things and we're good to go.</p>
+      </div>
+      <Field>
+        <Label>Do you have a domain name?</Label>
+        <div style={{ display: "flex", gap: 8, marginBottom: d.hasDomain === "yes" ? 10 : 0, flexWrap: "wrap" }}>
+          {["yes", "no", "not sure"].map(opt => (
+            <div key={opt} onClick={() => set("hasDomain", opt)} style={{
+              padding: "9px 20px", borderRadius: 8, cursor: "pointer",
+              border: "1.5px solid " + (d.hasDomain === opt ? R : BORDER),
+              fontSize: 14, fontWeight: 600, textTransform: "capitalize",
+              background: d.hasDomain === opt ? "#FFF1F1" : WHITE,
+              color: d.hasDomain === opt ? R : "#444", transition: "all 0.12s",
+            }}>{opt}</div>
+          ))}
+        </div>
+        {d.hasDomain === "yes" && (
+          <input style={inp} value={d.domainName} onChange={e => set("domainName", e.target.value)} placeholder="yourtruck.com" />
+        )}
+      </Field>
+      <Field><Label>Existing website?<Hint>(URL or leave blank)</Hint></Label>
+        <input style={inp} value={d.existingSite} onChange={e => set("existingSite", e.target.value)} placeholder="oldsite.com — or leave blank" />
+      </Field>
+      <Field>
+        <Label>Timeline</Label>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {TIMELINES.map(t => <Chip key={t} label={t} active={d.timeline === t} onClick={() => set("timeline", t)} />)}
+        </div>
+      </Field>
+      <div style={{ background: OFF, borderRadius: 12, padding: "18px 16px", marginBottom: 24, border: "1px solid " + BORDER }}>
+        <Label>Your Contact Info</Label>
+        <input style={{ ...inp, marginBottom: 8 }} value={d.name} onChange={e => set("name", e.target.value)} placeholder="Your name" />
+        <input style={{ ...inp, marginBottom: 8 }} value={d.email} onChange={e => set("email", e.target.value)} placeholder="Email address" type="email" />
+        <input style={inp} value={d.phone} onChange={e => set("phone", e.target.value)} placeholder="Phone (optional)" />
+      </div>
+      <Field><Label>Anything else we should know?</Label>
+        <textarea style={{ ...inp, height: 80, resize: "vertical" }} value={d.notes}
+          onChange={e => set("notes", e.target.value)}
+          placeholder="Competitors to look different from, must-haves, anything else…" />
+      </Field>
+    </div>,
+
+    // ── Step 5 — Summary ──
+    <div key={5}>
+      <div style={{ textAlign: "center", marginBottom: 32 }}>
+        <div style={{
+          width: 60, height: 60, borderRadius: "50%", background: "#FFF1F1",
+          border: "2px solid " + R, display: "flex", alignItems: "center", justifyContent: "center",
+          margin: "0 auto 16px", fontSize: 26, color: R,
+        }}>✓</div>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: DARK, margin: "0 0 8px" }}>
+          {"Got it" + (d.name ? ", " + d.name.split(" ")[0] : "") + "!"}
+        </h2>
+        <p style={{ color: MID, fontSize: 14, maxWidth: 320, margin: "0 auto" }}>
+          {"We'll be in touch" + (d.email ? " at " + d.email : "") + " soon."}
+        </p>
+      </div>
+
+      {(() => {
+        const tier = TIERS.find(t => t.id === d.tier);
+        const v    = VIBES.find(x => x.id === d.vibe);
+        const cards = [
+          { label: "Business",    value: d.bizName },
+          { label: "Package",     value: tier ? tier.label + " — " + tier.price : null },
+          { label: "Pages",       value: tier ? tier.pageCount : null },
+          { label: "Vibe",        value: v ? v.label : null },
+          { label: "Timeline",    value: d.timeline },
+          { label: "Maintenance", value: d.maintenance ? "$49/mo" : "Not added" },
+        ].filter(c => c.value);
+        return (
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 16 }}>
+            {cards.map(c => (
+              <div key={c.label} style={{ background: WHITE, border: "1px solid " + BORDER, borderRadius: 10, padding: "12px 14px" }}>
+                <div style={{ fontSize: 10, fontWeight: 800, color: FAINT, textTransform: "uppercase", letterSpacing: "0.09em", marginBottom: 4 }}>{c.label}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: DARK }}>{c.value}</div>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
+
+      <div style={{ background: WHITE, border: "1px solid " + BORDER, borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
+        <div style={{ fontSize: 10, fontWeight: 800, color: FAINT, textTransform: "uppercase", letterSpacing: "0.09em", marginBottom: 10 }}>Client Brief Preview</div>
+        <pre style={{ fontSize: 11, lineHeight: 1.75, color: "#444", whiteSpace: "pre-wrap", fontFamily: "monospace", margin: 0, maxHeight: 200, overflow: "auto" }}>
+          {buildBrief(d)}
+        </pre>
+      </div>
+
+      <button onClick={() => copy("brief")} style={{
+        width: "100%", padding: 13, marginBottom: 8,
+        background: copied === "brief" ? "#16A34A" : WHITE,
+        color: copied === "brief" ? WHITE : DARK,
+        border: "1.5px solid " + (copied === "brief" ? "#16A34A" : BORDER),
+        borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: "pointer", transition: "all 0.2s",
+      }}>
+        {copied === "brief" ? "✓  Brief Copied!" : "Copy Client Brief"}
+      </button>
+      <button onClick={() => copy("prompt")} style={{
+        width: "100%", padding: 13,
+        background: R, color: WHITE, border: "none",
+        borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: "pointer",
+        opacity: copied === "prompt" ? 0.8 : 1, transition: "opacity 0.2s",
+      }}>
+        {copied === "prompt" ? "✓  Build Prompt Copied!" : "🔥  Copy Build Prompt for Claude"}
+      </button>
+      <p style={{ fontSize: 11, color: FAINT, textAlign: "center", marginTop: 10 }}>
+        Paste the build prompt straight into Claude to start building.
+      </p>
+    </div>,
+  ];
+
+  return (
+    <div style={{ minHeight: "100vh", background: OFF }}>
+
+      {/* Sticky header */}
+      <div style={{ background: WHITE, borderBottom: "1px solid " + BORDER, position: "sticky", top: 0, zIndex: 10 }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", padding: "0 20px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 14, paddingBottom: 10 }}>
+            <div>
+              <a href="index.html" style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.18em", color: R, textTransform: "uppercase", textDecoration: "none", display: "inline-block" }}>
+                ← Maui Food Truck Websites
+              </a>
+              <div style={{ fontSize: 12, color: FAINT, marginTop: 2 }}>
+                {step < TOTAL ? "Food Truck Intake · Step " + step + " of " + (TOTAL - 1) : "Intake Complete"}
+              </div>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+              {STEP_LABELS.map((_, i) => {
+                const done   = i < step - 1;
+                const active = i === step - 1;
+                return (
+                  <div key={i} style={{
+                    width: active ? 22 : 8, height: 8, borderRadius: 4,
+                    background: done || active ? R : BORDER,
+                    opacity: done ? 0.4 : 1, transition: "all 0.25s",
+                  }} />
+                );
+              })}
+            </div>
+          </div>
+          <div style={{ height: 2, background: BORDER }}>
+            <div style={{
+              height: "100%", background: R, borderRadius: 1,
+              width: (((step - 1) / (TOTAL - 1)) * 100) + "%", transition: "width 0.3s ease",
+            }} />
+          </div>
+        </div>
+      </div>
+
+      {/* Step content */}
+      <div style={{ maxWidth: 600, margin: "0 auto", padding: "32px 20px 120px" }}>
+        {steps[step - 1]}
+      </div>
+
+      {/* Footer nav */}
+      {step < TOTAL && (
+        <div style={{
+          position: "fixed", bottom: 0, left: 0, right: 0,
+          background: WHITE, borderTop: "1px solid " + BORDER, padding: "12px 20px",
+        }}>
+          <div style={{ maxWidth: 600, margin: "0 auto", display: "flex", gap: 10 }}>
+            {step > 1 && (
+              <button onClick={() => setStep(s => s - 1)} style={{
+                flex: 1, padding: 13, background: WHITE, color: "#444",
+                border: "1.5px solid " + BORDER, borderRadius: 10,
+                fontSize: 15, fontWeight: 500, cursor: "pointer",
+              }}>← Back</button>
+            )}
+            <button onClick={() => { if (step === TOTAL - 1) submitToFrontline(); setStep(s => s + 1); }} style={{
+              flex: step > 1 ? 2 : 1, padding: 13,
+              background: R, color: WHITE, border: "none",
+              borderRadius: 10, fontSize: 15, fontWeight: 700, cursor: "pointer",
+            }}>
+              {step === TOTAL - 1 ? "Submit →" : "Next →"}
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+</script>
+</body>
+</html>

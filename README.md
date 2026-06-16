@@ -18,21 +18,23 @@ top of the funnel; the conversion goal is owners requesting a site.
 4. Live Demo — the Fuego & Flame sample as "the site we'll build you".
 5. Pricing — 3 tiers (**placeholder prices**, clearly marked).
 6. Directory — filterable grid of **real** Maui trucks (area filter) + "claim your listing".
-7. Quote — Web3Forms lead form (demo fallback until a real key is set).
+7. Quote — Web3Forms quick lead form. Primary CTAs route to the multi-step intake (`intake.html`).
 8. Footer — Frontline sub-brand + cross-link.
 
-## ⚠ Confirm BEFORE launch (do not publish as-is)
-- **Pricing** — all three tiers show `$—`. Replace with real package prices.
-- **Directory data** — the inline truck list is a researched starter set from public info.
-  Verify each truck (name, cuisine, area) and the free-directory disclaimer before going live.
-- **Domain + host** — register `mauifoodtruckwebsites.com`, set up hosting (Hostinger like the main
-  site), point DNS, then flip the page off `noindex`.
+## ⚠ Confirm BEFORE launch
+- **Directory** — deep-dived & verified against public sources (Yelp / Maui guides, 2026). Give it a
+  final local eyeball before publishing real businesses. Framed as a free community directory with a
+  claim / update / remove path.
+- **Domain + host** — register `mauifoodtruckwebsites.com`, set up Hostinger, point DNS, then flip the
+  page off `noindex`. (A temporary `*.hostingersite.com` subdomain is fine for review.)
 
 ## Done / wired
-- **Web3Forms** lead form — live key (emails FrontlineWebDesigns@gmail.com, same inbox as the main
-  Frontline site). Submitting the quote form sends a real email — it is NOT in demo mode.
-- **Brand assets** — `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png`, an `og-image.png`
-  social card, and `ProfessionalService` schema.org JSON-LD.
+- **Pricing** — real packages: Single Page **$249**, Full Site **$449**, Pro **$699**, plus optional
+  Monthly Maintenance **$49/mo** (3-month minimum).
+- **Intake form** (`intake.html`) — multi-step React brief; the primary CTAs route here. On submit it
+  emails the completed brief to FrontlineWebDesigns@gmail.com via Web3Forms (live key).
+- **Quick quote form** (`#quote`) — Web3Forms, same inbox (live).
+- **Brand assets** — favicon set, `og-image.png` social card, `ProfessionalService` schema.org JSON-LD.
 
 ## Roadmap (post-v1)
 - Per-truck listing pages + dedicated `/directory`.
