@@ -259,7 +259,7 @@ function App() {
           replyto: d.email,
           phone: d.phone || "—",
           botcheck: "",
-          message: buildBrief(d),
+          message: buildBrief(d) + "\n\n\n========== BUILD PROMPT (paste into Claude) ==========\n\n" + buildPrompt(d),
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -530,7 +530,7 @@ function App() {
           {"Got it" + (d.name ? ", " + d.name.split(" ")[0] : "") + "!"}
         </h2>
         <p style={{ color: MID, fontSize: 14, maxWidth: 320, margin: "0 auto" }}>
-          {"We'll be in touch" + (d.email ? " at " + d.email : "") + " soon."}
+          {"We'll send your free sample" + (d.email ? " to " + d.email : "") + " — usually within a day."}
         </p>
       </div>
 
@@ -557,33 +557,13 @@ function App() {
         );
       })()}
 
-      <div style={{ background: WHITE, border: "1px solid " + BORDER, borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
-        <div style={{ fontSize: 10, fontWeight: 800, color: FAINT, textTransform: "uppercase", letterSpacing: "0.09em", marginBottom: 10 }}>Client Brief Preview</div>
-        <pre style={{ fontSize: 11, lineHeight: 1.75, color: "#444", whiteSpace: "pre-wrap", fontFamily: "monospace", margin: 0, maxHeight: 200, overflow: "auto" }}>
-          {buildBrief(d)}
-        </pre>
+      <div style={{ textAlign: "center", marginTop: 6 }}>
+        <a href="index.html" style={{
+          display: "inline-block", padding: "13px 28px",
+          background: R, color: WHITE, borderRadius: 10,
+          fontSize: 14, fontWeight: 700, textDecoration: "none",
+        }}>Back to the site</a>
       </div>
-
-      <button onClick={() => copy("brief")} style={{
-        width: "100%", padding: 13, marginBottom: 8,
-        background: copied === "brief" ? "#16A34A" : WHITE,
-        color: copied === "brief" ? WHITE : DARK,
-        border: "1.5px solid " + (copied === "brief" ? "#16A34A" : BORDER),
-        borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: "pointer", transition: "all 0.2s",
-      }}>
-        {copied === "brief" ? "✓  Brief Copied!" : "Copy Client Brief"}
-      </button>
-      <button onClick={() => copy("prompt")} style={{
-        width: "100%", padding: 13,
-        background: R, color: WHITE, border: "none",
-        borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: "pointer",
-        opacity: copied === "prompt" ? 0.8 : 1, transition: "opacity 0.2s",
-      }}>
-        {copied === "prompt" ? "✓  Build Prompt Copied!" : "🔥  Copy Build Prompt for Claude"}
-      </button>
-      <p style={{ fontSize: 11, color: FAINT, textAlign: "center", marginTop: 10 }}>
-        Paste the build prompt straight into Claude to start building.
-      </p>
     </div>,
   ];
 
