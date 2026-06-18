@@ -3,7 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food Truck Intake — Frontline Web Designs</title>
+<title>Get Your Free Maui Food-Truck Website Sample | Frontline Web Designs</title>
+<meta name="description" content="Tell us about your Maui food truck and we'll build you a free website sample — menu, hours, map, online ordering & catering. No cost, no commitment.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#2E3A2B">
+<link rel="canonical" href="https://mauifoodtruckwebsites.com/intake.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get your free Maui food-truck website sample">
+<meta property="og:description" content="Tell us about your truck and we'll build a free sample site — no cost, no commitment.">
+<meta property="og:url" content="https://mauifoodtruckwebsites.com/intake.html">
+<meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get your free Maui food-truck website sample">
+<meta name="twitter:description" content="Tell us about your truck and we'll build a free sample site — no cost, no commitment.">
+<meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
@@ -43,6 +58,11 @@ input:focus, textarea:focus { border-color: #2E3A2B !important; box-shadow: 0 0 
 <div id="root"></div>
 <script type="text/babel">
 const { useState } = React;
+
+// Google Ads conversion — wiring is READY but disabled until the conversion label exists.
+// Create the action in Ads Manager (Goals → Conversions), then uncomment BOTH the line
+// below and the gtag call in submitToFrontline(), replacing YOUR_LABEL with the real label.
+// const GADS_CONVERSION = "AW-18248944168/YOUR_LABEL";
 
 const R = "#2E3A2B";
 const DARK = "#2A211A";
@@ -292,6 +312,8 @@ function App() {
       if (data && data.success) {
         setSent(true);
         if (window.fbq) fbq("track", "Lead", { content_name: "Free Sample Request" });
+        // Google Ads conversion — enable with the real label (see GADS_CONVERSION note near top):
+        // if (window.gtag) gtag("event", "conversion", { send_to: GADS_CONVERSION });
         return true;
       }
       setSubmitErr("Couldn't send that — please email FrontlineWebDesigns@gmail.com and we'll jump on it.");
