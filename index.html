@@ -39,10 +39,58 @@
   <meta property="og:description" content="A free sample site by Frontline Web Designs. Everything your customers need: where you are, hours, menu, ordering & catering — built for your Maui truck.">
   <meta property="og:url" content="https://mauifoodtruckwebsites.com">
   <meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+  <meta property="og:image:alt" content="A free sample food-truck website by Frontline Web Designs">
+  <meta property="og:site_name" content="Maui Food Truck Websites">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="See your food truck's website — free | Maui Food Truck Websites">
+  <meta name="twitter:description" content="A free sample site by Frontline Web Designs — where you are, hours, menu, ordering & catering, built for your Maui truck.">
+  <meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
 
   <link rel="canonical" href="https://mauifoodtruckwebsites.com">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Structured data: describes the real business (the web-design service), not the fictional demo truck -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mauifoodtruckwebsites.com/#website",
+        "url": "https://mauifoodtruckwebsites.com/",
+        "name": "Maui Food Truck Websites",
+        "publisher": { "@id": "https://mauifoodtruckwebsites.com/#business" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://mauifoodtruckwebsites.com/#business",
+        "name": "Maui Food Truck Websites",
+        "url": "https://mauifoodtruckwebsites.com/",
+        "image": "https://mauifoodtruckwebsites.com/og-image.png",
+        "logo": "https://mauifoodtruckwebsites.com/icon-512.png",
+        "description": "Custom websites built for Maui County food trucks — menu, hours, live location map, online ordering and catering. Get a free sample site for your truck.",
+        "areaServed": { "@type": "AdministrativeArea", "name": "Maui County, Hawaii" },
+        "priceRange": "$249–$699",
+        "serviceType": "Food truck website design",
+        "provider": { "@type": "Organization", "name": "Frontline Web Designs", "url": "https://frontlinewebdesign.tech" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Food truck website packages",
+          "itemListElement": [
+            { "@type": "Offer", "name": "Single Page", "price": "249", "priceCurrency": "USD", "description": "Menu, hours, map, gallery & socials — mobile-first single page." },
+            { "@type": "Offer", "name": "Full Site", "price": "449", "priceCurrency": "USD", "description": "Up to 3 pages, your own domain, built-in SEO." },
+            { "@type": "Offer", "name": "Pro", "price": "699", "priceCurrency": "USD", "description": "Up to 5 pages with catering & events focus." },
+            { "@type": "Offer", "name": "Monthly Maintenance", "price": "49", "priceCurrency": "USD", "description": "We keep your hours, menu & photos current." }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Fonts: Playfair Display (display serif) · Karla (body) · Ephesis (script accent) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
