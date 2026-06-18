@@ -26,6 +26,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #F7F1E4; font-family: 'Karla', system-ui, -apple-system, sans-serif; }
 input:focus, textarea:focus { border-color: #2E3A2B !important; box-shadow: 0 0 0 3px rgba(46,58,43,0.12); }
+[tabindex]:focus-visible, [role="radio"]:focus-visible, [role="button"]:focus-visible, [role="checkbox"]:focus-visible { outline: 3px solid #2E3A2B; outline-offset: 2px; border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -36,7 +37,7 @@ const { useState } = React;
 const R = "#2E3A2B";
 const DARK = "#2A211A";
 const MID = "#6A5D4D";
-const FAINT = "#A1937F";
+const FAINT = "#74684E";
 const BORDER = "#E5DECF";
 const OFF = "#F7F1E4";
 const WHITE = "#FFFFFF";
