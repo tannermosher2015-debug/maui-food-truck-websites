@@ -112,7 +112,7 @@
   .sprinkle{position:absolute;top:-24px;width:7px;height:18px;border-radius:99px;opacity:.9;will-change:transform}
   @keyframes drop{to{transform:translateY(118vh) rotate(540deg)}}
   .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  .hero h1{font-size:clamp(2.9rem,7vw,5.4rem);font-weight:700;letter-spacing:-.02em}
+  .hero h1{font-size:clamp(2.2rem,6.6vw,5.4rem);font-weight:700;letter-spacing:-.02em;overflow-wrap:break-word}
   .hero h1 em{font-style:normal;color:var(--pink);position:relative;white-space:nowrap}
   /* underline-scribble under the word "melts" */
   .hero h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.02em;height:.16em;
@@ -313,6 +313,10 @@
     .flavors{grid-template-columns:1fr}
     .row{grid-template-columns:1fr}
     .section{padding:60px 0}
+    /* keep hero stickers inside the frame on phones (no clipped text) */
+    .sticker{font-size:.8rem;padding:7px 11px}
+    .sticker.s1{left:6px;bottom:6px;transform:rotate(-4deg)}
+    .sticker.s2{right:6px;top:6px;left:auto;transform:rotate(4deg)}
   }
 </style>
 </head>
