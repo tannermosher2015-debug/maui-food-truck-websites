@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- PITCH PHASE: keep this concept out of search so it can't impersonate / outrank Like Poke's real listings.
+     REMOVE this line once they sign on as a client. -->
+<meta name="robots" content="noindex, nofollow" />
+<title>Like Poke? — Fresh Local Poke &amp; Fish Plates in Kahului, Maui</title>
+<meta name="description" content="Locally caught fish — raw, fried, or baked — and big poke bowls, served fresh from the Like Poke? truck on Lono Ave in Kahului. Five minutes from the airport." />
+<meta property="og:title" content="Like Poke? — Fresh Local Poke in Kahului, Maui" />
+<meta property="og:description" content="Off the boat, into your bowl. Locally caught fish three ways and big poke bowls — Kahului, five minutes from OGG." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Like Poke?" />
+<meta property="og:url" content="https://likepoke.mauifoodtruckwebsites.com/" />
+<meta property="og:image" content="https://likepoke.mauifoodtruckwebsites.com/images/hero-poke.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Like Poke? — Fresh Local Poke in Kahului, Maui" />
+<meta name="twitter:description" content="Off the boat, into your bowl. Locally caught fish three ways — Kahului, 5 min from OGG." />
+<meta name="theme-color" content="#0E3A40" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='11' fill='%230E3A40'/><circle cx='24' cy='25.5' r='13' fill='none' stroke='%23EDF3F1' stroke-width='2.2'/><path d='M11 24 C 15 20, 19 28, 24 24 S 33 20, 37 24' fill='none' stroke='%23E8513A' stroke-width='2.6' stroke-linecap='round'/><circle cx='34' cy='15' r='2.4' fill='%23E8513A'/></svg>" />
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- Fonts: Bricolage Grotesque (display) + Public Sans (body). Isolated links so one failure can't kill the other. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="image" href="images/hero-poke.webp" fetchpriority="high" />
+<!-- fonts loaded non-render-blocking (media=print → all onload); display=swap shows fallback first -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" media="print" onload="this.media='all'" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" />
+</noscript>
+
+<style>
+/* ============================================================
+   Like Poke? — single-file build (concept by Frontline Web Designs)
+   5 tokens · Bricolage Grotesque × Public Sans · motif: hand-drawn wave swell
+   ============================================================ */
+:root{
+  --bg:#EDF3F1;        /* sea mist        */
+  --surface:#D8E6E1;   /* pale tide       */
+  --primary:#0E3A40;   /* deep ocean teal */
+  --accent:#E8513A;    /* ahi coral       */
+  --text:#16302C;      /* kelp charcoal   */
+
+  --primary-soft:#3D666C;
+  --accent-ink:#BE3A24;   /* deep coral — accent TEXT on light (AA-safe) */
+  --accent-soft:#F4A892;  /* light coral — accent text on the dark ocean */
+  --line:rgba(14,58,64,.13);
+  --shadow:0 22px 46px -30px rgba(16,48,44,.40);
+  --shadow-sm:0 10px 24px -16px rgba(16,48,44,.26);
+
+  --display:"Bricolage Grotesque", Georgia, serif;
+  --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --maxw:1180px;
+  --pad:clamp(20px, 5vw, 64px);
+  --section:clamp(76px, 11vw, 134px);
+  --radius:15px;
+  --radius-lg:22px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--sans);
+  font-size:clamp(1.02rem,.55vw + .92rem,1.13rem);
+  line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3{
+  font-family:var(--display);font-weight:700;line-height:1.02;
+  letter-spacing:-.02em;margin:0;color:var(--primary);text-wrap:balance;
+}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+
+/* ---- eyebrow ---- */
+.kicker{
+  font-family:var(--sans);font-weight:700;font-size:.76rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:.6em;
+}
+
+/* ---- the motif: hand-drawn wave swell ---- */
+.swell{display:block;width:96px;height:14px;color:var(--accent);margin-top:18px}
+.swell path{fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round}
+
+/* ---- buttons ---- */
+.btn{
+  --b:var(--primary);--f:var(--bg);
+  display:inline-flex;align-items:center;gap:.55em;background:var(--b);color:var(--f);
+  font-family:var(--sans);font-weight:700;font-size:1rem;padding:15px 28px;min-height:48px;
+  border:0;border-radius:999px;cursor:pointer;text-decoration:none;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.btn .arr{transition:transform .25s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn--coral{--b:var(--accent-ink);--f:#fff}     /* white on deep coral → AA */
+.btn--ghost{background:transparent;color:var(--primary);border:1.5px solid var(--line);box-shadow:none}
+.btn--ghost:hover{background:var(--surface);border-color:var(--primary)}
+
+.textlink{
+  display:inline-flex;align-items:center;gap:.4em;font-weight:700;color:var(--primary);
+  text-underline-offset:5px;text-decoration-thickness:2px;text-decoration-color:var(--accent);
+}
+.textlink:hover{color:var(--accent-ink)}
+
+/* focus visibility — non-negotiable */
+a:focus-visible,.btn:focus-visible,button:focus-visible{
+  outline:3px solid var(--accent);outline-offset:3px;border-radius:6px;
+}
+
+/* skip link */
+.skip{
+  position:absolute;left:14px;top:-60px;z-index:200;background:var(--primary);color:var(--bg);
+  padding:12px 18px;border-radius:10px;font-weight:700;transition:top .2s ease;
+}
+.skip:focus{top:14px}
+
+/* ============================ NAV ============================ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:14px var(--pad);transition:background .3s ease, box-shadow .3s ease;
+}
+.nav.scrolled{background:rgba(237,243,241,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;line-height:1}
+.brand .logo-mark{width:36px;height:36px;flex:0 0 auto;color:var(--primary)}
+.brand .brand-word{font-family:var(--display);font-weight:700;font-size:1.34rem;color:var(--primary);letter-spacing:-.02em}
+.brand .brand-word .q{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a:not(.btn){text-decoration:none;font-weight:600;font-size:.97rem;color:var(--text);position:relative;padding:6px 0}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--accent);transition:right .28s ease}
+.nav-links a:not(.btn):hover::after{right:0}
+.nav .btn{padding:11px 22px;min-height:44px;font-size:.94rem}
+.hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;
+  border:1.5px solid var(--line);border-radius:12px;background:rgba(237,243,241,.7);cursor:pointer;
+}
+.hamburger span{display:block;width:20px;height:2px;background:var(--primary);margin-inline:auto;transition:.3s}
+.hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* nav sits over the DARK hero by default → light text; flips dark once scrolled onto the light body.
+   .menu-open keeps it light because the mobile drawer is dark. */
+.brand .brand-word{color:var(--bg)}
+.nav-links a:not(.btn){color:var(--bg)}
+.nav .btn{background:var(--accent-ink);color:#fff}
+.hamburger{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08)}
+.hamburger span{background:var(--bg)}
+.nav.scrolled .brand .brand-word{color:var(--primary)}
+.nav.scrolled .nav-links a:not(.btn){color:var(--text)}
+.nav.scrolled .hamburger{border-color:var(--line);background:rgba(237,243,241,.7)}
+.nav.scrolled .hamburger span{background:var(--primary)}
+.nav.menu-open .brand .brand-word{color:var(--bg)}
+.nav.menu-open .nav-links a:not(.btn){color:var(--bg)}
+.nav.menu-open .hamburger{border-color:rgba(255,255,255,.28)}
+.nav.menu-open .hamburger span{background:var(--bg)}
+
+/* ============================ HERO (dark ocean) ============================ */
+.hero{position:relative;background:var(--primary);color:var(--bg);padding-top:clamp(118px,16vh,172px);padding-bottom:var(--section);overflow:hidden}
+.hero::before{
+  /* faint wave field in the deep water */
+  content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background:no-repeat center/cover
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='2'%3E%3Cpath d='M0 120 C 150 80, 300 160, 450 120 S 750 80, 900 120 1200 120 1200 120'/%3E%3Cpath d='M0 260 C 150 220, 300 300, 450 260 S 750 220, 900 260 1200 260 1200 260'/%3E%3Cpath d='M0 400 C 150 360, 300 440, 450 400 S 750 360, 900 400 1200 400 1200 400'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero .kicker{color:var(--accent-soft)}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:.5em;margin-bottom:22px;
+  background:rgba(232,81,58,.16);border:1px solid rgba(244,168,146,.4);color:var(--accent-soft);
+  font-weight:700;font-size:.82rem;letter-spacing:.02em;padding:8px 15px;border-radius:999px;
+}
+.hero-chip .pin{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.hero h1{
+  color:var(--bg);font-size:clamp(3rem,8.4vw,7rem);font-weight:800;letter-spacing:-.035em;line-height:.92;
+}
+.hero h1 .pop{color:var(--accent)}
+.hero h1 .ln{display:block}
+.hero-sub{margin-top:24px;max-width:36ch;font-size:1.16rem;color:#cfe0db}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:32px}
+.hero .textlink{color:var(--bg);text-decoration-color:var(--accent)}
+.hero .textlink:hover{color:var(--accent-soft)}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:.92rem;font-weight:600;color:#bcd2cc}
+.hero-facts span{display:inline-flex;align-items:center;gap:.5em}
+.hero-facts .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero-photo{position:relative}
+.frame{
+  position:relative;z-index:1;background:var(--surface);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);overflow:hidden;display:grid;place-items:center;text-align:center;border:1px solid var(--line);
+}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame .ph{padding:26px;color:var(--primary-soft)}
+.frame .ph .ico{width:52px;height:52px;margin:0 auto 14px;color:var(--accent);opacity:.92}
+.frame .ph b{display:block;font-family:var(--display);font-size:1.12rem;color:var(--primary);margin-bottom:4px}
+.frame .ph small{font-size:.82rem;letter-spacing:.03em;line-height:1.4;display:block}
+.hero-photo .frame{aspect-ratio:1/1;background:#0a2e33;border-color:rgba(255,255,255,.08)}
+.hero-photo .frame .ph{color:#bcd2cc}
+.hero-photo .frame .ph b{color:#fff}
+
+/* ============================ MARQUEE ============================ */
+.marquee{background:var(--accent);color:#fff;overflow:hidden;padding:14px 0}
+.marquee-track{display:flex;align-items:center;width:max-content;white-space:nowrap;will-change:transform;font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.9rem)}
+.marquee-track.run{animation:marq var(--dur,30s) linear infinite}
+.marquee-set{display:flex;align-items:center;flex:0 0 auto}
+.marquee-set span{padding:0 26px}
+.marquee-set i{color:rgba(255,255,255,.6);font-style:normal;font-size:.7em;transform:translateY(-2px)}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--setw,0px)))}}
+
+/* ============================ SECTION SHELL ============================ */
+section{padding-block:var(--section)}
+.sec-head{max-width:48ch}
+.sec-head h2{font-size:clamp(2.1rem,5vw,3.5rem);margin-top:14px}
+.sec-head p{margin-top:20px;font-size:1.12rem;color:#3c544f;max-width:54ch}
+
+/* ============================ THE CATCH (three ways) ============================ */
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+.way-card{
+  position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  background:var(--primary);display:flex;align-items:flex-end;
+  transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease;
+}
+.way-card .wc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.way-card .wc-ph{position:absolute;inset:0;z-index:0;display:grid;place-items:center;background:linear-gradient(160deg,#0f3a40,#0a2c31);color:#7fa6a3;font-weight:600;font-size:.8rem;text-align:center;padding:20px}
+.way-card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(8,30,33,.92) 0%, rgba(8,30,33,.6) 38%, rgba(8,30,33,.08) 72%)}
+.way-card .wc-body{position:relative;z-index:2;width:100%;padding:0 22px 22px}
+.way-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.way-card:hover .wc-photo{transform:scale(1.06)}
+.way-card .wnum{font-weight:700;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-soft)}
+.way-card .wname{font-family:var(--display);font-weight:700;font-size:1.7rem;color:#fff;margin-top:3px;line-height:1.02}
+.way-card .wdesc{margin-top:8px;font-size:.95rem;color:#cfe0db;max-width:30ch}
+.menu-note{margin-top:32px;display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;font-weight:600;color:var(--primary-soft);font-size:.98rem}
+.menu-note .pill{background:var(--bg);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.9rem;color:var(--primary)}
+
+/* ============================ STORY (dark) ============================ */
+.story{position:relative;background:var(--primary);color:var(--bg);padding-block:clamp(84px,12vw,148px)}
+.story-rim{position:absolute;top:-1px;left:0;width:100%;height:46px;color:var(--bg);transform:rotate(180deg)}
+.story-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(32px,5vw,72px);align-items:center}
+.story h2{color:var(--bg);font-size:clamp(2.1rem,4.6vw,3.4rem)}
+.story .kicker{color:var(--accent-soft)}
+.story p{margin-top:20px;color:#d3e1dc;max-width:54ch}
+.story p + p{margin-top:16px}
+.story .name-line{margin-top:26px;font-family:var(--display);font-weight:600;font-style:italic;font-size:1.28rem;color:#fff}
+.story-photo .frame{aspect-ratio:4/4.5;background:#0a2e33;border-color:rgba(255,255,255,.08)}
+.story-photo .frame .ph{color:#bcd2cc}
+.story-photo .frame .ph b{color:#fff}
+
+/* ============================ REVIEWS ============================ */
+.reviews{background:var(--surface)}
+.rev-aggregate{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:24px}
+.rev-aggregate .stars{font-size:1.45rem;letter-spacing:.06em;color:var(--accent);line-height:1}
+.rev-aggregate .score{font-family:var(--display);font-weight:700;font-size:2.2rem;color:var(--primary);line-height:1}
+.rev-aggregate .meta{font-weight:600;color:var(--primary-soft);font-size:1rem}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+.rev-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;display:flex;flex-direction:column;gap:15px;box-shadow:var(--shadow-sm)}
+.rev-card .rc-stars{color:var(--accent);font-size:1rem;letter-spacing:.12em;line-height:1}
+.rev-card blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:1.2rem;line-height:1.36;color:var(--primary)}
+.rev-card figcaption{margin-top:auto;font-weight:700;font-size:.92rem;color:var(--primary-soft)}
+.rev-card figcaption span{font-weight:600;color:var(--accent-ink)}
+.rev-foot{margin-top:34px;font-weight:700}
+
+/* ============================ FIND US ============================ */
+.find-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center;margin-top:50px}
+.find h2{font-size:clamp(2.4rem,6vw,4.2rem)}
+.find-rows{display:grid;gap:2px;margin-top:30px;border-top:1.5px solid var(--line)}
+.find-row{display:flex;gap:18px;align-items:baseline;padding:18px 4px;border-bottom:1.5px solid var(--line)}
+.find-row .lab{flex:0 0 116px;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+.find-row .val{font-weight:600;font-size:1.05rem}
+.find-row .val a{text-decoration:none;border-bottom:2px solid var(--line)}
+.find-row .val a:hover{border-color:var(--accent)}
+.find-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.map .frame{aspect-ratio:1/1}
+
+/* ============================ FOOTER ============================ */
+footer{background:var(--primary);color:var(--bg);padding-block:64px 40px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:flex-start}
+.foot-logo{display:inline-flex;flex-direction:column;align-items:flex-start;gap:12px;text-decoration:none}
+.foot-logo .logo-mark{width:50px;height:50px;color:var(--bg)}
+.foot-logo .fw{font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--bg);line-height:1}
+.foot-logo .fw .q{color:var(--accent)}
+.foot-logo .ft{font-family:var(--sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-soft)}
+.foot-brand p{margin-top:12px;color:#d3e1dc;font-family:var(--display);font-style:italic;font-size:1.16rem}
+.foot-cols{display:flex;flex-wrap:wrap;gap:46px}
+.foot-col h4{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-soft);margin:0 0 14px}
+.foot-col a,.foot-col p{color:#d3e1dc;text-decoration:none;font-size:.96rem;display:block;margin-bottom:8px}
+.foot-col a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.foot-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.82rem;color:#a9c4be}
+.foot-bottom a{color:#a9c4be}
+
+/* ============================ MOTION ============================ */
+.reveal{transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)}
+.js .reveal{opacity:0;transform:translateY(15px)}
+.js .reveal.in{opacity:1;transform:none}
+.way-card.reveal{transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1), box-shadow .3s ease}
+.way-card:nth-child(2){transition-delay:.07s}
+.way-card:nth-child(3){transition-delay:.14s}
+.way-card:hover{transition-delay:0s}
+.frame img{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.frame:hover img{transform:scale(1.035)}
+
+/* hero entrance */
+@keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.js .hero .hero-copy > *,.js .hero h1 .ln{opacity:0;animation:riseIn .85s cubic-bezier(.16,1,.3,1) both}
+.js .hero-chip{animation-delay:.04s}
+.js .hero h1 .ln:nth-child(1){animation-delay:.12s}
+.js .hero h1 .ln:nth-child(2){animation-delay:.22s}
+.js .hero .swell{animation-delay:.32s}
+.js .hero-sub{animation-delay:.4s}
+.js .hero-cta{animation-delay:.5s}
+.js .hero-facts{animation-delay:.58s}
+.js .hero-photo{opacity:0;animation:riseIn 1s cubic-bezier(.16,1,.3,1) .22s both}
+.hero-photo .frame{animation:floaty 7s ease-in-out 1.3s infinite}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal,.js .reveal,.way-card.reveal{opacity:1;transform:none;transition:none}
+  .btn,.way-card,.nav,.btn .arr,.frame img,.wc-photo{transition:none}
+  .frame:hover img,.way-card:hover .wc-photo{transform:none}
+  .js .hero .hero-copy > *,.js .hero h1 .ln,.js .hero-photo{opacity:1;animation:none}
+  .hero-photo .frame{animation:none}
+  .marquee-track{animation:none}
+}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width:960px){
+  .hero-grid,.story-grid,.find-grid{grid-template-columns:1fr}
+  .hero-photo{order:-1;max-width:440px}
+  .hero-sub{max-width:46ch}
+  .story-photo,.map{max-width:460px}
+  .ways{grid-template-columns:1fr;max-width:420px}
+  .rev-grid{grid-template-columns:1fr;max-width:540px}
+}
+@media (max-width:760px){
+  .nav-links{
+    position:fixed;inset:0 0 auto 0;top:0;flex-direction:column;align-items:stretch;gap:6px;
+    padding:88px var(--pad) 30px;background:var(--primary);box-shadow:var(--shadow);
+    transform:translateY(-104%);transition:transform .36s cubic-bezier(.4,0,.2,1);border-radius:0 0 26px 26px;
+  }
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a:not(.btn){font-size:1.18rem;font-family:var(--display);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .nav-links a:not(.btn)::after{display:none}
+  .nav-links .btn{margin-top:14px;justify-content:center}
+  .hamburger{display:flex}
+  .brand{position:relative;z-index:2}
+}
+@media (max-width:430px){
+  .hero{padding-top:104px}
+  .hero-photo{max-width:380px;margin-inline:auto}
+  .find-row{flex-direction:column;gap:4px}
+  .find-row .lab{flex-basis:auto}
+  .brand .brand-word{font-size:1.14rem}
+}
+</style>
+</head>
+<body>
+<!-- ===== Frontline samples back-bar (injected) ===== -->
+<style>
+.fwd-bar{box-sizing:border-box;position:sticky;top:0;z-index:2147483647;background:#2E3A2B;color:#F7F1E4;
+ font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;display:flex;align-items:center;
+ justify-content:space-between;gap:12px;padding:7px 16px;min-height:40px;font-size:14px;line-height:1.2;
+ box-shadow:0 2px 10px rgba(0,0,0,.18);-webkit-font-smoothing:antialiased}
+.fwd-bar *{box-sizing:border-box}
+.fwd-bar a{color:inherit;text-decoration:none}
+.fwd-bar .fwd-back{display:inline-flex;align-items:center;gap:7px;font-weight:600}
+.fwd-bar .fwd-back:hover{color:#C9A24B}
+.fwd-bar .fwd-tag{opacity:.82;font-size:12.5px}
+.fwd-bar .fwd-cta{display:inline-flex;align-items:center;gap:6px;background:#C9A24B;color:#2E3A2B;
+ font-weight:700;font-size:12.5px;letter-spacing:.02em;padding:6px 13px;border-radius:100px;white-space:nowrap}
+.fwd-bar .fwd-cta:hover{background:#d8b25e}
+.fwd-bar :focus-visible{outline:2px solid #C9A24B;outline-offset:2px;border-radius:4px}
+@media (max-width:600px){.fwd-bar .fwd-tag{display:none}.fwd-bar{padding:7px 12px;max-width:100vw}}
+</style>
+<div class="fwd-bar" role="navigation" aria-label="Sample site navigation">
+  <a class="fwd-back" href="https://mauifoodtruckwebsites.com/samples.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    All sample sites
+  </a>
+  <span class="fwd-tag">Sample site by Frontline Web Designs</span>
+  <a class="fwd-cta" href="https://mauifoodtruckwebsites.com/intake.html">Get a free site
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</div>
+<script>
+/* push the host site's own fixed/sticky-at-top header below the bar so it isn't hidden */
+(function(){
+ function adjust(){
+   var b=document.querySelector('.fwd-bar'); if(!b) return; var H=b.offsetHeight||40;
+   var all=document.body.getElementsByTagName('*');
+   for(var i=0;i<all.length;i++){
+     var el=all[i]; if(el.closest && el.closest('.fwd-bar')) continue;
+     var cs=getComputedStyle(el);
+     if((cs.position==='fixed'||cs.position==='sticky')){
+       var t=parseInt(cs.top,10);
+       if(!isNaN(t) && t>=0 && t<H){ el.style.top=(t+H)+'px'; }
+     }
+   }
+ }
+ if(document.readyState!=='loading') requestAnimationFrame(adjust);
+ else document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(adjust);});
+ window.addEventListener('load',adjust);
+ setTimeout(adjust,500); setTimeout(adjust,1500);
+})();
+</script>
+<!-- ===== /Frontline samples back-bar ===== -->
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- LOGO — a poke bowl with a coral wave + the "?" dot; recolors via currentColor -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="poke-logo" viewBox="0 0 48 48">
+    <circle cx="24" cy="26" r="18.5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M7 26 A 17 17 0 0 0 41 26 Z" fill="currentColor"/>
+    <path d="M9 24 C 14 19, 19 29, 24 24 S 34 19, 39 24" fill="none" stroke="#E8513A" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="37" cy="11.5" r="2.7" fill="#E8513A"/>
+  </symbol>
+</svg>
+
+<!-- ============================ NAV ============================ -->
+<header>
+<nav class="nav" id="nav" aria-label="Primary">
+  <a class="brand" href="#top" aria-label="Like Poke? — fresh poke, Kahului">
+    <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#poke-logo"/></svg>
+    <span class="brand-word">Like Poke<span class="q">?</span></span>
+  </a>
+  <div class="nav-links" id="navlinks">
+    <a href="#catch">The Catch</a>
+    <a href="#story">Our Story</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#find">Find Us</a>
+    <a class="btn" href="tel:+18087578402">Call to order</a>
+  </div>
+  <button class="hamburger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-chip"><i class="pin" aria-hidden="true"></i>Kahului&nbsp;·&nbsp;5 min from the airport</span>
+      <h1 id="hero-h"><span class="ln">Off the boat.</span><span class="ln">Into your <span class="pop">bowl.</span></span></h1>
+      <svg class="swell" viewBox="0 0 120 14" aria-hidden="true"><path d="M3 9 C 18 1, 30 1, 45 9 S 72 17, 87 9 114 1 117 6"/></svg>
+      <p class="hero-sub">Locally caught fish — raw, fried, or baked — and poke bowls piled big. Cut fresh to order from our truck on Lono Ave.</p>
+      <div class="hero-cta">
+        <a class="btn btn--coral" href="tel:+18087578402">Call to order <span class="arr" aria-hidden="true">→</span></a>
+        <a class="textlink" href="#catch">See the catch</a>
+      </div>
+      <div class="hero-facts" aria-label="At a glance">
+        <span><i class="dot" aria-hidden="true"></i>Caught local</span>
+        <span><i class="dot" aria-hidden="true"></i>4.7★ · 209 reviews</span>
+        <span><i class="dot" aria-hidden="true"></i>Featured on Food Network</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <!-- PHOTO TO DROP IN: a top-down hero shot of a fresh ahi poke bowl (or the combo) — bright, glossy, colorful.
+           Best source: Like Poke's IG @likepoke. Square crop ~1200x1200. -->
+      <figure class="frame">
+        <img src="images/hero-poke.webp" alt="Like Poke's fresh poke piled over crispy chips, served from the truck on Lono Ave in Kahului" width="1200" height="1200" fetchpriority="high" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MARQUEE ============================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-set">
+      <span>Caught local</span><i>✦</i><span>Cut to order</span><i>✦</i><span>Raw · Fried · Baked</span><i>✦</i><span>Big portions</span><i>✦</i>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ THE CATCH ============================ -->
+<section id="catch" aria-labelledby="catch-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">The catch</span>
+      <h2 id="catch-h">Your fish, three ways.</h2>
+      <svg class="swell" viewBox="0 0 120 14" aria-hidden="true"><path d="M3 9 C 18 1, 30 1, 45 9 S 72 17, 87 9 114 1 117 6"/></svg>
+      <p>Fresh, locally caught fish — however you like it. Raw in a poke bowl, fried crisp, or baked. Whatever your style, it was swimming a lot more recently than at the grocery store.</p>
+    </div>
+
+    <!-- PRICES / EXACT ITEMS: placeholder structure built from the verified menu category
+         (raw / fried / baked + poke bowls, plates $20–30). CONFIRM real item names + prices
+         with the owner before this goes live. -->
+    <div class="ways">
+      <article class="way-card reveal">
+        <!-- PHOTO: a fresh ahi poke bowl, raw cubes glistening -->
+        <div class="wc-ph">Photo: fresh ahi poke bowl</div>
+        <div class="wc-body">
+          <div class="wnum">Raw</div><h3 class="wname">The Poke Bowl</h3>
+          <p class="wdesc">Fresh ahi over rice with house sauces — the one people drive across the island for.</p>
+        </div>
+      </article>
+      <article class="way-card reveal">
+        <!-- PHOTO: golden fried fish plate with two-scoop rice + salad -->
+        <div class="wc-ph">Photo: fried fish plate</div>
+        <div class="wc-body">
+          <div class="wnum">Fried</div><h3 class="wname">The Fish Plate</h3>
+          <p class="wdesc">Crisp-fried catch, two-scoop rice, and the sides — a proper Maui plate lunch.</p>
+        </div>
+      </article>
+      <article class="way-card reveal">
+        <!-- PHOTO: baked fish fillet, herbs, lemon -->
+        <div class="wc-ph">Photo: baked fish plate</div>
+        <div class="wc-body">
+          <div class="wnum">Baked</div><h3 class="wname">Baked Fresh</h3>
+          <p class="wdesc">Oven-baked fillet for the lighter side of the catch — flaky, clean, still local.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="menu-note reveal">
+      <span class="pill">Plates $20–30</span>
+      <span class="pill">Locally caught</span>
+      <span>Full menu &amp; daily specials — call or follow <a class="textlink" href="https://www.instagram.com/likepoke/" target="_blank" rel="noopener">@likepoke</a>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STORY ============================ -->
+<section class="story" id="story" aria-labelledby="story-h">
+  <svg class="story-rim" viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 C 360 6, 1080 6, 1440 46 L1440 46 L0 46 Z" fill="currentColor"/></svg>
+  <div class="wrap story-grid">
+    <div class="story-photo reveal">
+      <!-- PHOTO TO DROP IN: owner Daniel at the truck window, or the truck itself on Lono Ave.
+           A real face here is the single biggest trust upgrade. -->
+      <figure class="frame">
+        <div class="ph">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <b>Daniel at the window</b>
+          <small>A photo of the owner or the<br>truck on Lono Ave goes here</small>
+        </div>
+      </figure>
+    </div>
+    <div class="story-copy reveal">
+      <span class="kicker">One truck, one island</span>
+      <h2 id="story-h">We don't ship the fish in. We catch it here.</h2>
+      <p>Like Poke? is Daniel Kalahiki's truck on Lono Ave in Kahului — built on one simple idea: the fish should taste like Maui, not like a freezer. That means locally caught, cut fresh, and sauced by hand.</p>
+      <p>Word got around. The bowls landed on Food Network, the line got longer, and the reviews piled up — but it's still the same truck, the same fish, the same question every regular answers the same way.</p>
+      <p class="name-line">Like poke? Yeah. You will.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ REVIEWS ============================ -->
+<!-- Real Google data (bdata SERP, 2026-06-26): 4.7★ from 209 Google reviews; Facebook 5/5 from 59;
+     featured on Food Network. Quote text is verbatim from public Google reviews — do not edit wording.
+     UPGRADE: swap in fuller, named 5★ quotes from the Google listing for stronger cards. -->
+<section class="reviews" id="reviews" aria-labelledby="rev-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Maui's verdict</span>
+      <h2 id="rev-h">The line doesn't lie.</h2>
+      <svg class="swell" viewBox="0 0 120 14" aria-hidden="true"><path d="M3 9 C 18 1, 30 1, 45 9 S 72 17, 87 9 114 1 117 6"/></svg>
+      <div class="rev-aggregate" role="img" aria-label="Rated 4.7 out of 5 stars from 209 Google reviews, 5 out of 5 from 59 reviews on Facebook, and featured on Food Network">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="score">4.7</span>
+        <span class="meta">209 Google reviews&nbsp;·&nbsp;5/5 from 59 on Facebook&nbsp;·&nbsp;featured on Food Network</span>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <figure class="rev-card reveal">
+        <div class="rc-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+        <blockquote>Great food, lots of flavour, highly recommend the poke bowl combo</blockquote>
+        <figcaption>Verified <span>Google review</span></figcaption>
+      </figure>
+      <figure class="rev-card reveal">
+        <div class="rc-stars" role="img" aria-label="Rated 5 out of 5">★★★★★</div>
+        <blockquote>Great quality fish, delicious sauce, big portions.</blockquote>
+        <figcaption>Verified <span>Google review</span></figcaption>
+      </figure>
+      <figure class="rev-card reveal">
+        <div class="rc-stars" role="img" aria-label="Featured">★★★★★</div>
+        <blockquote>Featured on Food Network as a Maui must-try poke stop.</blockquote>
+        <figcaption>As seen on <span>Food Network</span></figcaption>
+      </figure>
+    </div>
+    <p class="rev-foot reveal">
+      <a class="textlink" href="https://www.google.com/maps/search/?api=1&query=Like+Poke+Kahului" target="_blank" rel="noopener">Read all 209 reviews on Google <span aria-hidden="true">→</span></a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================ FIND US ============================ -->
+<section class="find" id="find" aria-labelledby="find-h">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Find the truck</span></div>
+    <div class="find-grid">
+      <div class="reveal">
+        <h2 id="find-h">On Lono Ave. Hungry?</h2>
+        <svg class="swell" viewBox="0 0 120 14" aria-hidden="true"><path d="M3 9 C 18 1, 30 1, 45 9 S 72 17, 87 9 114 1 117 6"/></svg>
+        <div class="find-rows">
+          <div class="find-row"><span class="lab">Where</span><span class="val"><a href="https://maps.google.com/?q=Like+Poke+70+Lono+Ave+Kahului" target="_blank" rel="noopener">70 Lono Ave, Kahului, HI 96732</a>&nbsp;·&nbsp;5 min from OGG</span></div>
+          <div class="find-row"><span class="lab">Hours</span><span class="val">Mon–Fri 11 AM – 7 PM&nbsp;·&nbsp;Sat–Sun 11 AM – 5 PM</span></div>
+          <div class="find-row"><span class="lab">Call</span><span class="val"><a href="tel:+18087578402">(808) 757-8402</a></span></div>
+          <div class="find-row"><span class="lab">Follow</span><span class="val"><a href="https://www.instagram.com/likepoke/" target="_blank" rel="noopener">@likepoke</a> on Instagram &amp; Facebook</span></div>
+        </div>
+        <div class="find-cta">
+          <a class="btn btn--coral" href="tel:+18087578402">Call to order <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="https://maps.google.com/?q=Like+Poke+70+Lono+Ave+Kahului" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <div class="map reveal">
+        <!-- PHOTO TO DROP IN: the Like Poke? truck on location at 70 Lono Ave (or an embedded Google Map). -->
+        <figure class="frame">
+          <div class="ph">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <b>The truck on Lono Ave</b>
+            <small>Drop in a photo of the truck<br>on location — or a Google Map embed</small>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="foot-logo" href="#top" aria-label="Like Poke?">
+          <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#poke-logo"/></svg>
+          <span class="fw">Like Poke<span class="q">?</span></span>
+          <span class="ft">Fresh Poke · Kahului, Maui</span>
+        </a>
+        <p>Off the boat, into your bowl.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Visit</h4>
+          <p>70 Lono Ave<br>Kahului, HI 96732</p>
+          <a href="https://maps.google.com/?q=Like+Poke+70+Lono+Ave+Kahului" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+        <div class="foot-col">
+          <h4>Hours</h4>
+          <p>Mon–Fri&nbsp;&nbsp;11–7<br>Sat–Sun&nbsp;&nbsp;11–5</p>
+        </div>
+        <div class="foot-col">
+          <h4>Order &amp; Follow</h4>
+          <a href="tel:+18087578402">(808) 757-8402</a>
+          <a href="https://www.instagram.com/likepoke/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/like.poke.1/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Like Poke? · Kahului, Maui</span>
+      <span>Website concept by <a href="https://frontlinewebdesign.tech" target="_blank" rel="noopener">Frontline Web Designs</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* nav: scrolled state + mobile toggle */
+(function(){
+  var nav=document.getElementById('nav');
+  var burger=document.getElementById('burger');
+  var links=document.getElementById('navlinks');
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>24)};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    nav.classList.toggle('menu-open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){links.classList.remove('open');nav.classList.remove('menu-open');burger.setAttribute('aria-expanded','false');}
+  });
+})();
+
+/* one entrance per element via IntersectionObserver, with fallback. reduced-motion aware. */
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(reduce){els.forEach(function(el){el.classList.add('in')});return;}
+  function inView(el){var r=el.getBoundingClientRect();return r.top<window.innerHeight*0.9 && r.bottom>0;}
+  function check(){els.forEach(function(el){if(!el.classList.contains('in')&&inView(el))el.classList.add('in');});}
+  if('IntersectionObserver'in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')});}
+  check();window.addEventListener('scroll',check,{passive:true});window.addEventListener('load',check);
+})();
+
+/* seamless marquee: clone the strip until it overflows the viewport, so the loop never gaps. */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var track=document.querySelector('.marquee-track');
+  if(!track) return;
+  var set=track.querySelector('.marquee-set');
+  function build(){
+    var clones=track.querySelectorAll('[data-mclone]');
+    for(var i=0;i<clones.length;i++) clones[i].remove();
+    var setW=set.getBoundingClientRect().width;
+    if(setW<2) return;
+    var need=Math.min(20, Math.ceil(window.innerWidth/setW)+2);
+    for(var j=1;j<need;j++){
+      var c=set.cloneNode(true);c.setAttribute('data-mclone','');c.setAttribute('aria-hidden','true');
+      track.appendChild(c);
+    }
+    track.style.setProperty('--setw', setW+'px');
+    track.style.animationDuration=Math.max(8, setW/70).toFixed(1)+'s';
+    track.classList.add('run');
+  }
+  var t=0;function schedule(){clearTimeout(t);t=setTimeout(build,120);}
+  if('ResizeObserver' in window){new ResizeObserver(schedule).observe(set);}
+  window.addEventListener('resize',schedule);window.addEventListener('load',schedule);
+  if(document.fonts && document.fonts.ready){document.fonts.ready.then(schedule);}
+  build();
+})();
+</script>
+</body>
+</html>
