@@ -321,6 +321,56 @@
 </style>
 </head>
 <body>
+<!-- ===== Frontline samples back-bar (injected) ===== -->
+<style>
+.fwd-bar{box-sizing:border-box;position:sticky;top:0;z-index:2147483647;background:#2E3A2B;color:#F7F1E4;
+ font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;display:flex;align-items:center;
+ justify-content:space-between;gap:12px;padding:7px 16px;min-height:40px;font-size:14px;line-height:1.2;
+ box-shadow:0 2px 10px rgba(0,0,0,.18);-webkit-font-smoothing:antialiased}
+.fwd-bar *{box-sizing:border-box}
+.fwd-bar a{color:inherit;text-decoration:none}
+.fwd-bar .fwd-back{display:inline-flex;align-items:center;gap:7px;font-weight:600}
+.fwd-bar .fwd-back:hover{color:#C9A24B}
+.fwd-bar .fwd-tag{opacity:.82;font-size:12.5px}
+.fwd-bar .fwd-cta{display:inline-flex;align-items:center;gap:6px;background:#C9A24B;color:#2E3A2B;
+ font-weight:700;font-size:12.5px;letter-spacing:.02em;padding:6px 13px;border-radius:100px;white-space:nowrap}
+.fwd-bar .fwd-cta:hover{background:#d8b25e}
+.fwd-bar :focus-visible{outline:2px solid #C9A24B;outline-offset:2px;border-radius:4px}
+@media (max-width:600px){.fwd-bar .fwd-tag{display:none}.fwd-bar{padding:7px 12px;max-width:100vw}}
+</style>
+<div class="fwd-bar" role="navigation" aria-label="Sample site navigation">
+  <a class="fwd-back" href="https://mauifoodtruckwebsites.com/samples.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    All sample sites
+  </a>
+  <span class="fwd-tag">Sample site by Frontline Web Designs</span>
+  <a class="fwd-cta" href="https://mauifoodtruckwebsites.com/intake.html">Get a free site
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</div>
+<script>
+/* push the host site's own fixed/sticky-at-top header below the bar so it isn't hidden */
+(function(){
+ function adjust(){
+   var b=document.querySelector('.fwd-bar'); if(!b) return; var H=b.offsetHeight||40;
+   var all=document.body.getElementsByTagName('*');
+   for(var i=0;i<all.length;i++){
+     var el=all[i]; if(el.closest && el.closest('.fwd-bar')) continue;
+     var cs=getComputedStyle(el);
+     if((cs.position==='fixed'||cs.position==='sticky')){
+       var t=parseInt(cs.top,10);
+       if(!isNaN(t) && t>=0 && t<H){ el.style.top=(t+H)+'px'; }
+     }
+   }
+ }
+ if(document.readyState!=='loading') requestAnimationFrame(adjust);
+ else document.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(adjust);});
+ window.addEventListener('load',adjust);
+ setTimeout(adjust,500); setTimeout(adjust,1500);
+})();
+</script>
+<!-- ===== /Frontline samples back-bar ===== -->
+
 <a href="#main" class="skip">Skip to content</a>
 
 <!-- ===== brand motif sprite: the hibiscus from Aloha's real logo + a sunburst ===== -->

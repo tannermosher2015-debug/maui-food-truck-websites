@@ -1,0 +1,7 @@
+# Pitch demo: keep this sample out of search until the client signs on.
+Header set X-Robots-Tag "noindex, nofollow"
+
+# Always revalidate the HTML so updates show up without a manual cache clear.
+<FilesMatch "\.html$">
+  Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
