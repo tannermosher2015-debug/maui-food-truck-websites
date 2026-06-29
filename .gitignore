@@ -7,3 +7,6 @@ desktop.ini
 # Local notes not for the repo
 CLAUDE.md
 .claude/
+
+# Deploy artifacts
+*.zip
