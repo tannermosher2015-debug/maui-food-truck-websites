@@ -152,7 +152,7 @@
     .pitch h2 em { font-style: italic; color: var(--gold-lt); }
     .pitch p.psub { color: rgba(247,241,228,0.78); font-size: 1.12rem; max-width: 560px; margin: 0 auto 38px; line-height: 1.7; }
     .pitch-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .pitch-note { font-size: 0.82rem; color: rgba(247,241,228,0.55); margin-top: 18px; }
+    .pitch-note { font-size: 0.82rem; color: rgba(247,241,228,0.6); margin-top: 18px; }
 
     /* ─────────── FOOTER ─────────── */
     footer { background: #221b15; color: rgba(247,241,228,0.72); padding: 64px 0 26px; }
@@ -434,7 +434,11 @@
   document.getElementById('nlForm').addEventListener('submit', e => {
     e.preventDefault();
     const inp = document.getElementById('nlEmail'), msg = document.getElementById('nlMsg');
-    if(inp.value && inp.value.includes('@')){ inp.value=''; msg.textContent = "✓ You're on the list — mahalo!"; }
+    if(inp.value && inp.value.includes('@')){
+      location.href = 'mailto:FrontlineWebDesigns@gmail.com?subject=Truck-website%20tips%20signup&body=' + encodeURIComponent('Please add me to the list: ' + inp.value);
+      msg.textContent = 'Opening your email app to finish - or write us at FrontlineWebDesigns@gmail.com. Mahalo!';
+      inp.value='';
+    }
     else { msg.textContent = 'Please enter a valid email.'; inp.focus(); }
   });
 </script>

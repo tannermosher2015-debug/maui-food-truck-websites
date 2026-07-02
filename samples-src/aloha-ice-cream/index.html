@@ -23,6 +23,7 @@
     --bg2:#FFEFD7;         /* warmer cream */
     --pink:#FF4D9A;        /* bubblegum (brand) */
     --pink-soft:#FFD8E7;   /* soft pink surface */
+    --pink-ink:#C2185B;    /* darker pink for text — AA on light bg */
     --mango:#FFB23E;       /* sunny mango */
     --sky:#4FC4F0;         /* lei sky blue */
     --mint:#54CE9E;        /* mint-scoop green */
@@ -65,7 +66,7 @@
   }
 
   /* handwritten margin note + doodle arrow */
-  .hand{font-family:var(--f-hand);font-weight:700;color:var(--pink);font-size:1.5rem;line-height:1;display:inline-block}
+  .hand{font-family:var(--f-hand);font-weight:700;color:var(--pink-ink);font-size:1.5rem;line-height:1;display:inline-block}
 
   /* ---------- buttons (chunky stickers) ---------- */
   .btn{
@@ -113,7 +114,7 @@
   @keyframes drop{to{transform:translateY(118vh) rotate(540deg)}}
   .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
   .hero h1{font-size:clamp(2.2rem,6.6vw,5.4rem);font-weight:700;letter-spacing:-.02em;overflow-wrap:break-word}
-  .hero h1 em{font-style:normal;color:var(--pink);position:relative;white-space:nowrap}
+  .hero h1 em{font-style:normal;color:var(--pink-ink);position:relative;white-space:nowrap}
   /* underline-scribble under the word "melts" */
   .hero h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.02em;height:.16em;
     background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='14' viewBox='0 0 120 14'><path d='M2 9 Q30 2 60 8 T118 6' fill='none' stroke='%23FFB23E' stroke-width='5' stroke-linecap='round'/></svg>") center/100% 100% no-repeat;z-index:-1}
@@ -122,7 +123,7 @@
   .hero-note{font-family:var(--f-hand);font-weight:700;color:var(--ink);font-size:1.45rem;display:inline-flex;align-items:center;gap:6px;transform:rotate(-4deg)}
   .hero-meta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
   .chip{background:var(--white);border:var(--line) solid var(--ink);border-radius:16px;padding:10px 16px;box-shadow:4px 4px 0 var(--ink);font-size:.86rem;font-weight:600;line-height:1.15}
-  .chip b{font-family:var(--f-display);font-size:1.35rem;font-weight:700;display:block;color:var(--pink);line-height:1}
+  .chip b{font-family:var(--f-display);font-size:1.35rem;font-weight:700;display:block;color:var(--pink-ink);line-height:1}
   .chip:nth-child(2) b{color:var(--mint)}
   .chip:nth-child(3) b{color:var(--sky)}
 
@@ -207,7 +208,7 @@
   .card.feature{background:linear-gradient(165deg,#fff, #FFEAF2)}
   .ribbon{position:absolute;top:-16px;right:22px;background:var(--pink);color:var(--ink);font-family:var(--f-display);
     font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;padding:7px 15px;border:var(--line) solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);transform:rotate(3deg)}
-  .card .price{font-family:var(--f-display);font-size:3.2rem;font-weight:700;color:var(--pink);line-height:1}
+  .card .price{font-family:var(--f-display);font-size:3.2rem;font-weight:700;color:var(--pink-ink);line-height:1}
   .card .price small{font-family:var(--f-body);font-size:.95rem;font-weight:700;color:var(--ink);display:block;margin-top:4px}
   .card h3{font-size:1.5rem;margin-bottom:6px}
   .card ul{list-style:none;padding:0;margin:18px 0 0}
@@ -218,7 +219,7 @@
   .addon{display:flex;justify-content:space-between;gap:16px;align-items:baseline;background:var(--white);
     border:var(--line) solid var(--ink);border-radius:16px;padding:16px 20px;box-shadow:var(--sh);transition:transform .15s ease}
   .addon:hover{transform:rotate(-1.5deg)}
-  .addon b{font-family:var(--f-display);color:var(--pink);font-size:1.12rem;white-space:nowrap}
+  .addon b{font-family:var(--f-display);color:var(--pink-ink);font-size:1.12rem;white-space:nowrap}
   .addon span{font-size:.92rem}
   .deposit{margin-top:8px;font-weight:700;font-size:.98rem;display:flex;align-items:center;gap:10px;font-family:var(--f-display)}
   .deposit .pill{background:var(--mango);color:var(--ink);border:2px solid var(--ink);border-radius:999px;font-size:.72rem;padding:4px 12px;font-weight:700}
@@ -247,7 +248,7 @@
   .story-art img{border:5px solid var(--white);outline:var(--line) solid var(--ink);border-radius:30px 30px 46% 46% / 30px 30px 38% 38%;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--sh-lg);transform:rotate(2deg);position:relative;z-index:1;max-width:360px}
   .story-art .blob.b{width:38%;top:-5%;right:-5%;bottom:auto}
   .quote{font-family:var(--f-display);font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:600;line-height:1.22;margin:0 0 22px}
-  .quote span{color:var(--pink)}
+  .quote span{color:var(--pink-ink)}
 
   /* ---------- booking / CTA ---------- */
   .book{background:var(--ink);color:#fff;border:var(--line) solid var(--ink);border-radius:32px;padding:clamp(34px,5vw,60px);position:relative;overflow:hidden;box-shadow:var(--sh-lg)}

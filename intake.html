@@ -366,16 +366,16 @@ function App() {
         <p style={{ color: MID, fontSize: 14, margin: 0 }}>Tell us who you are and what you're serving.</p>
       </div>
       <Field><Label>Business Name</Label>
-        <input style={inp} value={d.bizName} onChange={e => set("bizName", e.target.value)} placeholder="e.g. Maui Smoke BBQ" />
+        <input aria-label="Business Name" style={inp} value={d.bizName} onChange={e => set("bizName", e.target.value)} placeholder="e.g. Maui Smoke BBQ" />
       </Field>
       <Field><Label>What do you sell?</Label>
-        <input style={inp} value={d.whatTheySell} onChange={e => set("whatTheySell", e.target.value)} placeholder="e.g. Hawaiian BBQ, tacos, shave ice, plate lunch…" />
+        <input aria-label="What do you sell?" style={inp} value={d.whatTheySell} onChange={e => set("whatTheySell", e.target.value)} placeholder="e.g. Hawaiian BBQ, tacos, shave ice, plate lunch…" />
       </Field>
       <Field><Label>Where do you operate?</Label>
-        <input style={inp} value={d.serviceArea} onChange={e => set("serviceArea", e.target.value)} placeholder="e.g. Kahului, Kihei, Lahaina — or all of Maui" />
+        <input aria-label="Where do you operate?" style={inp} value={d.serviceArea} onChange={e => set("serviceArea", e.target.value)} placeholder="e.g. Kahului, Kihei, Lahaina — or all of Maui" />
       </Field>
       <Field><Label>Regular schedule / spots<Hint>(or events)</Hint></Label>
-        <textarea style={{ ...inp, height: 80, resize: "vertical" }} value={d.schedule}
+        <textarea aria-label="Regular schedule or spots" style={{ ...inp, height: 80, resize: "vertical" }} value={d.schedule}
           onChange={e => set("schedule", e.target.value)}
           placeholder="e.g. Tue–Sat 11am–3pm at Kahului Harbor, Fri nights at Kihei Farmers Market…" />
       </Field>
@@ -383,16 +383,16 @@ function App() {
         <Radio options={CATERING_OPTS} value={d.catering} onChange={v => set("catering", v)} />
       </Field>
       <Field><Label>Who is your ideal customer?</Label>
-        <input style={inp} value={d.idealCustomer} onChange={e => set("idealCustomer", e.target.value)} placeholder="e.g. Local families, tourists, office lunch crowd…" />
+        <input aria-label="Who is your ideal customer?" style={inp} value={d.idealCustomer} onChange={e => set("idealCustomer", e.target.value)} placeholder="e.g. Local families, tourists, office lunch crowd…" />
       </Field>
       <Field><Label>What's the #1 thing you want visitors to do?</Label>
-        <input style={inp} value={d.mainGoal} onChange={e => set("mainGoal", e.target.value)} placeholder="e.g. Find us, follow on Instagram, book catering…" />
+        <input aria-label="What is the number one thing you want visitors to do?" style={inp} value={d.mainGoal} onChange={e => set("mainGoal", e.target.value)} placeholder="e.g. Find us, follow on Instagram, book catering…" />
       </Field>
       <Field>
         <Label>Social Media<Hint>(fill in what you have)</Hint></Label>
-        <input style={{ ...inp, marginBottom: 8 }} value={d.instagram} onChange={e => set("instagram", e.target.value)} placeholder="Instagram — @yourhandle" />
-        <input style={{ ...inp, marginBottom: 8 }} value={d.facebook} onChange={e => set("facebook", e.target.value)} placeholder="Facebook — page name or URL" />
-        <input style={inp} value={d.tiktok} onChange={e => set("tiktok", e.target.value)} placeholder="TikTok — @yourhandle" />
+        <input aria-label="Instagram handle" style={{ ...inp, marginBottom: 8 }} value={d.instagram} onChange={e => set("instagram", e.target.value)} placeholder="Instagram — @yourhandle" />
+        <input aria-label="Facebook page name or URL" style={{ ...inp, marginBottom: 8 }} value={d.facebook} onChange={e => set("facebook", e.target.value)} placeholder="Facebook — page name or URL" />
+        <input aria-label="TikTok handle" style={inp} value={d.tiktok} onChange={e => set("tiktok", e.target.value)} placeholder="TikTok — @yourhandle" />
       </Field>
     </div>,
 
@@ -425,16 +425,16 @@ function App() {
       <Field>
         <Label>Sites or brands you admire<Hint>(optional)</Hint></Label>
         {d.sitesLove.map((s, i) => (
-          <input key={i} style={{ ...inp, marginBottom: 8 }} value={s} onChange={e => {
+          <input key={i} aria-label={"Site or brand you admire, example " + (i+1)} style={{ ...inp, marginBottom: 8 }} value={s} onChange={e => {
             const u = [...d.sitesLove]; u[i] = e.target.value; set("sitesLove", u);
           }} placeholder={"Example " + (i+1) + " — e.g. instagram.com/somerestaurant"} />
         ))}
       </Field>
       <Field><Label>Your brand colors<Hint>(if you have them)</Hint></Label>
-        <input style={inp} value={d.brandColors} onChange={e => set("brandColors", e.target.value)} placeholder="e.g. Red and black — or hex codes" />
+        <input aria-label="Your brand colors" style={inp} value={d.brandColors} onChange={e => set("brandColors", e.target.value)} placeholder="e.g. Red and black — or hex codes" />
       </Field>
       <Field><Label>Colors you absolutely don't want</Label>
-        <input style={inp} value={d.colorsAvoid} onChange={e => set("colorsAvoid", e.target.value)} placeholder="e.g. No neon, no purple…" />
+        <input aria-label="Colors you absolutely don't want" style={inp} value={d.colorsAvoid} onChange={e => set("colorsAvoid", e.target.value)} placeholder="e.g. No neon, no purple…" />
       </Field>
     </div>,
 
@@ -522,7 +522,7 @@ function App() {
         <Radio options={MENU_OPTS} value={d.hasMenu} onChange={v => set("hasMenu", v)} />
       </Field>
       <Field><Label>Any special features?<Hint>(optional)</Hint></Label>
-        <textarea style={{ ...inp, height: 70, resize: "vertical" }} value={d.specialFeatures}
+        <textarea aria-label="Any special features?" style={{ ...inp, height: 70, resize: "vertical" }} value={d.specialFeatures}
           onChange={e => set("specialFeatures", e.target.value)}
           placeholder="e.g. Online ordering link, catering inquiry form, email list signup…" />
       </Field>
@@ -549,11 +549,11 @@ function App() {
           ))}
         </div>
         {d.hasDomain === "yes" && (
-          <input style={inp} value={d.domainName} onChange={e => set("domainName", e.target.value)} placeholder="yourtruck.com" />
+          <input aria-label="Domain name" style={inp} value={d.domainName} onChange={e => set("domainName", e.target.value)} placeholder="yourtruck.com" />
         )}
       </Field>
       <Field><Label>Existing website?<Hint>(URL or leave blank)</Hint></Label>
-        <input style={inp} value={d.existingSite} onChange={e => set("existingSite", e.target.value)} placeholder="oldsite.com — or leave blank" />
+        <input aria-label="Existing website URL" style={inp} value={d.existingSite} onChange={e => set("existingSite", e.target.value)} placeholder="oldsite.com — or leave blank" />
       </Field>
       <Field>
         <Label>Timeline</Label>
@@ -563,12 +563,12 @@ function App() {
       </Field>
       <div style={{ background: OFF, borderRadius: 12, padding: "18px 16px", marginBottom: 24, border: "1px solid " + BORDER }}>
         <Label>Your Contact Info</Label>
-        <input style={{ ...inp, marginBottom: 8 }} value={d.name} onChange={e => set("name", e.target.value)} placeholder="Your name" />
-        <input style={{ ...inp, marginBottom: 8 }} value={d.email} onChange={e => set("email", e.target.value)} placeholder="Email address" type="email" />
-        <input style={inp} value={d.phone} onChange={e => set("phone", e.target.value)} placeholder="Phone (optional)" />
+        <input aria-label="Your name" style={{ ...inp, marginBottom: 8 }} value={d.name} onChange={e => set("name", e.target.value)} placeholder="Your name" />
+        <input aria-label="Email address" style={{ ...inp, marginBottom: 8 }} value={d.email} onChange={e => set("email", e.target.value)} placeholder="Email address" type="email" />
+        <input aria-label="Phone (optional)" style={inp} value={d.phone} onChange={e => set("phone", e.target.value)} placeholder="Phone (optional)" />
       </div>
       <Field><Label>Anything else we should know?</Label>
-        <textarea style={{ ...inp, height: 80, resize: "vertical" }} value={d.notes}
+        <textarea aria-label="Anything else we should know?" style={{ ...inp, height: 80, resize: "vertical" }} value={d.notes}
           onChange={e => set("notes", e.target.value)}
           placeholder="Competitors to look different from, must-haves, anything else…" />
       </Field>

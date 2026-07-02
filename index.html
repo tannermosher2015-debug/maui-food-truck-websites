@@ -351,7 +351,7 @@
     .tier li svg { color: var(--gold-lt); flex: none; margin-top: 3px; }
     .maintline { font-size: 0.86rem; color: rgba(247,241,228,0.66); margin: 4px 0 34px; }
     .pitch-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .pitch-note { font-size: 0.82rem; color: rgba(247,241,228,0.55); margin-top: 18px; }
+    .pitch-note { font-size: 0.82rem; color: rgba(247,241,228,0.6); margin-top: 18px; }
 
     /* ─────────── FOOTER ─────────── */
     footer { background: #221b15; color: rgba(247,241,228,0.72); padding: 64px 0 26px; }
@@ -485,7 +485,7 @@
       </div>
       <div class="hero-badge">
         <span class="hb-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.6 6.6L21 9.2l-5 4.3L17.5 21 12 17.3 6.5 21 8 13.5l-5-4.3 6.4-.6z"/></svg></span>
-        <div><b class="ser">4.9 ★ on Google</b><span>“Best poke on the island.”</span></div>
+        <div><b class="ser">4.9 ★ rating</b><span>Illustrative sample</span></div>
       </div>
     </div>
   </div>
@@ -613,7 +613,7 @@
       <blockquote>“We drove across the island for this truck and it was worth every mile. The freshest poke on Maui, hands down.”</blockquote>
       <div class="rv-by">
         <img class="rv-av" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=80" alt="">
-        <div><div class="rv-name">Leilani K.</div><div class="rv-role">Local Guide · Google Reviews</div></div>
+        <div><div class="rv-name">Leilani K.</div><div class="rv-role">Sample review · illustrative</div></div>
       </div>
     </div>
   </div>
@@ -817,7 +817,11 @@
   document.getElementById('nlForm').addEventListener('submit', e => {
     e.preventDefault();
     const inp = document.getElementById('nlEmail'), msg = document.getElementById('nlMsg');
-    if(inp.value && inp.value.includes('@')){ inp.value=''; msg.textContent = "✓ You're on the list — mahalo!"; }
+    if(inp.value && inp.value.includes('@')){
+      location.href = 'mailto:FrontlineWebDesigns@gmail.com?subject=Truck-website%20tips%20signup&body=' + encodeURIComponent('Please add me to the list: ' + inp.value);
+      msg.textContent = 'Opening your email app to finish - or write us at FrontlineWebDesigns@gmail.com. Mahalo!';
+      inp.value='';
+    }
     else { msg.textContent = 'Please enter a valid email.'; inp.focus(); }
   });
 </script>
