@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- PITCH DEMO: noindex in BOTH meta and (on deploy) .htaccess/X-Robots-Tag. Remove both once the client signs on. -->
 <meta name="robots" content="noindex, nofollow" />
-<title>Aloha Ice Cream — Maui Mobile Ice Cream Cart Catering</title>
+<title>Aloha Ice Cream - Maui Mobile Ice Cream Cart Catering</title>
 <meta name="description" content="Handcrafted, small-batch ice cream scooped to order from a mobile cart for weddings, parties & events across Maui. Custom flavors, custom labels, the whole sweet thing." />
-<meta property="og:title" content="Aloha Ice Cream — Maui Mobile Ice Cream Cart Catering" />
+<meta property="og:title" content="Aloha Ice Cream - Maui Mobile Ice Cream Cart Catering" />
 <meta property="og:description" content="Your mobile ice cream cart dreams come true. Handcrafted small-batch ice cream for Maui events." />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#FF4D9A" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700&family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700&family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" /></noscript>
 
 <style>
   :root{
@@ -28,7 +28,7 @@
     --sky:#4FC4F0;         /* lei sky blue */
     --mint:#54CE9E;        /* mint-scoop green */
     --lav:#B79BE8;         /* lavender-pineapple nod */
-    --ink:#241C24;         /* near-black plum — outlines + text */
+    --ink:#241C24;         /* near-black plum - outlines + text */
     --white:#fff;
 
     --hair:rgba(36,28,36,.14);
@@ -38,9 +38,9 @@
     --sh:6px 6px 0 var(--ink);     /* hard sticker shadow */
     --sh-lg:9px 9px 0 var(--ink);
 
-    --f-display:"Fredoka", system-ui, sans-serif;
+    --f-display:"Grandstander", system-ui, sans-serif;
     --f-hand:"Caveat", "Comic Sans MS", cursive;
-    --f-body:"Hanken Grotesk", system-ui, sans-serif;
+    --f-body:"Quicksand", system-ui, sans-serif;
   }
 
   *{box-sizing:border-box}
@@ -143,7 +143,7 @@
   .sticker.s2{top:2%;right:-2%;transform:rotate(8deg);background:var(--sky)}
   .scoop{width:30px;height:30px;flex:0 0 auto}
 
-  /* cow-print swatch — nods to their real cow-print cart */
+  /* cow-print swatch - nods to their real cow-print cart */
   .cow{width:26px;height:26px;border-radius:50%;flex:0 0 auto;background:#fff center/118% no-repeat;border:2px solid var(--ink);
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='%23241C24'><ellipse cx='12' cy='13' rx='8.5' ry='6' transform='rotate(-20 12 13)'/><ellipse cx='30' cy='15' rx='6' ry='8.5' transform='rotate(25 30 15)'/><ellipse cx='16' cy='31' rx='7.5' ry='5.5'/><ellipse cx='33' cy='32' rx='4.5' ry='4'/></g></svg>")}
 
@@ -155,7 +155,7 @@
   .section.cream{background:var(--bg2)}
   .section > .wrap{position:relative;z-index:2}
 
-  /* recurring brand motif — Aloha's own hibiscus, drawn faint into the page */
+  /* recurring brand motif - Aloha's own hibiscus, drawn faint into the page */
   .motif{position:absolute;z-index:0;pointer-events:none;width:240px;height:240px;color:var(--pink);opacity:.08}
   .motif.tr{top:-52px;right:-48px;transform:rotate(16deg)}
   .motif.bl{bottom:-50px;left:-52px;transform:rotate(-12deg);color:var(--mint);opacity:.1}
@@ -231,7 +231,7 @@
   .gallery figure:nth-child(3){transform:rotate(2deg)}
   .gallery figure:nth-child(4){transform:rotate(-2.5deg)}
   .gallery figure:hover{transform:rotate(0) translateY(-4px);box-shadow:var(--sh-lg);z-index:2}
-  /* washi tape — like the photos were stuck into a scrapbook */
+  /* washi tape - like the photos were stuck into a scrapbook */
   .gallery figure::before{content:"";position:absolute;z-index:4;top:-11px;left:50%;width:74px;height:24px;
     transform:translateX(-50%) rotate(-5deg);background:rgba(84,206,158,.72);
     box-shadow:inset 0 0 0 1px rgba(36,28,36,.22);border-left:2px dashed rgba(36,28,36,.25);border-right:2px dashed rgba(36,28,36,.25)}
@@ -319,6 +319,10 @@
     .sticker.s1{left:6px;bottom:6px;transform:rotate(-4deg)}
     .sticker.s2{right:6px;top:6px;left:auto;transform:rotate(4deg)}
   }
+
+/* RE-SKIN 2026-07-05: Grandstander+Quicksand (off Fredoka/Hanken), eyebrow de-chipped */
+.eyebrow{letter-spacing:0;text-transform:none;font-weight:700;background:none;border:0;padding:0;border-radius:0;box-shadow:none}
+
 </style>
 </head>
 <body>
@@ -408,7 +412,7 @@
 
 <header class="site">
   <div class="wrap nav">
-    <a href="#top" class="brand" aria-label="Aloha Ice Cream home"><img src="images/logo.png" alt="Aloha Ice Cream — Maui, Hawaii" width="120" height="54" /></a>
+    <a href="#top" class="brand" aria-label="Aloha Ice Cream home"><img src="images/logo.png" alt="Aloha Ice Cream - Maui, Hawaii" width="120" height="54" /></a>
     <nav class="navlinks" id="menu" aria-label="Primary">
       <a href="#flavors">Flavors</a>
       <a href="#packages">Packages</a>
@@ -432,7 +436,7 @@
     <div class="hero-copy reveal">
       <span class="eyebrow">Maui-made · mobile · handcrafted</span>
       <h1>The cart shows up.<br>The party <em>melts</em> for it.</h1>
-      <p class="lede">Small-batch ice cream, scooped to order from our cart — for weddings, parties, and every excuse to celebrate on Maui.</p>
+      <p class="lede">Small-batch ice cream, scooped to order from our cart - for weddings, parties, and every excuse to celebrate on Maui.</p>
       <div class="hero-cta">
         <a href="#book" class="btn">Book your cart</a>
         <a href="#flavors" class="btn alt">See the flavors</a>
@@ -441,7 +445,7 @@
       <div class="hero-meta" role="list">
         <div class="chip" role="listitem"><b>12+</b> handcrafted flavors</div>
         <div class="chip" role="listitem"><b>4oz</b> minis, custom-labeled</div>
-        <div class="chip" role="listitem"><b>50–250+</b> guests served</div>
+        <div class="chip" role="listitem"><b>50 to 250+</b> guests served</div>
       </div>
     </div>
     <div class="hero-art reveal">
@@ -478,7 +482,7 @@
     <div class="head reveal">
       <span class="eyebrow">The flavor list</span>
       <h2>Mix, match, and make it yours.</h2>
-      <p>Every flavor is made in small batches with organic cream and milk. Pick your line-up — guests build their own at the cart.</p>
+      <p>Every flavor is made in small batches with organic cream and milk. Pick your line-up - guests build their own at the cart.</p>
     </div>
     <div class="flavors reveal">
       <div class="flavor"><h3>Oreo Birthday Cake</h3><span class="tag">Favorite</span><p class="desc">Birthday cake, sprinkles &amp; crushed Oreos in organic cream.</p></div>
@@ -487,9 +491,9 @@
       <div class="flavor"><h3>Birthday Cake</h3><span class="tag">Gluten</span><p class="desc">Vanilla cake &amp; rainbow sprinkles, the classic.</p></div>
       <div class="flavor"><h3>Pineapple</h3><span class="tag">Fresh fruit</span><p class="desc">Fresh pineapple folded into creamy sweet milk.</p></div>
       <div class="flavor"><h3>Cookies 'n' Creme</h3><span class="tag"></span><p class="desc">Loaded with Oreos in organic cream.</p></div>
-      <div class="flavor"><h3>Ube Haupia</h3><span class="tag">Dairy-light</span><p class="desc">Purple yam &amp; coconut milk — island favorite.</p></div>
+      <div class="flavor"><h3>Ube Haupia</h3><span class="tag">Dairy-light</span><p class="desc">Purple yam &amp; coconut milk - island favorite.</p></div>
       <div class="flavor"><h3>Lihing Mui POG</h3><span class="tag">Local</span><p class="desc">POG with a li hing mui kick.</p></div>
-      <div class="flavor"><h3>Sherbert</h3><span class="tag">Custom juice</span><p class="desc">Strawberry, lychee, lilikoi, POG, guava — or your call.</p></div>
+      <div class="flavor"><h3>Sherbert</h3><span class="tag">Custom juice</span><p class="desc">Strawberry, lychee, lilikoi, POG, guava - or your call.</p></div>
       <div class="flavor"><h3>Nutella Cookie Dough</h3><span class="tag"></span><p class="desc">Nutella swirl with edible cookie dough.</p></div>
       <div class="flavor"><h3>Mint Chocolate Chip</h3><span class="tag">Real mint</span><p class="desc">Fresh mint leaves &amp; chocolate chips.</p></div>
       <div class="flavor"><h3>Seasonal &amp; Holiday</h3><span class="tag">Limited</span><p class="desc">Pumpkin Spice Latte, Apple Pie Cheesecake, Sugar Cookie Latte, Peppermint Oreo.</p></div>
@@ -518,7 +522,7 @@
           <li>Ice cream cart rental, delivered to your venue</li>
           <li>Set-up &amp; break-down handled by us</li>
           <li>Umbrella in the color of your choice</li>
-          <li>Mini ice creams (4&nbsp;oz) at <strong>$4 each</strong> — 50 minimum</li>
+          <li>Mini ice creams (4&nbsp;oz) at <strong>$4 each</strong> - 50 minimum</li>
           <li>Add more flavors for <strong>$7 per flavor</strong></li>
         </ul>
         <div style="margin-top:26px"><a href="#book" class="btn">Check your date</a></div>
@@ -550,7 +554,7 @@
       <figure class="wide"><img src="images/aloha-cart__hero_wide.jpg" width="1080" height="607" alt="Aloha Ice Cream's cow-print cart and fringed umbrella set up outdoors at a Maui event" loading="lazy" /></figure>
       <figure><img src="images/aloha-grad-lei__square.jpg" width="720" height="720" alt="A mint ice cream cup held among graduation leis at a Maui celebration" loading="lazy" /></figure>
       <figure><img src="images/aloha-cooler__square.jpg" width="1080" height="1080" alt="Carrying the insulated cooler of cups to a Maui event" loading="lazy" /></figure>
-      <figure class="wide"><img src="images/aloha-lavender__hero_wide.jpg" width="1080" height="607" alt="Pink-labeled Lavender Pineapple cups — Aloha Ice Cream's Aliʻi Kula Lavender Farm exclusive" loading="lazy" /></figure>
+      <figure class="wide"><img src="images/aloha-lavender__hero_wide.jpg" width="1080" height="607" alt="Pink-labeled Lavender Pineapple cups - Aloha Ice Cream's Aliʻi Kula Lavender Farm exclusive" loading="lazy" /></figure>
     </div>
   </div>
 </section>
@@ -565,12 +569,12 @@
     <div class="story-art reveal">
       <div class="blob b" aria-hidden="true"></div>
       <!-- PHOTO: the Chong family (owners), from the @alohaicecream rebrand post. Confirm rights before public/indexed launch. -->
-      <img src="images/aloha-owners__portrait.jpg" width="442" height="552" alt="The Chong family — owners of Aloha Ice Cream — at golden hour on Maui" loading="lazy" />
+      <img src="images/aloha-owners__portrait.jpg" width="442" height="552" alt="The Chong family - owners of Aloha Ice Cream - at golden hour on Maui" loading="lazy" />
     </div>
     <div class="story-copy reveal">
       <span class="eyebrow">Our story</span>
-      <p class="quote">"Ice cream has always brought out the best memories of <span>celebration</span> for us — we wanted to bring that warmth to everyone too."</p>
-      <p>We're the Chong family — a Maui-made, family-owned ice cream company. It started with nostalgic flavors we couldn't stop making, and grew into a mobile cart we bring straight to your celebration — handcrafted, small-batch, and scooped right in front of your guests.</p>
+      <p class="quote">"Ice cream has always brought out the best memories of <span>celebration</span> for us - we wanted to bring that warmth to everyone too."</p>
+      <p>We're the Chong family - a Maui-made, family-owned ice cream company. It started with nostalgic flavors we couldn't stop making, and grew into a mobile cart we bring straight to your celebration - handcrafted, small-batch, and scooped right in front of your guests.</p>
       <p>Every batch is made fresh. Every cup can carry your names. <span class="hand" style="font-size:1.7rem">That's the whole idea.</span></p>
     </div>
   </div>
@@ -584,10 +588,10 @@
         <div>
           <span class="eyebrow">Let's plan it</span>
           <h2>Tell us about your celebration.</h2>
-          <p>Send the date, the headcount, and the vibe. We'll come back with availability and a quote — usually same day.</p>
+          <p>Send the date, the headcount, and the vibe. We'll come back with availability and a quote - usually same day.</p>
           <div class="contactline">
             <div><b>Email</b> · <a href="mailto:Alohaicecreamhawaii@gmail.com">Alohaicecreamhawaii@gmail.com</a></div>
-            <!-- PLACEHOLDER — confirm with client before publishing a phone number -->
+            <!-- PLACEHOLDER - confirm with client before publishing a phone number -->
             <div><b>Phone</b> · <span style="opacity:.7">[ confirm number with client ]</span></div>
             <div><b>Where</b> · Mobile across Maui</div>
           </div>
@@ -618,7 +622,7 @@
 <footer class="site">
   <div class="wrap">
     <div class="foot">
-      <a href="#top" class="brand"><img src="images/logo.png" alt="Aloha Ice Cream — Maui, Hawaii" width="180" height="84" /></a>
+      <a href="#top" class="brand"><img src="images/logo.png" alt="Aloha Ice Cream - Maui, Hawaii" width="180" height="84" /></a>
       <div class="socials">
         <a href="https://www.instagram.com/alohaicecream/" aria-label="Aloha Ice Cream on Instagram" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
@@ -633,7 +637,7 @@
     </div>
     <p class="legal">
       © <span id="yr"></span> Aloha Ice Cream · Handcrafted on Maui, Hawaiʻi · Mobile ice cream cart catering.<br>
-      Demo build by Frontline Web Designs — pitch preview, not indexed. Photos &amp; menu pricing from the client's current materials; confirm rights, phone number, and current prices before launch.
+      Demo build by Frontline Web Designs - pitch preview, not indexed. Photos &amp; menu pricing from the client's current materials; confirm rights, phone number, and current prices before launch.
     </p>
   </div>
 </footer>
@@ -673,7 +677,7 @@
     }
   })();
 
-  // scroll reveal — one entrance per section
+  // scroll reveal - one entrance per section
   (function(){
     var els=document.querySelectorAll('.reveal');
     if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){

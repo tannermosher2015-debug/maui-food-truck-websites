@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- PITCH DEMO: noindex in BOTH meta and (on deploy) .htaccess/X-Robots-Tag. Remove both once the client signs on. -->
+<meta name="robots" content="noindex, nofollow" />
+<title>Thai Mee Up - Maui's Award-Winning Thai Food Truck (Kahului · Kula · Kihei)</title>
+<meta name="description" content="Authentic Thai street food from Maui's #1 food truck - three locations across the island. Panang curry, pad thai, crispy garlic chicken & daily specials. Order online." />
+<meta property="og:title" content="Thai Mee Up - Maui's Award-Winning Thai Food Truck" />
+<meta property="og:description" content="Three trucks across Maui. Authentic Thai, made to order - as seen on Diners, Drive-Ins & Dives." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Sarabun:wght@400;500;600;700&family=Charm:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Sarabun:wght@400;500;600;700&family=Charm:wght@400;700&display=swap" /></noscript>
+
+<style>
+  :root{
+    --bg:#F6F1E9;
+    --surface:#EDE3D3;
+    --primary:#A8331F;
+    --accent:#2E5E4E;
+    --text:#2A2622;
+    --gold:#B0852F;  /* temple gold - decorative only (lines/marks/flourish), never body text */
+    --flame:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 44'><path d='M16 43c-8-4-12-12-9-21 1.5-4.6 5-7 5-11 0 3 3 4.5 3 8 0-4 3-7 3-11 2 6 7 8 7 15 0 9-5 16-12 20z' fill='black'/><path d='M16 33c-3-2-4-5-3-8 .6-1.8 2-3 3-5 0 2 2 3 2 5 0 3-1 6-2 8z' fill='white'/></svg>");
+
+    --muted:rgba(42,38,34,.62);
+    --hair:rgba(42,38,34,.16);
+    --shadow:0 30px 70px -34px rgba(42,38,34,.4);
+    --maxw:1180px;
+    --f-display:"Kanit", Georgia, serif;
+    --f-body:"Sarabun", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.02;letter-spacing:-.015em;margin:0}
+  p{margin:0 0 1rem}
+  a{color:var(--primary)}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* labels / motif */
+  .label{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:700;font-size:.74rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  .label .dot{width:7px;height:7px;border-radius:50%;background:var(--primary)}
+  .num{font-family:var(--f-display);font-style:italic;font-weight:400;color:var(--primary);font-size:1rem;letter-spacing:0}
+  .rule{height:1px;background:var(--hair);border:0;margin:0}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-body);font-weight:700;font-size:1rem;
+    padding:14px 26px;border-radius:2px;border:1px solid var(--primary);background:var(--primary);color:#fff;cursor:pointer;
+    transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(168,51,31,.5)}
+  .btn.ghost{background:transparent;color:var(--text);border-color:var(--text)}
+  .btn.ghost:hover{background:var(--text);color:var(--bg)}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--text);color:var(--bg);padding:10px 16px;z-index:200}
+  .skip:focus{left:8px}
+
+  /* header */
+  header.site{position:sticky;top:0;z-index:100;background:rgba(246,241,233,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:600;font-size:1.5rem;letter-spacing:-.02em;color:var(--text)}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--primary);margin-bottom:14px}
+  .navlinks{display:flex;align-items:center;gap:30px}
+  .navlinks a{color:var(--text);font-weight:600;font-size:.94rem}
+  .navlinks a:not(.btn){position:relative}
+  .navlinks a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--primary);transition:width .25s}
+  .navlinks a:not(.btn):hover::after{width:100%}
+  .navlinks .btn{padding:10px 20px;color:#fff}
+  .navlinks .btn:hover{color:#fff}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px;width:46px;height:46px}
+  .burger span{display:block;width:26px;height:2px;background:var(--text);margin:6px auto;border-radius:3px;transition:.3s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+  /* hero */
+  .hero{padding:72px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
+  .masthead{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-family:var(--f-body);font-weight:600;
+    font-size:.8rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;margin-bottom:26px}
+  .masthead .sep{color:var(--primary)}
+  .hero h1{font-size:clamp(3rem,7vw,5.6rem);font-weight:500}
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--primary)}
+  .hero .lede{font-size:1.18rem;color:var(--muted);max-width:40ch;margin:26px 0 32px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-art{position:relative}
+  .hero-art img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;box-shadow:var(--shadow)}
+  .hero-art figcaption{font-family:var(--f-display);font-style:italic;color:var(--muted);font-size:.92rem;margin-top:12px;padding-left:2px}
+  .hero-art .ticket{position:absolute;top:18px;left:-16px;background:var(--bg);border:1px solid var(--hair);padding:10px 16px;
+    font-family:var(--f-display);font-weight:600;font-size:.95rem;box-shadow:var(--shadow)}
+  .hero-art .ticket b{color:var(--primary)}
+
+  /* sections */
+  .section{padding:92px 0}
+  .section.sand{background:var(--surface)}
+  .sechead{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+  .sechead h2{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:500}
+  .sechead-sub{color:var(--muted);max-width:54ch;margin:0 0 44px;font-size:1.06rem}
+
+  /* locations */
+  .loc-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+  .loc{padding:30px 28px 30px 0;border-top:1px solid var(--text)}
+  .loc:not(:last-child){border-right:1px solid var(--hair);padding-right:28px}
+  .loc:not(:first-child){padding-left:28px}
+  .loc h3{font-size:2rem;font-weight:500;margin-bottom:4px}
+  .loc .hrs{font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
+  .loc .addr{color:var(--muted);font-size:.96rem;margin:0 0 16px;min-height:3em}
+  .loc .tel{font-family:var(--f-display);font-size:1.4rem;color:var(--primary)}
+  .loc .tel:hover{color:var(--text)}
+  .loc .ord{display:block;margin-top:8px;font-size:.84rem;font-weight:600}
+
+  /* menu - editorial zigzag */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:46px 0;border-top:1px solid var(--hair)}
+  .feature:nth-child(even) .f-img{order:2}
+  .f-img img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;box-shadow:var(--shadow)}
+  .f-txt .num{display:block;margin-bottom:10px}
+  .f-txt h3{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:500;margin-bottom:10px}
+  .f-txt h3 .tag{font-family:var(--f-body);font-weight:700;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--primary);vertical-align:middle;border:1px solid var(--primary);border-radius:999px;padding:4px 10px;margin-left:12px}
+  .f-txt p{color:var(--muted);font-size:1.06rem;max-width:42ch}
+  .menu-more{margin-top:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;border-top:1px solid var(--text);padding-top:32px}
+  .menu-more .list{columns:2;column-gap:36px;font-size:1.02rem}
+  .menu-more .list span{display:block;padding:7px 0;border-bottom:1px solid var(--hair);break-inside:avoid}
+  .menu-more .list span em{font-style:normal;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;margin-left:6px}
+  .menu-more .cta{text-align:right}
+  .menu-more .cta p{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+
+  /* story */
+  .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .story-grid img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:3px;box-shadow:var(--shadow)}
+  .story-grid .pull{font-family:var(--f-display);font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:500;line-height:1.25;margin:0 0 18px}
+  .story-grid .pull em{font-style:italic;color:var(--primary)}
+
+  /* reviews / credibility */
+  .creds{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--text);border-bottom:1px solid var(--text);margin-bottom:46px}
+  .cred{flex:1 1 180px;padding:26px 22px;border-right:1px solid var(--hair)}
+  .cred:last-child{border-right:0}
+  .cred b{display:block;font-family:var(--f-display);font-size:2.2rem;font-weight:600;color:var(--primary);line-height:1}
+  .cred span{color:var(--muted);font-size:.88rem;font-weight:600}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .quote p{font-family:var(--f-display);font-size:1.3rem;font-weight:400;line-height:1.4;margin:0 0 12px}
+  .quote .who{color:var(--accent);font-weight:700;font-size:.86rem;letter-spacing:.04em;text-transform:uppercase}
+
+  /* order */
+  .order{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--text)}
+  .order img{width:100%;height:100%;min-height:280px;object-fit:cover}
+  .order .body{padding:clamp(34px,5vw,60px);display:flex;flex-direction:column;justify-content:center}
+  .order h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:500;margin-bottom:14px}
+  .order p{color:var(--muted);max-width:38ch}
+  .order .hero-cta{margin-top:12px}
+
+  /* footer */
+  footer.site{padding:60px 0 40px;border-top:1px solid var(--text);background:var(--surface)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
+  .foot .brand{margin-bottom:12px}
+  .foot p,.foot a{color:var(--muted);font-size:.94rem}
+  .foot a:hover{color:var(--primary)}
+  .foot h4{font-family:var(--f-body);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.74rem;color:var(--text);margin:0 0 14px}
+  .foot ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+  .socials{display:flex;gap:12px;margin-top:14px}
+  .socials a{width:42px;height:42px;border:1px solid var(--hair);border-radius:50%;display:grid;place-items:center;color:var(--text);transition:.25s}
+  .socials a:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-3px)}
+  .socials svg{width:19px;height:19px}
+  .legal{margin-top:36px;padding-top:20px;border-top:1px solid var(--hair);color:var(--muted);font-size:.8rem;line-height:1.6}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ===== Thai layer (kranok flame · temple gold · Thai script · weave) ===== */
+  .flame{display:inline-block;width:18px;height:24px;flex:0 0 auto;background:var(--gold);
+    -webkit-mask:center/contain no-repeat var(--flame);mask:center/contain no-repeat var(--flame)}
+  .flame.sm{width:14px;height:19px}
+  .f-thai{font-family:"Charm",cursive;font-weight:700}
+  .sechead::before{content:"";width:20px;height:27px;flex:0 0 auto;align-self:center;background:var(--gold);
+    -webkit-mask:center/contain no-repeat var(--flame);mask:center/contain no-repeat var(--flame)}
+
+  /* kranok flame divider between sections */
+  .flame-divider{display:flex;align-items:center;justify-content:center;gap:20px;padding:8px 0}
+  .flame-divider::before,.flame-divider::after{content:"";height:1px;width:min(180px,22vw);
+    background:linear-gradient(90deg,transparent,var(--gold))}
+  .flame-divider::after{background:linear-gradient(90deg,var(--gold),transparent)}
+  .flame-divider .flame{width:22px;height:30px}
+
+  /* Thai-script flourish (hero) */
+  .aroi{display:flex;align-items:baseline;gap:14px;margin:22px 0 0}
+  .aroi .th{font-family:"Charm",cursive;font-weight:700;font-size:2.4rem;color:var(--primary);line-height:1}
+  .aroi .rom{font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+
+  /* gold accents (decorative borders only) */
+  .creds{border-top-color:var(--gold);border-bottom-color:var(--gold)}
+  .menu-list .mi:first-child{border-top-color:var(--gold)}
+  .loc{border-top-color:var(--gold)}
+
+  /* subtle woven texture on sand sections */
+  .section.sand{background-color:var(--surface);
+    background-image:repeating-linear-gradient(45deg,rgba(43,32,24,.025) 0 2px,transparent 2px 7px),
+      repeating-linear-gradient(-45deg,rgba(43,32,24,.025) 0 2px,transparent 2px 7px)}
+
+  /* responsive */
+  @media (max-width:920px){
+    .hero-grid,.story-grid,.order{grid-template-columns:1fr;gap:40px}
+    .hero-art{max-width:440px}
+    .feature{grid-template-columns:1fr;gap:24px}
+    .feature:nth-child(even) .f-img{order:0}
+    .f-img{max-width:460px}
+    .loc-grid{grid-template-columns:1fr}
+    .loc{border-right:0!important;padding:24px 0!important}
+    .menu-more{grid-template-columns:1fr;gap:24px}
+    .menu-more .cta{text-align:left}
+    .quotes{grid-template-columns:1fr;gap:28px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .order img{min-height:240px}
+  }
+  @media (max-width:600px){
+    .navlinks{position:fixed;inset:78px 0 auto 0;background:var(--bg);flex-direction:column;gap:0;padding:8px 0 20px;border-bottom:1px solid var(--hair);box-shadow:var(--shadow);transform:translateY(-135%);transition:transform .35s ease;height:auto}
+    .navlinks.open{transform:translateY(0)}
+    .navlinks a:not(.btn){padding:15px 28px;width:100%}
+    .navlinks .btn{margin:12px 28px 0}
+    .burger{display:block}
+    .section{padding:64px 0}
+    .menu-more .list{columns:1}
+    .creds .cred{flex:1 1 50%;border-bottom:1px solid var(--hair)}
+    .foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<header class="site">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Thai Mee Up home">Thai Mee Up<span class="dot" aria-hidden="true"></span></a>
+    <nav class="navlinks" id="menu" aria-label="Primary">
+      <a href="#find">Find Us</a>
+      <a href="#menu-sec">Menu</a>
+      <a href="#story">Story</a>
+      <a href="#reviews">Reviews</a>
+      <a href="https://us.orderspoon.com/ThaiMeeUp-Kahului" class="btn" target="_blank" rel="noopener">Order Online</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <div class="masthead">
+        <span>Maui · Hawaiʻi</span><span class="sep">-</span>
+        <span>ʻAipono #1 Food Truck</span><span class="sep">-</span>
+        <span>Diners, Drive-Ins &amp; Dives</span>
+      </div>
+      <h1>The Thai people drive <em>across the island</em> for.</h1>
+      <p class="lede">Made-to-order Thai street food from three trucks - Kahului, Kula &amp; Kihei. The only hard part is choosing which one to pull up to.</p>
+      <div class="hero-cta">
+        <a href="#find" class="btn">Find a truck</a>
+        <a href="https://us.orderspoon.com/ThaiMeeUp-Kahului" class="btn ghost" target="_blank" rel="noopener">Order online</a>
+      </div>
+      <div class="aroi"><span class="th" aria-hidden="true">อร่อย</span><span class="rom">aroi - delicious</span></div>
+    </div>
+    <figure class="hero-art reveal">
+      <span class="ticket">Today's special - <b>Panang curry</b></span>
+      <!-- PHOTO: panang curry (Yelp, 1000px). Confirm rights before public/indexed launch. -->
+      <img src="images/tmu-panang__portrait.jpg" width="562" height="702" alt="Panang curry over rice on a banana leaf, with bell peppers and Thai basil" />
+      <figcaption>Panang curry on banana leaf - Kihei.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="wrap"><div class="flame-divider reveal" aria-hidden="true"><span class="flame"></span></div></div>
+
+<!-- ===== FIND US ===== -->
+<section class="section sand" id="find">
+  <div class="wrap">
+    <div class="sechead reveal"><span class="num">01</span><h2>Three trucks, one island.</h2></div>
+    <p class="sechead-sub reveal">Food trucks move - so call ahead and catch the closest one before you drive over.</p>
+    <div class="loc-grid">
+      <article class="loc reveal">
+        <h3>Kahului</h3>
+        <span class="hrs">Daily · 10am-8pm</span>
+        <p class="addr">591 Haleakala Hwy<br>Near Costco &amp; the airport</p>
+        <a class="tel" href="tel:+18082143369">(808) 214-3369</a>
+        <a class="ord" href="https://us.orderspoon.com/ThaiMeeUp-Kahului" target="_blank" rel="noopener">Order this location →</a>
+      </article>
+      <article class="loc reveal">
+        <h3>Kihei</h3>
+        <span class="hrs">Daily · 11am-8pm</span>
+        <!-- CONFIRM exact street address - IG says "South Maui Gardens" -->
+        <p class="addr">South Maui Gardens<br><em>(confirm exact address)</em></p>
+        <a class="tel" href="tel:+18082985273">(808) 298-5273</a>
+        <a class="ord" href="https://us.orderspoon.com/ThaiMeeUp-Kahului" target="_blank" rel="noopener">Order online →</a>
+      </article>
+      <article class="loc reveal">
+        <h3>Kula</h3>
+        <!-- CONFIRM Kula hours + street address (not listed on IG) -->
+        <span class="hrs">Upcountry · call to confirm</span>
+        <p class="addr">Kula, Maui<br><em>(confirm address &amp; hours)</em></p>
+        <a class="tel" href="tel:+18082807753">(808) 280-7753</a>
+        <a class="ord" href="https://us.orderspoon.com/ThaiMeeUp-Kahului" target="_blank" rel="noopener">Order online →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="section" id="menu-sec">
+  <div class="wrap">
+    <div class="sechead reveal"><span class="num">02</span><h2>Off the wok.</h2></div>
+    <p class="sechead-sub reveal">Everything made to order, island-fresh. Specials rotate daily - follow the truck for the day's catch.</p>
+
+    <article class="feature reveal">
+      <div class="f-img"><img src="images/tmu-padthai__square.jpg" width="811" height="811" alt="Pad thai with tofu, bean sprouts, peanuts, lime and cilantro" loading="lazy" /></div>
+      <div class="f-txt"><span class="num">01</span><h3>Pad Thai</h3><p>The one they come back for - rice noodles, egg, bean sprouts, crushed peanut and a squeeze of lime. Chicken, shrimp, or tofu.</p></div>
+    </article>
+    <article class="feature reveal">
+      <div class="f-img"><img src="images/tmu-garlicchicken__square.jpg" width="750" height="750" alt="Crispy garlic chicken over rice with dipping sauce" loading="lazy" /></div>
+      <div class="f-txt"><span class="num">02</span><h3>Crispy Garlic Chicken</h3><p>Golden, craggy, tossed in garlic - piled over rice with a chili dipping sauce. The plate that built the reputation.</p></div>
+    </article>
+    <article class="feature reveal">
+      <div class="f-img"><img src="images/tmu-drunkennoodle__square.jpg" width="727" height="727" alt="Drunken noodle with wide rice noodles, tofu, tomato and chili" loading="lazy" /></div>
+      <div class="f-txt"><span class="num">03</span><h3>Drunken Noodle <span class="tag">Bring the heat</span></h3><p>Wide rice noodles seared with holy basil, chili and tomato. Add seafood when it's running.</p></div>
+    </article>
+    <article class="feature reveal">
+      <div class="f-img"><img src="images/tmu-grilledpork__square.jpg" width="864" height="864" alt="Grilled pork with green mango slaw and rice" loading="lazy" /></div>
+      <div class="f-txt"><span class="num">04</span><h3>Grilled Pork &amp; Green Mango</h3><p>Char-grilled, marinated pork with a bright green-mango slaw and rice. Sweet, sour, smoky.</p></div>
+    </article>
+
+    <div class="menu-more reveal">
+      <div class="list">
+        <span>Panang Curry</span>
+        <span>Green Curry <em>vegan-able</em></span>
+        <span>Pad See Ew</span>
+        <span>Seared Ahi <em>local</em></span>
+        <span>Lobster Curry <em>special</em></span>
+        <span>Thai Poke Bowl</span>
+        <span>Fried Chicken Plate</span>
+        <span>Mango Sticky Rice</span>
+      </div>
+      <div class="cta">
+        <p>Full menu, prices &amp; vegan / vegetarian plates live on OrderSpoon.</p>
+        <a href="https://us.orderspoon.com/ThaiMeeUp-Kahului" class="btn" target="_blank" rel="noopener">See full menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section class="section sand" id="story">
+  <div class="wrap story-grid">
+    <div class="reveal">
+      <!-- PHOTO: the actual food truck (Yelp, 1000px). Confirm rights before public/indexed launch. -->
+      <img src="images/tmu-truck__wide.jpg" width="1000" height="562" alt="The Thai Mee Up food truck - a wood-paneled trailer with the chili-pepper logo, under an awning on Maui" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <div class="sechead"><span class="num">03</span><h2>The truck.</h2></div>
+      <p class="pull">Maui's <em>most-talked-about</em> Thai - cooked in a trailer, not a chain kitchen.</p>
+      <p>What started as one truck near Costco grew into three across the island under chef <strong>Tom Sribura</strong> - the same hands that landed Thai Mee Up on Food Network's <em>Diners, Drive-Ins &amp; Dives</em> and the top of Maui's ʻAipono awards. Same wok, same heat, three places to find it.</p>
+      <!-- CONFIRM chef name spelling + whether to feature the story -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS / CREDIBILITY ===== -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="sechead reveal"><span class="num">04</span><h2>The locals decided.</h2></div>
+    <div class="creds reveal">
+      <div class="cred"><b>#1</b><span>ʻAipono - Maui's best food truck</span></div>
+      <div class="cred"><b>★4.7</b><span>153 TripAdvisor reviews</span></div>
+      <div class="cred"><b>1,000+</b><span>Yelp reviews</span></div>
+      <div class="cred"><b>TV</b><span>Diners, Drive-Ins &amp; Dives</span></div>
+    </div>
+    <div class="quotes">
+      <blockquote class="quote reveal"><p>"Outstanding meal - from a food truck, in a great location, at such low cost, with friendly service."</p><span class="who">Joanne · TripAdvisor</span></blockquote>
+      <blockquote class="quote reveal"><p>"Green curry chicken and pad Thai were very good. The most popular food truck on Maui."</p><span class="who">Moushumi M · TripAdvisor</span></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORDER ===== -->
+<section class="section sand">
+  <div class="wrap">
+    <div class="order reveal">
+      <!-- PHOTO: pad see ew (Yelp). Confirm rights before public/indexed launch. -->
+      <img src="images/tmu-padseeew__square.jpg" alt="Pad see ew - wide rice noodles with greens and carrot" loading="lazy" />
+      <div class="body">
+        <span class="label"><span class="dot" aria-hidden="true"></span> Skip the line</span>
+        <h2 style="margin-top:14px">Order ahead.<br>Pick up hot.</h2>
+        <p>Build your order on OrderSpoon and grab it from the closest truck - Kahului, Kula, or Kihei.</p>
+        <div class="hero-cta">
+          <a href="https://us.orderspoon.com/ThaiMeeUp-Kahului" class="btn" target="_blank" rel="noopener">Order online</a>
+          <a href="tel:+18082143369" class="btn ghost">Call Kahului</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="brand">Thai Mee Up<span class="dot" aria-hidden="true"></span></a>
+        <p>Authentic Thai street food, made to order across Maui. Voted the island's #1 food truck.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/thai_mee_up/" aria-label="Thai Mee Up on Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.yelp.com/biz/thai-mee-up-kahului" aria-label="Thai Mee Up on Yelp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 3.5v8.2L7.4 5.8A14 14 0 0 1 11 3.5zM6 7.6l4.3 7L4 12.4A14 14 0 0 1 6 7.6zm-1.6 7.8 5-1.6-3.3 6.2a14 14 0 0 1-1.7-4.6zM13 20.5v-6l3.8 4.7a14 14 0 0 1-3.8 1.3zm5.4-2.7L14 14.4l6.3-.7a14 14 0 0 1-1.9 4.1z"/></svg></a>
+          <a href="https://us.orderspoon.com/ThaiMeeUp-Kahului" aria-label="Order Thai Mee Up online" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5h16l-1.5 9.5a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 5z"/><path d="M9 20h.01M16 20h.01"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Find a truck</h4>
+        <ul>
+          <li><a href="tel:+18082143369">Kahului · (808) 214-3369</a></li>
+          <li><a href="tel:+18082985273">Kihei · (808) 298-5273</a></li>
+          <li><a href="tel:+18082807753">Kula · (808) 280-7753</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Order</h4>
+        <ul>
+          <li><a href="https://us.orderspoon.com/ThaiMeeUp-Kahului" target="_blank" rel="noopener">OrderSpoon (online)</a></li>
+          <li><a href="#menu-sec">Menu</a></li>
+          <li><a href="#find">Hours &amp; locations</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">
+      © <span id="yr"></span> Thai Mee Up · Kahului · Kula · Kihei, Maui, Hawaiʻi.<br>
+      Demo build by Frontline Web Designs - pitch preview, not indexed. Photos &amp; reviews from the business's public listings; confirm rights, exact addresses/hours, and menu prices before launch.
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var b=document.getElementById('burger'), m=document.getElementById('menu');
+    b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');});
+    m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+  })();
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+    setTimeout(function(){els.forEach(function(e){e.classList.add('in')});},2500);
+  })();
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
