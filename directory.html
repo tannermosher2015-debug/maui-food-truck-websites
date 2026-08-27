@@ -7,28 +7,42 @@
   <meta name="description" content="A free community directory of Maui County food trucks by area and cuisine. Own a truck? Claim your listing and get a free website sample.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#241A12">
-  <!-- Meta Pixel -->
-  <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','1231807428404160');fbq('track','PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" alt=""
-  src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel -->
-
-  <!-- Google tag (gtag.js) - Google Ads AW-18248944168 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18248944168"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18248944168');
-  </script>
-  <!-- End Google tag -->
+<!-- Meta Pixel + Google Ads.
+     The queues are defined NOW so fbq() and gtag() are callable immediately and no
+     PageView or Lead is ever dropped. Only the two script FILES are deferred to idle,
+     which takes ~240KB off the initial contention window. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','1231807428404160');fbq('track','PageView');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','AW-18248944168');
+(function(){
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    var a=document.createElement('script');a.async=!0;
+    a.src='https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(a);
+    var g=document.createElement('script');g.async=!0;
+    g.src='https://www.googletagmanager.com/gtag/js?id=AW-18248944168';
+    document.head.appendChild(g);
+  }
+  ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
+    addEventListener(ev,load,{once:!0,passive:!0});
+  });
+  function afterLoad(){
+    if('requestIdleCallback' in window) requestIdleCallback(load,{timeout:2000});
+    else setTimeout(load,1200);
+  }
+  if(document.readyState==='complete') afterLoad();
+  else addEventListener('load',afterLoad);
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></noscript>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -122,6 +136,7 @@
     nav.main{display:flex;align-items:center;gap:28px}
     nav.main a{font-weight:500;font-size:.98rem;color:var(--ink-soft)}
     nav.main a:hover,nav.main a[aria-current]{color:var(--ink)}
+    nav.main a.btn-flame,nav.main a.btn-flame:hover{color:#fff;font-weight:700;font-size:1rem}
     .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:700;font-size:1rem;padding:13px 22px;border-radius:12px;border:2px solid var(--ink);cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
     .btn-flame{background:var(--flame);color:#fff;border-color:var(--ink)}
     .btn-flame:hover{transform:translateY(-2px)}
@@ -224,20 +239,20 @@
 <section class="dwrap">
   <div class="wrap">
     <div class="dgrid" id="grid">
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Geste Shrimp Truck</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Garlic Shrimp · Seafood</span><p class="t-desc">Maui's famous garlic shrimp (and hot dogs), usually parked on Kahului Beach Rd by the MACC.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Thai Mee Up</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Thai</span><p class="t-desc">'Aipono Award Best Food Truck (2018 &amp; 2022) - Thai done Maui-style at Plate Lunch Marketplace.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Like Poke</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Poke</span><p class="t-desc">Fresh, well-priced poke - voted Best Food Truck Lunch 2023 by Maui Time readers.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Ono Teppanyaki &amp; Seafood</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Teppanyaki · Seafood</span><p class="t-desc">Thai Mee Up's sister truck - teppanyaki &amp; seafood, plate-lunch style.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Tacos Maui</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Mexican · Tacos</span><p class="t-desc">Street tacos and burritos at Plate Lunch Marketplace near the airport.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Mo'Ono Hawai'i</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Açaí Bowls</span><p class="t-desc">Açaí bowls from a recipe perfected over three years - bright and fresh.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Kalei's Lunch Box</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">A go-to for local comfort grindz - Kahului, Wailuku &amp; Pukalani.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Da Soriano Grindz</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">Big, hearty island plate lunches with a loyal following.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kitoko Maui</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Hawaiian-Japanese-French Fusion</span><p class="t-desc">Creative fusion plates at South Maui Gardens, 35 Auhana Rd.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kina'ole Grill</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Hawaiian · Seafood</span><p class="t-desc">Local plates &amp; standout seared ahi, steps from Kamaole Beach I.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Horhitos Mobile Taqueria</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Tacos · Local Plate Lunch</span><p class="t-desc">One of Maui's OG trucks - street tacos, local plates, burgers &amp; mac salad.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">South Maui Fish Company</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Seafood · Poke</span><p class="t-desc">Fresh-caught seafood by Azeka - locally sourced, prepared to order.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Suns Out Buns Out</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Bao Buns · Street Food</span><p class="t-desc">Inventive bao buns &amp; street food on Piikea Ave (also at Plate Lunch Marketplace).</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="lahaina"><div class="t-top"><span class="t-name">808 Grindz</span><span class="t-area">Lahaina</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">West-side local favorites - back serving Lahaina with generous plates.</p><a href="intake.html" class="t-claim">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Geste Shrimp Truck</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Garlic Shrimp · Seafood</span><p class="t-desc">Maui's famous garlic shrimp (and hot dogs), usually parked on Kahului Beach Rd by the MACC.</p><a href="intake.html" class="t-claim" aria-label="Claim the Geste Shrimp Truck listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Thai Mee Up</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Thai</span><p class="t-desc">'Aipono Award Best Food Truck (2018 &amp; 2022) - Thai done Maui-style at Plate Lunch Marketplace.</p><a href="intake.html" class="t-claim" aria-label="Claim the Thai Mee Up listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Like Poke</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Poke</span><p class="t-desc">Fresh, well-priced poke - voted Best Food Truck Lunch 2023 by Maui Time readers.</p><a href="intake.html" class="t-claim" aria-label="Claim the Like Poke listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Ono Teppanyaki &amp; Seafood</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Teppanyaki · Seafood</span><p class="t-desc">Thai Mee Up's sister truck - teppanyaki &amp; seafood, plate-lunch style.</p><a href="intake.html" class="t-claim" aria-label="Claim the Ono Teppanyaki and Seafood listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Tacos Maui</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Mexican · Tacos</span><p class="t-desc">Street tacos and burritos at Plate Lunch Marketplace near the airport.</p><a href="intake.html" class="t-claim" aria-label="Claim the Tacos Maui listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Mo'Ono Hawai'i</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Açaí Bowls</span><p class="t-desc">Açaí bowls from a recipe perfected over three years - bright and fresh.</p><a href="intake.html" class="t-claim" aria-label="Claim the Mo'Ono Hawai'i listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Kalei's Lunch Box</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">A go-to for local comfort grindz - Kahului, Wailuku &amp; Pukalani.</p><a href="intake.html" class="t-claim" aria-label="Claim the Kalei's Lunch Box listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Da Soriano Grindz</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">Big, hearty island plate lunches with a loyal following.</p><a href="intake.html" class="t-claim" aria-label="Claim the Da Soriano Grindz listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kitoko Maui</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Hawaiian-Japanese-French Fusion</span><p class="t-desc">Creative fusion plates at South Maui Gardens, 35 Auhana Rd.</p><a href="intake.html" class="t-claim" aria-label="Claim the Kitoko Maui listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kina'ole Grill</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Hawaiian · Seafood</span><p class="t-desc">Local plates &amp; standout seared ahi, steps from Kamaole Beach I.</p><a href="intake.html" class="t-claim" aria-label="Claim the Kina'ole Grill listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Horhitos Mobile Taqueria</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Tacos · Local Plate Lunch</span><p class="t-desc">One of Maui's OG trucks - street tacos, local plates, burgers &amp; mac salad.</p><a href="intake.html" class="t-claim" aria-label="Claim the Horhitos Mobile Taqueria listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">South Maui Fish Company</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Seafood · Poke</span><p class="t-desc">Fresh-caught seafood by Azeka - locally sourced, prepared to order.</p><a href="intake.html" class="t-claim" aria-label="Claim the South Maui Fish Company listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Suns Out Buns Out</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Bao Buns · Street Food</span><p class="t-desc">Inventive bao buns &amp; street food on Piikea Ave (also at Plate Lunch Marketplace).</p><a href="intake.html" class="t-claim" aria-label="Claim the Suns Out Buns Out listing and get a free sample site">Is this your truck? Claim it →</a></article>
+      <article class="truck" data-area="lahaina"><div class="t-top"><span class="t-name">808 Grindz</span><span class="t-area">Lahaina</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">West-side local favorites - back serving Lahaina with generous plates.</p><a href="intake.html" class="t-claim" aria-label="Claim the 808 Grindz listing and get a free sample site">Is this your truck? Claim it →</a></article>
     </div>
     <p class="empty" id="empty" hidden role="status">No trucks listed in that area yet - <a href="intake.html">add yours →</a></p>
     <p class="disc">Listings are a free community directory compiled from publicly available information and may change. Own a truck and want your details updated, added, or removed? <a href="intake.html">Let us know.</a></p>

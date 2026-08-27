@@ -4,32 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Work: Sample Sites We've Built | Maui Food Truck Websites</title>
-  <meta name="description" content="See real sample websites built by Frontline Web Designs for Maui food trucks, cafes and coffee shops. Tap any to open the live site, then get one built free for your spot.">
+  <meta name="description" content="Real sample websites built for Maui food trucks, cafes and coffee shops. Tap any one to open the live site, then get one built free for your own spot.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#241A12">
 
-  <!-- Meta Pixel -->
-  <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','1231807428404160');fbq('track','PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" alt=""
-  src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel -->
-
-  <!-- Google tag (gtag.js) - Google Ads AW-18248944168 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18248944168"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18248944168');
-  </script>
-  <!-- End Google tag -->
+<!-- Meta Pixel + Google Ads.
+     The queues are defined NOW so fbq() and gtag() are callable immediately and no
+     PageView or Lead is ever dropped. Only the two script FILES are deferred to idle,
+     which takes ~240KB off the initial contention window. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
+fbq('init','1231807428404160');fbq('track','PageView');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','AW-18248944168');
+(function(){
+  var done=false;
+  function load(){
+    if(done)return; done=true;
+    var a=document.createElement('script');a.async=!0;
+    a.src='https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(a);
+    var g=document.createElement('script');g.async=!0;
+    g.src='https://www.googletagmanager.com/gtag/js?id=AW-18248944168';
+    document.head.appendChild(g);
+  }
+  ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
+    addEventListener(ev,load,{once:!0,passive:!0});
+  });
+  function afterLoad(){
+    if('requestIdleCallback' in window) requestIdleCallback(load,{timeout:2000});
+    else setTimeout(load,1200);
+  }
+  if(document.readyState==='complete') afterLoad();
+  else addEventListener('load',afterLoad);
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></noscript>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -86,6 +100,7 @@
     nav.main{display:flex;align-items:center;gap:28px}
     nav.main a{font-weight:500;font-size:.98rem;color:var(--ink-soft)}
     nav.main a:hover,nav.main a[aria-current]{color:var(--ink)}
+    nav.main a.btn-flame,nav.main a.btn-flame:hover{color:#fff;font-weight:700;font-size:1rem}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--disp);font-weight:700;font-size:1rem;padding:13px 22px;border-radius:12px;border:2px solid var(--ink);cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
     .btn-flame{background:var(--flame);color:#fff;border-color:var(--ink)}
     .btn-flame:hover{transform:translateY(-2px)}
@@ -200,7 +215,7 @@
       <article class="scard">
         <a class="scard-shot" href="https://alohaicecream.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Aloha Ice Cream live sample site">
           <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">alohaicecream.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/aloha-ice-cream.png" alt="Screenshot of the Aloha Ice Cream mobile ice cream cart catering website" loading="lazy">
+          <img src="assets/samples/aloha-ice-cream.webp" alt="Screenshot of the Aloha Ice Cream mobile ice cream cart catering website" loading="lazy">
         </a>
         <div class="scard-body">
           <div class="scard-top"><span class="scard-name">Aloha Ice Cream</span><span class="scard-tag">Ice Cream Cart</span></div>
