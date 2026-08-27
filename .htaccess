@@ -19,8 +19,4 @@ Header always set X-Content-Type-Options "nosniff"
 Header always set X-Frame-Options "SAMEORIGIN"
 # Send the full referrer to ourselves, only the origin to other sites.
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
-# HTTPS only for one year. NOTE: this is sticky in the browser and cannot be
-# un-done for a visitor who has already seen it, so the cert must never lapse.
-# Deliberately no includeSubDomains and no preload.
-Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>
