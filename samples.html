@@ -1,357 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Work: Sample Sites We've Built | Maui Food Truck Websites</title>
-  <meta name="description" content="Real sample websites built for Maui food trucks, cafes and coffee shops. Tap any one to open the live site, then get one built free for your own spot.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#241A12">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Our Work: Sample Sites We've Built | Maui Food Truck Websites</title>
+<meta name="description" content="Real sample websites built for Maui food trucks, cafes and coffee shops. Tap any one to open the live site, then get one built free for your own spot.">
+<meta property="og:title" content="Our work: real sample sites for Maui food trucks">
+<meta property="og:description" content="Sample sites we have built for Maui food trucks, cafes and coffee shops. Every one is live. Open any of them.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mauifoodtruckwebsites.com/samples.html">
+<meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our work: real sample sites for Maui food trucks">
+<meta name="twitter:description" content="Sample sites we have built for Maui food trucks, cafes and coffee shops. Every one is live.">
+<meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+<meta name="theme-color" content="#241f1b">
+<link rel="canonical" href="https://mauifoodtruckwebsites.com/samples.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-<!-- Meta Pixel + Google Ads.
-     The queues are defined NOW so fbq() and gtag() are callable immediately and no
-     PageView or Lead is ever dropped. Only the two script FILES are deferred to idle,
-     which takes ~240KB off the initial contention window. -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
-fbq('init','1231807428404160');fbq('track','PageView');
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','AW-18248944168');
-(function(){
-  var done=false;
-  function load(){
-    if(done)return; done=true;
-    var a=document.createElement('script');a.async=!0;
-    a.src='https://connect.facebook.net/en_US/fbevents.js';
-    document.head.appendChild(a);
-    var g=document.createElement('script');g.async=!0;
-    g.src='https://www.googletagmanager.com/gtag/js?id=AW-18248944168';
-    document.head.appendChild(g);
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* Page-specific only. The shared system lives in assets/site.css. */
+@layer components, responsive;
+
+@layer components {
+  .intro h1{font-size:var(--fs-xxl);max-width:13ch;line-height:1.04}
+  .intro h1 em{font-style:italic;color:var(--mango)}
+  .intro .mono{color:#cfc0ae;max-width:54ch;margin-top:1.4rem}
+
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2.6rem 1.6rem}
+  .scard{grid-column:span 4;margin:0}
+  /* The first two run wide, so the page is not seven identical tiles. */
+  .scard:first-child,.scard:nth-child(2){grid-column:span 6}
+
+  .shot{display:block;text-decoration:none;background:var(--volcanic);overflow:hidden}
+  .bar{display:flex;align-items:center;gap:.4rem;padding:.6rem .8rem;background:#171412}
+  .bar i{width:7px;height:7px;border-radius:50%;background:#4a4038;flex:none}
+  .bar .url{text-transform:none;letter-spacing:.04em;margin-left:.5rem;color:#9b8e81;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .shot img{width:100%;height:auto;transition:transform var(--dur) var(--ease),filter var(--dur) var(--ease);filter:saturate(.94)}
+  .shot:hover img{transform:scale(1.025);filter:saturate(1.06)}
+
+  .scard-body{padding-top:1.1rem}
+  .scard-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem;margin-bottom:.4rem}
+  .scard-name{font-size:var(--fs-lg);line-height:1.15}
+  .scard-tag{margin-left:auto;color:var(--ash)}
+  .scard-desc{color:var(--quiet);margin-bottom:.8rem}
+  .scard-link{
+    display:inline-block;text-decoration:none;color:var(--ember);
+    border-bottom:1px solid currentColor;padding-bottom:2px;
   }
-  ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
-    addEventListener(ev,load,{once:!0,passive:!0});
-  });
-  function afterLoad(){
-    if('requestIdleCallback' in window) requestIdleCallback(load,{timeout:2000});
-    else setTimeout(load,1200);
+  .scard-link:hover{color:var(--ink)}
+  .note{margin-top:3rem;color:var(--ash);max-width:56ch}
+}
+
+@layer responsive {
+  @media (max-width:800px){
+    .scard,.scard:first-child,.scard:nth-child(2){grid-column:1/13}
+    .grid{gap:2.4rem 0}
   }
-  if(document.readyState==='complete') afterLoad();
-  else addEventListener('load',afterLoad);
-})();
-</script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></noscript>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Our Work: sample sites we've built | Maui Food Truck Websites">
-  <meta property="og:description" content="Real sample sites for Maui food trucks, cafes and coffee shops. Tap any to open it live, then get one built free for your spot.">
-  <meta property="og:url" content="https://mauifoodtruckwebsites.com/samples.html">
-  <meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
-  <meta property="og:site_name" content="Maui Food Truck Websites">
-  <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Our Work: sample sites we've built">
-  <meta name="twitter:description" content="Real sample sites for Maui food trucks, cafes and coffee shops, tap any to open it live.">
-  <meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
-
-  <link rel="canonical" href="https://mauifoodtruckwebsites.com/samples.html">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#FFF7EC; --surface:#F6E4C8; --ink:#241A12; --flame:#D93E12; --flame-ink:#C93A10; --ocean:#0B6E60;
-      --ink-soft:#5C4B39; --hair:#E6D2B2; --board-line:#3A2C20;
-      --disp:"Bricolage Grotesque",serif; --body:"Figtree",system-ui,sans-serif;
-    }
-    *{box-sizing:border-box;margin:0}
-    html{scroll-behavior:smooth}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-    body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-    h1,h2,h3{font-family:var(--disp);line-height:1.05;letter-spacing:-.015em;font-weight:800}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 26px}
-    .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:12px 18px;z-index:200;border-radius:0 0 10px 0}
-    .skip:focus{left:0}
-    :focus-visible{outline:3px solid var(--ocean);outline-offset:3px;border-radius:3px}
-
-    /* sample bar */
-    .samplebar{background:var(--ink);color:#E9D9C2;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding:9px 26px;text-align:center;font-size:.86rem}
-    .samplebar p{display:inline-flex;align-items:center;gap:9px}
-    .samplebar svg{color:#FF7A4D;flex:none}
-    .samplebar strong{color:#FFB27A;font-weight:700}
-    .sb-cta{font-family:var(--disp);font-weight:700;font-size:.8rem;color:#fff;background:var(--flame);border:2px solid var(--ink);padding:6px 15px;border-radius:40px;display:inline-flex;align-items:center;gap:6px;transition:transform .12s ease}
-    .sb-cta:hover{transform:translateY(-1px)}
-
-    /* header (matches index) */
-    header.site{position:sticky;top:0;z-index:100;background:rgba(255,247,236,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
-    .bar{display:flex;align-items:center;justify-content:space-between;padding-block:14px}
-    .brand{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:800;font-size:1.12rem;letter-spacing:-.02em}
-    .brand .dot{width:30px;height:30px;border-radius:8px;background:var(--flame);position:relative;flex:0 0 auto;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
-    .brand .dot::after{content:"";position:absolute;inset:9px 0 0;background:var(--bg);border-radius:0 0 8px 8px;clip-path:polygon(0 40%,20% 0,40% 42%,60% 4%,80% 44%,100% 8%,100% 100%,0 100%)}
-    nav.main{display:flex;align-items:center;gap:28px}
-    nav.main a{font-weight:500;font-size:.98rem;color:var(--ink-soft)}
-    nav.main a:hover,nav.main a[aria-current]{color:var(--ink)}
-    nav.main a.btn-flame,nav.main a.btn-flame:hover{color:#fff;font-weight:700;font-size:1rem}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--disp);font-weight:700;font-size:1rem;padding:13px 22px;border-radius:12px;border:2px solid var(--ink);cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
-    .btn-flame{background:var(--flame);color:#fff;border-color:var(--ink)}
-    .btn-flame:hover{transform:translateY(-2px)}
-    .btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
-    .btn-ghost-light:hover{background:#fff;color:var(--ink);border-color:#fff}
-    .menu-toggle{display:none;background:none;border:2px solid var(--ink);border-radius:10px;width:46px;height:46px;cursor:pointer;align-items:center;justify-content:center}
-    .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{content:"";display:block;width:20px;height:2.5px;background:var(--ink);position:relative}
-    .menu-toggle span::before{position:absolute;top:-6px}.menu-toggle span::after{position:absolute;top:6px}
-
-    /* hero */
-    .shero{padding-block:56px 18px;text-align:center}
-    .kicker-stamp{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:.86rem;color:var(--ocean);border:2px solid var(--ocean);border-radius:40px;padding:6px 14px;transform:rotate(-2deg);margin-bottom:20px}
-    .kicker-stamp b{width:7px;height:7px;border-radius:50%;background:var(--flame)}
-    .shero h1{font-size:clamp(2.5rem,5vw,3.8rem)}
-    .shero p{color:var(--ink-soft);max-width:58ch;margin:18px auto 0;font-size:1.16rem}
-    .shero .meta{font-size:.9rem;color:var(--ink-soft);margin-top:14px}
-
-    /* samples grid */
-    .samp{padding:40px 0 8px}
-    .samp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
-    .scard{background:var(--bg);border:2px solid var(--ink);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .14s ease,box-shadow .14s ease}
-    .scard:hover{transform:translateY(-4px);box-shadow:7px 7px 0 var(--ink)}
-    .scard-shot{display:block;background:var(--surface);border-bottom:2px solid var(--ink)}
-    .scard-bar{display:flex;align-items:center;gap:6px;height:32px;padding:0 13px;background:var(--surface)}
-    .scard-bar i{width:9px;height:9px;border-radius:50%;display:block}
-    .scard-bar i:nth-child(1){background:#E86A4D}.scard-bar i:nth-child(2){background:#E3B34E}.scard-bar i:nth-child(3){background:#5FCBB8}
-    .scard-bar .scard-url{margin-left:10px;font-size:.7rem;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .scard-shot img{width:100%;height:auto;aspect-ratio:1280/800;object-fit:cover;object-position:top center;transition:transform .5s ease}
-    .scard:hover .scard-shot img{transform:scale(1.03)}
-    .scard-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
-    .scard-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-    .scard-name{font-family:var(--disp);font-size:1.3rem;font-weight:800}
-    .scard-tag{font-family:var(--disp);font-size:.66rem;font-weight:700;letter-spacing:.04em;color:var(--ocean);border:2px solid var(--ocean);padding:4px 10px;border-radius:40px;white-space:nowrap;flex:none}
-    .scard-desc{color:var(--ink-soft);font-size:.95rem;line-height:1.55;border-top:1px dashed var(--hair);padding-top:11px;margin-top:2px}
-    .scard-link{margin-top:auto;padding-top:11px;font-family:var(--disp);font-weight:700;font-size:.85rem;color:var(--ocean);display:inline-flex;align-items:center;gap:7px}
-    .scard-link:hover{color:var(--flame-ink)}
-
-    /* closing pitch (dark) */
-    .pitch{background:var(--ink);color:var(--bg);padding:84px 0;text-align:center;margin-top:40px}
-    .pitch .eyebrow{font-family:var(--disp);font-weight:700;color:#FFB27A;font-size:1rem;margin-bottom:10px}
-    .pitch h2{color:#fff;font-size:clamp(2rem,4.4vw,3rem);max-width:20ch;margin:0 auto}
-    .pitch p.psub{color:#E9D9C2;font-size:1.14rem;max-width:56ch;margin:18px auto 30px;line-height:1.6}
-    .pitch-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-    .pitch-note{font-size:.86rem;color:#a98f74;margin-top:20px}
-
-    /* footer (matches index) */
-    footer.site{background:var(--ink);color:#D8C7AE;padding-block:52px 34px;border-top:1px solid var(--board-line)}
-    footer.site a{color:#D8C7AE}
-    footer.site a:hover{color:#fff}
-    .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid #3A2C20}
-    .foot-col p.foot-h{font-family:var(--disp);font-weight:700;color:#fff;margin-bottom:12px;font-size:.95rem}
-    .foot-col a{display:block;padding:5px 0;font-size:.96rem}
-    .foot-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;font-size:.86rem;color:#a98f74}
-    .foot-bot a{color:#FFB27A}
-
-    @media (max-width:760px){
-      nav.main{position:fixed;inset:64px 0 auto;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--ink);padding:22px 26px;gap:8px;transform:translateY(-140%);transition:transform .28s ease;align-items:stretch}
-      nav.main.open{transform:translateY(0)}
-      nav.main a{padding:12px 0;font-size:1.1rem;border-bottom:1px solid var(--hair)}
-      nav.main .btn{margin-top:10px}
-      .menu-toggle{display:inline-flex}
-      .samp-grid{grid-template-columns:1fr}
-      .samplebar{flex-direction:column;gap:8px}
-      .foot-top{gap:26px}
-    }
-    @media (pointer:coarse){nav.main a,.btn,.sb-cta,.scard-link{min-height:44px}}
-    html.no-js .menu-toggle{display:none}
-  </style>
+}
+</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<a href="#main" class="skip">Skip to content</a>
-
-<div class="samplebar">
-  <p>
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg>
-    These are <strong>real sample sites</strong> we've built. Want one for your Maui spot?
-  </p>
-  <a href="intake.html" class="sb-cta">Get my free sample
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-  </a>
-</div>
-
-<header class="site">
-  <div class="wrap bar">
-    <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Maui Food Truck Websites</a>
-    <nav class="main" id="nav" aria-label="Primary">
-      <a href="index.html#how">How it works</a>
-      <a href="directory.html">Directory</a>
-      <a href="samples.html" aria-current="page">Our work</a>
-      <a class="btn btn-flame" href="intake.html">Get your free sample</a>
-    </nav>
-    <button class="menu-toggle" id="navBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
-  </div>
+<header class="site-head stuck" id="head">
+  <a class="brand" href="index.html">Maui Food Truck Websites</a>
+  <button class="navbtn mono" id="navBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="site-nav mono" id="nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#how">How it works</a>
+    <a href="directory.html">Truck directory</a>
+    <a class="go" href="intake.html">Get your free sample</a>
+  </nav>
 </header>
 
 <main id="main">
 
-<section class="shero">
-  <div class="wrap">
-    <span class="kicker-stamp"><b></b>Our work</span>
-    <h1>Real sites, really built</h1>
-    <p>Sample sites we've designed for Maui food trucks, cafes and coffee shops. Tap any card to open the live site.</p>
-    <p class="meta">Each one is a working, mobile-first site, built from scratch with no templates.</p>
-  </div>
-</section>
-
-<section class="samp">
-  <div class="wrap">
-    <div class="samp-grid">
-
-      <article class="scard">
-        <a class="scard-shot" href="https://alohaicecream.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Aloha Ice Cream live sample site">
-          <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">alohaicecream.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/aloha-ice-cream.webp" alt="Screenshot of the Aloha Ice Cream mobile ice cream cart catering website" loading="lazy">
-        </a>
-        <div class="scard-body">
-          <div class="scard-top"><span class="scard-name">Aloha Ice Cream</span><span class="scard-tag">Ice Cream Cart</span></div>
-          <p class="scard-desc">Mobile ice cream cart catering for Maui events: flavors, custom-labeled cups and full setup.</p>
-          <a class="scard-link" href="https://alohaicecream.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        </div>
-      </article>
-
-      <article class="scard">
-        <a class="scard-shot" href="https://moono.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Mo ʻOno Hawaiʻi live sample site">
-          <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">moono.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/moono.webp" alt="Screenshot of the Mo ʻOno Hawaiʻi açaí food-truck website" loading="lazy">
-        </a>
-        <div class="scard-body">
-          <div class="scard-top"><span class="scard-name">Mo ʻOno Hawaiʻi</span><span class="scard-tag">Food Truck</span></div>
-          <p class="scard-desc">Açaí truck in Kahului: menu, location and 244 five-star reviews up front.</p>
-          <a class="scard-link" href="https://moono.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        </div>
-      </article>
-
-      <article class="scard">
-        <a class="scard-shot" href="https://likepoke.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Like Poke live sample site">
-          <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">likepoke.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/like-poke.webp" alt="Screenshot of the Like Poke poke food-truck website" loading="lazy">
-        </a>
-        <div class="scard-body">
-          <div class="scard-top"><span class="scard-name">Like Poke?</span><span class="scard-tag">Food Truck</span></div>
-          <p class="scard-desc">Fresh-catch poke truck: menu, find-the-truck and Food Network cred.</p>
-          <a class="scard-link" href="https://likepoke.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        </div>
-      </article>
-
-      <article class="scard">
-        <a class="scard-shot" href="https://firstwave.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the First Wave Coffee live sample site">
-          <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">firstwave.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/first-wave.webp" alt="Screenshot of the First Wave Coffee website" loading="lazy">
-        </a>
-        <div class="scard-body">
-          <div class="scard-top"><span class="scard-name">First Wave Coffee</span><span class="scard-tag">Coffee Shop</span></div>
-          <p class="scard-desc">Sample site for a Maui coffee shop: menu, hours and location.</p>
-          <a class="scard-link" href="https://firstwave.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        </div>
-      </article>
-
-      <article class="scard">
-        <a class="scard-shot" href="https://earlybird.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Early Bird Coffee live sample site">
-          <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">earlybird.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/early-bird.webp" alt="Screenshot of the Early Bird Coffee website" loading="lazy">
-        </a>
-        <div class="scard-body">
-          <div class="scard-top"><span class="scard-name">Early Bird Coffee</span><span class="scard-tag">Coffee Shop</span></div>
-          <p class="scard-desc">Sample site for an early-morning Maui coffee spot: menu, hours and location.</p>
-          <a class="scard-link" href="https://earlybird.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        </div>
-      </article>
-
-      <article class="scard">
-        <a class="scard-shot" href="https://homemaid.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Home Maid Cafe live sample site">
-          <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">homemaid.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/home-maid.webp" alt="Screenshot of the Home Maid Cafe website" loading="lazy">
-        </a>
-        <div class="scard-body">
-          <div class="scard-top"><span class="scard-name">Home Maid Cafe</span><span class="scard-tag">Café</span></div>
-          <p class="scard-desc">Sample site for a homestyle Maui café: menu, hours and location.</p>
-          <a class="scard-link" href="https://homemaid.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        </div>
-      </article>
-
-      <article class="scard">
-        <a class="scard-shot" href="https://dagreen.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Da Green Coffee Bar live sample site">
-          <span class="scard-bar"><i></i><i></i><i></i><span class="scard-url">dagreen.mauifoodtruckwebsites.com</span></span>
-          <img src="assets/samples/da-green.webp" alt="Screenshot of the Da Green Coffee Bar website" loading="lazy">
-        </a>
-        <div class="scard-body">
-          <div class="scard-top"><span class="scard-name">Da Green Coffee Bar</span><span class="scard-tag">Coffee Bar</span></div>
-          <p class="scard-desc">Sample site for a Maui coffee bar: menu, hours and location.</p>
-          <a class="scard-link" href="https://dagreen.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-        </div>
-      </article>
-
+  <section class="dark intro below-head">
+    <div class="wrap">
+      <h1>Real sites, <em>really built.</em></h1>
+      <p class="mono plain">Sample sites we designed for Maui food trucks, cafes and coffee shops. Every one below is live right now. Open any of them and poke around.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="pitch">
-  <div class="wrap">
-    <p class="eyebrow">Your turn</p>
-    <h2>Want one for your spot?</h2>
-    <p class="psub">We'll build a free sample site for your Maui food truck, cafe or coffee shop. No commitment, no catch. See yours in a couple of days.</p>
-    <div class="pitch-cta">
-      <a href="intake.html" class="btn btn-flame">Get your free sample
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="index.html" class="btn btn-ghost-light">See the full demo</a>
+  <section>
+    <div class="wrap">
+      <div class="grid">
+
+        <article class="scard rise">
+          <a class="shot" href="https://alohaicecream.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Aloha Ice Cream live sample site">
+            <span class="bar mono"><i></i><i></i><i></i><span class="url">alohaicecream.mauifoodtruckwebsites.com</span></span>
+            <img src="assets/samples/aloha-ice-cream.webp" alt="Screenshot of the Aloha Ice Cream mobile ice cream cart catering website" loading="lazy">
+          </a>
+          <div class="scard-body">
+            <div class="scard-top"><span class="scard-name">Aloha Ice Cream</span><span class="mono scard-tag">Ice cream cart</span></div>
+            <p class="scard-desc">Mobile ice cream cart catering for Maui events: flavors, custom-labeled cups and full setup.</p>
+            <a class="mono scard-link" href="https://alohaicecream.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site</a>
+          </div>
+        </article>
+
+        <article class="scard rise">
+          <a class="shot" href="https://moono.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Mo ʻOno Hawaiʻi live sample site">
+            <span class="bar mono"><i></i><i></i><i></i><span class="url">moono.mauifoodtruckwebsites.com</span></span>
+            <img src="assets/samples/moono.webp" alt="Screenshot of the Mo ʻOno Hawaiʻi açaí food-truck website" loading="lazy">
+          </a>
+          <div class="scard-body">
+            <div class="scard-top"><span class="scard-name">Mo ʻOno Hawaiʻi</span><span class="mono scard-tag">Food truck</span></div>
+            <p class="scard-desc">Açaí truck in Kahului: menu, location and 244 five-star reviews up front.</p>
+            <a class="mono scard-link" href="https://moono.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site</a>
+          </div>
+        </article>
+
+        <article class="scard rise">
+          <a class="shot" href="https://likepoke.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Like Poke live sample site">
+            <span class="bar mono"><i></i><i></i><i></i><span class="url">likepoke.mauifoodtruckwebsites.com</span></span>
+            <img src="assets/samples/like-poke.webp" alt="Screenshot of the Like Poke poke food-truck website" loading="lazy">
+          </a>
+          <div class="scard-body">
+            <div class="scard-top"><span class="scard-name">Like Poke?</span><span class="mono scard-tag">Food truck</span></div>
+            <p class="scard-desc">Fresh-catch poke truck: menu, find-the-truck and Food Network cred.</p>
+            <a class="mono scard-link" href="https://likepoke.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site</a>
+          </div>
+        </article>
+
+        <article class="scard rise">
+          <a class="shot" href="https://firstwave.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the First Wave Coffee live sample site">
+            <span class="bar mono"><i></i><i></i><i></i><span class="url">firstwave.mauifoodtruckwebsites.com</span></span>
+            <img src="assets/samples/first-wave.webp" alt="Screenshot of the First Wave Coffee website" loading="lazy">
+          </a>
+          <div class="scard-body">
+            <div class="scard-top"><span class="scard-name">First Wave Coffee</span><span class="mono scard-tag">Coffee shop</span></div>
+            <p class="scard-desc">Signature lattes and island matcha in Kahului: menu, hours and location.</p>
+            <a class="mono scard-link" href="https://firstwave.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site</a>
+          </div>
+        </article>
+
+        <article class="scard rise">
+          <a class="shot" href="https://earlybird.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Early Bird Coffee live sample site">
+            <span class="bar mono"><i></i><i></i><i></i><span class="url">earlybird.mauifoodtruckwebsites.com</span></span>
+            <img src="assets/samples/early-bird.webp" alt="Screenshot of the Early Bird Coffee website" loading="lazy">
+          </a>
+          <div class="scard-body">
+            <div class="scard-top"><span class="scard-name">Early Bird Coffee</span><span class="mono scard-tag">Coffee shop</span></div>
+            <p class="scard-desc">Vietnamese coffee and island cold foams in Kihei: menu, hours and location.</p>
+            <a class="mono scard-link" href="https://earlybird.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site</a>
+          </div>
+        </article>
+
+        <article class="scard rise">
+          <a class="shot" href="https://homemaid.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Home Maid Cafe live sample site">
+            <span class="bar mono"><i></i><i></i><i></i><span class="url">homemaid.mauifoodtruckwebsites.com</span></span>
+            <img src="assets/samples/home-maid.webp" alt="Screenshot of the Home Maid Cafe website" loading="lazy">
+          </a>
+          <div class="scard-body">
+            <div class="scard-top"><span class="scard-name">Home Maid Cafe</span><span class="mono scard-tag">Cafe</span></div>
+            <p class="scard-desc">Kihei hole-in-the-wall for loco moco and malasadas: menu, hours and location.</p>
+            <a class="mono scard-link" href="https://homemaid.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site</a>
+          </div>
+        </article>
+
+        <article class="scard rise">
+          <a class="shot" href="https://dagreen.mauifoodtruckwebsites.com/" target="_blank" rel="noopener" aria-label="Open the Da Green Coffee Bar live sample site">
+            <span class="bar mono"><i></i><i></i><i></i><span class="url">dagreen.mauifoodtruckwebsites.com</span></span>
+            <img src="assets/samples/da-green.webp" alt="Screenshot of the Da Green Coffee Bar website" loading="lazy">
+          </a>
+          <div class="scard-body">
+            <div class="scard-top"><span class="scard-name">Da Green Coffee Bar</span><span class="mono scard-tag">Coffee bar</span></div>
+            <p class="scard-desc">Coffee in the shade, Kihei: menu, hours and location.</p>
+            <a class="mono scard-link" href="https://dagreen.mauifoodtruckwebsites.com/" target="_blank" rel="noopener">View live site</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="mono plain note">Every one is a working, mobile-first site, built from scratch. No templates.</p>
     </div>
-    <p class="pitch-note">No commitment · takes 2 minutes · built by a Maui local.</p>
-  </div>
-</section>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2 class="rise">Want one <em>for your spot?</em></h2>
+      <p class="rise">We build a free sample site for your Maui food truck, cafe or coffee shop. No commitment, no catch. See yours in a couple of days.</p>
+      <a class="cta rise" href="intake.html">Get your free sample</a>
+    </div>
+  </section>
+
 </main>
 
-<footer class="site">
+<footer class="dark site-foot">
   <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-col" style="max-width:320px">
-        <a class="brand" href="index.html" style="color:#fff"><span class="dot" aria-hidden="true"></span>Maui Food Truck Websites</a>
-        <p style="margin-top:14px;font-size:.95rem">Websites for Maui County food trucks, cafes and coffee shops that show people you're open and where. Built on island.</p>
+    <div class="foot-grid">
+      <div>
+        <p class="brand">Maui Food Truck Websites</p>
+        <p class="blurb">Websites for Maui County food trucks that show people you are open and where. Built on island.</p>
       </div>
-      <div class="foot-col">
-        <p class="foot-h">Explore</p>
-        <a href="index.html#how">How it works</a>
-        <a href="directory.html">Maui truck directory</a>
-        <a href="samples.html" aria-current="page">Our work</a>
+      <div>
+        <p class="mono foot-h">Explore</p>
+        <nav class="mono" aria-label="Explore">
+          <a href="index.html">Home</a>
+          <a href="index.html#how">How it works</a>
+          <a href="directory.html">Maui truck directory</a>
+        </nav>
       </div>
-      <div class="foot-col">
-        <p class="foot-h">Get started</p>
-        <a href="intake.html">Free sample</a>
-        <a href="intake.html">Contact us</a>
+      <div>
+        <p class="mono foot-h">Get started</p>
+        <nav class="mono" aria-label="Get started">
+          <a href="intake.html">Free sample</a>
+          <a href="mailto:FrontlineWebDesigns@gmail.com">Email us a question</a>
+        </nav>
       </div>
     </div>
-    <div class="foot-bot">
-      <span>&copy; 2026 Maui Food Truck Websites · Maui, Hawaiʻi</span>
-      <span>Built by <a href="https://frontlinewebdesign.tech" rel="noopener">Frontline Web Designs</a></span>
+    <p class="foot-mark" aria-hidden="true">Maui Food Truck</p>
+    <div class="mono foot-bot">
+      <span>&copy; 2026 Maui Food Truck Websites</span>
+      <span>Built by <a href="https://frontlinewebdesign.tech" rel="noopener nofollow">Frontline Web Designs</a></span>
     </div>
   </div>
 </footer>
 
-<script>
-document.documentElement.classList.remove("no-js");
-(function(){
-  var nav=document.getElementById("nav"),btn=document.getElementById("navBtn");
-  btn.addEventListener("click",function(){
-    var open=nav.classList.toggle("open");
-    btn.setAttribute("aria-expanded",open);btn.setAttribute("aria-label",open?"Close menu":"Open menu");
-  });
-  nav.addEventListener("click",function(e){if(e.target.tagName==="A"){nav.classList.remove("open");btn.setAttribute("aria-expanded","false");}});
-})();
-</script>
+<aside class="callbar" aria-label="Get started">
+  <a class="cta" href="intake.html">Get your free sample</a>
+</aside>
+
+<script src="assets/site.js" defer></script>
 </body>
 </html>

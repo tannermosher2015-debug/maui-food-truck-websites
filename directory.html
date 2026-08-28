@@ -1,326 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maui County Food Truck Directory | Maui Food Truck Websites</title>
-  <meta name="description" content="A free community directory of Maui County food trucks by area and cuisine. Own a truck? Claim your listing and get a free website sample.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#241A12">
-<!-- Meta Pixel + Google Ads.
-     The queues are defined NOW so fbq() and gtag() are callable immediately and no
-     PageView or Lead is ever dropped. Only the two script FILES are deferred to idle,
-     which takes ~240KB off the initial contention window. -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window,document,'script');
-fbq('init','1231807428404160');fbq('track','PageView');
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','AW-18248944168');
-(function(){
-  var done=false;
-  function load(){
-    if(done)return; done=true;
-    var a=document.createElement('script');a.async=!0;
-    a.src='https://connect.facebook.net/en_US/fbevents.js';
-    document.head.appendChild(a);
-    var g=document.createElement('script');g.async=!0;
-    g.src='https://www.googletagmanager.com/gtag/js?id=AW-18248944168';
-    document.head.appendChild(g);
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Maui County Food Truck Directory | Maui Food Truck Websites</title>
+<meta name="description" content="A free community directory of Maui County food trucks by area and cuisine. Own a truck? Claim your listing and get a free website sample.">
+<meta property="og:title" content="Maui County food truck directory">
+<meta property="og:description" content="A free community guide to Maui County food trucks, by area. Own one? Claim your listing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mauifoodtruckwebsites.com/directory.html">
+<meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maui County food truck directory">
+<meta name="twitter:description" content="A free community guide to Maui County food trucks, by area.">
+<meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+<meta name="theme-color" content="#241f1b">
+<link rel="canonical" href="https://mauifoodtruckwebsites.com/directory.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* Page-specific only. The shared system lives in assets/site.css. */
+@layer components, responsive;
+
+@layer components {
+  .intro h1{font-size:var(--fs-xxl);max-width:13ch;line-height:1.04}
+  .intro h1 em{font-style:italic;color:var(--mango)}
+  .intro .mono{color:#cfc0ae;max-width:56ch;margin-top:1.4rem}
+
+  .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.9rem}
+  .fbtn{
+    appearance:none;background:none;border:1px solid var(--hair);color:var(--ink);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:var(--fs-mono);
+    letter-spacing:.16em;text-transform:uppercase;padding:.7rem 1.1rem;cursor:pointer;
+    transition:background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),border-color var(--dur-fast) var(--ease);
   }
-  ['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
-    addEventListener(ev,load,{once:!0,passive:!0});
-  });
-  function afterLoad(){
-    if('requestIdleCallback' in window) requestIdleCallback(load,{timeout:2000});
-    else setTimeout(load,1200);
+  .fbtn:hover{border-color:var(--ink)}
+  .fbtn[aria-pressed="true"]{background:var(--volcanic);border-color:var(--volcanic);color:var(--cream)}
+  .count{color:var(--ash);margin-bottom:2.4rem}
+
+  .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem}
+  .truck{padding:1.6rem 0;border-top:1px solid var(--hair)}
+  .t-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem}
+  .t-name{font-size:var(--fs-lg);line-height:1.15}
+  .t-area{margin-left:auto;color:var(--ember)}
+  .t-cuisine{display:block;color:var(--ash);margin:.35rem 0 .6rem}
+  .t-desc{color:var(--quiet);margin-bottom:.7rem}
+  .t-claim{display:inline-block;text-transform:none;letter-spacing:.03em;font-size:13px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--hair);padding-bottom:2px;
+           transition:border-color var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease)}
+  .t-claim:hover{color:var(--ember);border-color:var(--ember)}
+
+  .empty{padding:2.5rem 0;color:var(--quiet)}
+  .disc{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--hair);color:var(--ash);max-width:70ch}
+  .disc a{color:var(--ember)}
+}
+
+@layer responsive {
+  @media (max-width:800px){
+    .dgrid{grid-template-columns:1fr;gap:0}
   }
-  if(document.readyState==='complete') afterLoad();
-  else addEventListener('load',afterLoad);
-})();
-</script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></noscript>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Maui County Food Truck Directory">
-  <meta property="og:description" content="A free directory of Maui County food trucks by area & cuisine. Own a truck? Claim your listing and get a free website sample.">
-  <meta property="og:url" content="https://mauifoodtruckwebsites.com/directory.html">
-  <meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
-  <meta property="og:site_name" content="Maui Food Truck Websites">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maui County Food Truck Directory">
-  <meta name="twitter:description" content="A free directory of Maui County food trucks by area & cuisine, by Maui Food Truck Websites.">
-  <meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
-
-  <link rel="canonical" href="https://mauifoodtruckwebsites.com/directory.html">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-
-  <!-- Structured data: breadcrumb + the directory of real Maui trucks -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mauifoodtruckwebsites.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Maui Food Truck Directory", "item": "https://mauifoodtruckwebsites.com/directory.html" }
-        ]
-      },
-      {
-        "@type": "CollectionPage",
-        "name": "Maui County Food Truck Directory",
-        "url": "https://mauifoodtruckwebsites.com/directory.html",
-        "description": "A free community directory of Maui County food trucks by area and cuisine.",
-        "mainEntity": {
-          "@type": "ItemList",
-          "name": "Maui County Food Trucks",
-          "numberOfItems": 14,
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "item": { "@type": "FoodEstablishment", "name": "Geste Shrimp Truck", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 2, "item": { "@type": "FoodEstablishment", "name": "Thai Mee Up", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 3, "item": { "@type": "FoodEstablishment", "name": "Like Poke", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 4, "item": { "@type": "FoodEstablishment", "name": "Ono Teppanyaki & Seafood", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 5, "item": { "@type": "FoodEstablishment", "name": "Tacos Maui", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 6, "item": { "@type": "FoodEstablishment", "name": "Mo'Ono Hawai'i", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 7, "item": { "@type": "FoodEstablishment", "name": "Kalei's Lunch Box", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 8, "item": { "@type": "FoodEstablishment", "name": "Da Soriano Grindz", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 9, "item": { "@type": "FoodEstablishment", "name": "Kitoko Maui", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 10, "item": { "@type": "FoodEstablishment", "name": "Kina'ole Grill", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 11, "item": { "@type": "FoodEstablishment", "name": "Horhitos Mobile Taqueria", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 12, "item": { "@type": "FoodEstablishment", "name": "South Maui Fish Company", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 13, "item": { "@type": "FoodEstablishment", "name": "Suns Out Buns Out", "areaServed": "Maui County, HI" } },
-            { "@type": "ListItem", "position": 14, "item": { "@type": "FoodEstablishment", "name": "808 Grindz", "areaServed": "Maui County, HI" } }
-          ]
-        }
-      }
-    ]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#FFF7EC; --surface:#F6E4C8; --ink:#241A12; --flame:#D93E12; --flame-ink:#C93A10; --ocean:#0B6E60;
-      --ink-soft:#5C4B39; --hair:#E6D2B2; --board-line:#3A2C20;
-      --disp:"Bricolage Grotesque",serif; --body:"Figtree",system-ui,sans-serif;
-    }
-    *{box-sizing:border-box;margin:0}
-    html{scroll-behavior:smooth}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-    body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-    h1,h2,h3{font-family:var(--disp);line-height:1.05;letter-spacing:-.015em;font-weight:800}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 26px}
-    .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:12px 18px;z-index:200;border-radius:0 0 10px 0}
-    .skip:focus{left:0}
-    :focus-visible{outline:3px solid var(--ocean);outline-offset:3px;border-radius:3px}
-
-    /* header (matches index) */
-    header.site{position:sticky;top:0;z-index:100;background:rgba(255,247,236,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
-    .bar{display:flex;align-items:center;justify-content:space-between;padding-block:14px}
-    .brand{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:800;font-size:1.12rem;letter-spacing:-.02em}
-    .brand .dot{width:30px;height:30px;border-radius:8px;background:var(--flame);position:relative;flex:0 0 auto;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
-    .brand .dot::after{content:"";position:absolute;inset:9px 0 0;background:var(--bg);border-radius:0 0 8px 8px;clip-path:polygon(0 40%,20% 0,40% 42%,60% 4%,80% 44%,100% 8%,100% 100%,0 100%)}
-    nav.main{display:flex;align-items:center;gap:28px}
-    nav.main a{font-weight:500;font-size:.98rem;color:var(--ink-soft)}
-    nav.main a:hover,nav.main a[aria-current]{color:var(--ink)}
-    nav.main a.btn-flame,nav.main a.btn-flame:hover{color:#fff;font-weight:700;font-size:1rem}
-    .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:700;font-size:1rem;padding:13px 22px;border-radius:12px;border:2px solid var(--ink);cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
-    .btn-flame{background:var(--flame);color:#fff;border-color:var(--ink)}
-    .btn-flame:hover{transform:translateY(-2px)}
-    .menu-toggle{display:none;background:none;border:2px solid var(--ink);border-radius:10px;width:46px;height:46px;cursor:pointer;align-items:center;justify-content:center}
-    .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{content:"";display:block;width:20px;height:2.5px;background:var(--ink);position:relative}
-    .menu-toggle span::before{position:absolute;top:-6px}.menu-toggle span::after{position:absolute;top:6px}
-
-    /* hero */
-    .dhero{padding-block:60px 26px;text-align:center;position:relative}
-    .kicker-stamp{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;font-size:.86rem;color:var(--ocean);border:2px solid var(--ocean);border-radius:40px;padding:6px 14px;transform:rotate(-2deg);margin-bottom:20px}
-    .kicker-stamp b{width:7px;height:7px;border-radius:50%;background:var(--flame)}
-    .dhero h1{font-size:clamp(2.5rem,5vw,3.8rem)}
-    .dhero p{color:var(--ink-soft);max-width:56ch;margin:18px auto 0;font-size:1.16rem}
-
-    /* filters */
-    .filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:34px 0 6px}
-    .fbtn{font-family:var(--disp);font-size:.9rem;font-weight:700;padding:9px 20px;border-radius:40px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer;transition:transform .12s ease,background .15s,color .15s}
-    .fbtn:hover{transform:translateY(-2px)}
-    .fbtn.on{background:var(--ink);color:var(--bg)}
-    .count{text-align:center;font-size:.88rem;color:var(--ink-soft);margin-top:14px}
-
-    /* grid */
-    .dwrap{padding:22px 0 40px}
-    .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .truck{background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:8px;transition:transform .14s ease,box-shadow .14s ease}
-    .truck:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--ink)}
-    .t-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-    .t-name{font-family:var(--disp);font-size:1.22rem;font-weight:800;line-height:1.12}
-    .t-area{font-family:var(--disp);font-size:.72rem;font-weight:700;letter-spacing:.02em;color:var(--ocean);border:2px solid var(--ocean);padding:4px 9px;border-radius:40px;white-space:nowrap;flex:none}
-    .t-cuisine{font-family:var(--disp);font-size:.76rem;font-weight:700;letter-spacing:.02em;color:var(--flame-ink)}
-    .t-desc{color:var(--ink-soft);font-size:.95rem;line-height:1.55;flex:1;border-top:1px dashed var(--hair);padding-top:11px;margin-top:3px}
-    .t-claim{font-family:var(--disp);font-size:.82rem;font-weight:700;color:var(--ocean);display:inline-flex;align-items:center;gap:6px;margin-top:8px}
-    .t-claim:hover{color:var(--flame-ink)}
-    .empty{text-align:center;color:var(--ink-soft);font-size:1.05rem;padding:44px;grid-column:1/-1}
-    .empty a{color:var(--flame-ink);font-weight:700;text-decoration:underline}
-    .disc{margin-top:26px;font-size:.85rem;color:var(--ink-soft);line-height:1.7;max-width:760px}
-    .disc a{color:var(--flame-ink);text-decoration:underline}
-
-    /* cta band (dark) */
-    .cta{background:var(--ink);color:var(--bg);padding:72px 0;text-align:center;margin-top:8px}
-    .cta .eyebrow{font-family:var(--disp);font-weight:700;color:#FFB27A;font-size:1rem;margin-bottom:10px}
-    .cta h2{color:#fff;font-size:clamp(1.9rem,3.6vw,2.7rem);max-width:20ch;margin:0 auto}
-    .cta p{color:#E9D9C2;max-width:52ch;margin:16px auto 26px;font-size:1.1rem}
-
-    /* footer (matches index) */
-    footer.site{background:var(--ink);color:#D8C7AE;padding-block:52px 34px;border-top:1px solid var(--board-line)}
-    footer.site a{color:#D8C7AE}
-    footer.site a:hover{color:#fff}
-    .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid #3A2C20}
-    .foot-col p.foot-h{font-family:var(--disp);font-weight:700;color:#fff;margin-bottom:12px;font-size:.95rem}
-    .foot-col a{display:block;padding:5px 0;font-size:.96rem}
-    .foot-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;font-size:.86rem;color:#a98f74}
-    .foot-bot a{color:#FFB27A}
-
-    @media (max-width:900px){.dgrid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:760px){
-      nav.main{position:fixed;inset:64px 0 auto;flex-direction:column;background:var(--bg);border-bottom:2px solid var(--ink);padding:22px 26px;gap:8px;transform:translateY(-140%);transition:transform .28s ease;align-items:stretch}
-      nav.main.open{transform:translateY(0)}
-      nav.main a{padding:12px 0;font-size:1.1rem;border-bottom:1px solid var(--hair)}
-      nav.main .btn{margin-top:10px;justify-content:center}
-      .menu-toggle{display:inline-flex}
-      .foot-top{gap:26px}
-    }
-    @media (max-width:560px){.dgrid{grid-template-columns:1fr}}
-    @media (pointer:coarse){nav.main a,.btn,.fbtn,.t-claim{min-height:44px}}
-    html.no-js .menu-toggle{display:none}
-  </style>
+}
+</style>
 </head>
 <body>
-<a href="#main" class="skip">Skip to content</a>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="site">
-  <div class="wrap bar">
-    <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span>Maui Food Truck Websites</a>
-    <nav class="main" id="nav" aria-label="Primary">
-      <a href="index.html#how">How it works</a>
-      <a href="samples.html">Our work</a>
-      <a class="btn btn-flame" href="intake.html">Get your free sample</a>
-    </nav>
-    <button class="menu-toggle" id="navBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
-  </div>
+<header class="site-head stuck" id="head">
+  <a class="brand" href="index.html">Maui Food Truck Websites</a>
+  <button class="navbtn mono" id="navBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="site-nav mono" id="nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#how">How it works</a>
+    <a href="samples.html">See real sites</a>
+    <a class="go" href="intake.html">Get your free sample</a>
+  </nav>
 </header>
 
 <main id="main">
-<section class="dhero">
-  <div class="wrap">
-    <span class="kicker-stamp"><b></b>A free community guide</span>
-    <h1>Maui County food trucks</h1>
-    <p>A growing directory of the island's best trucks, by area. Own one of these? Claim your listing and let's get you a free website sample.</p>
-    <div class="filters" role="group" aria-label="Filter by area">
-      <button type="button" class="fbtn on" data-area="all" aria-pressed="true">All</button>
-      <button type="button" class="fbtn" data-area="kihei" aria-pressed="false">Kihei</button>
-      <button type="button" class="fbtn" data-area="kahului" aria-pressed="false">Kahului</button>
-      <button type="button" class="fbtn" data-area="lahaina" aria-pressed="false">Lahaina</button>
-    </div>
-    <p class="count" id="count" role="status">Showing all 14 trucks</p>
-  </div>
-</section>
 
-<section class="dwrap">
-  <div class="wrap">
-    <div class="dgrid" id="grid">
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Geste Shrimp Truck</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Garlic Shrimp · Seafood</span><p class="t-desc">Maui's famous garlic shrimp (and hot dogs), usually parked on Kahului Beach Rd by the MACC.</p><a href="intake.html" class="t-claim" aria-label="Claim the Geste Shrimp Truck listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Thai Mee Up</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Thai</span><p class="t-desc">'Aipono Award Best Food Truck (2018 &amp; 2022) - Thai done Maui-style at Plate Lunch Marketplace.</p><a href="intake.html" class="t-claim" aria-label="Claim the Thai Mee Up listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Like Poke</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Poke</span><p class="t-desc">Fresh, well-priced poke - voted Best Food Truck Lunch 2023 by Maui Time readers.</p><a href="intake.html" class="t-claim" aria-label="Claim the Like Poke listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Ono Teppanyaki &amp; Seafood</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Teppanyaki · Seafood</span><p class="t-desc">Thai Mee Up's sister truck - teppanyaki &amp; seafood, plate-lunch style.</p><a href="intake.html" class="t-claim" aria-label="Claim the Ono Teppanyaki and Seafood listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Tacos Maui</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Mexican · Tacos</span><p class="t-desc">Street tacos and burritos at Plate Lunch Marketplace near the airport.</p><a href="intake.html" class="t-claim" aria-label="Claim the Tacos Maui listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Mo'Ono Hawai'i</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Açaí Bowls</span><p class="t-desc">Açaí bowls from a recipe perfected over three years - bright and fresh.</p><a href="intake.html" class="t-claim" aria-label="Claim the Mo'Ono Hawai'i listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Kalei's Lunch Box</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">A go-to for local comfort grindz - Kahului, Wailuku &amp; Pukalani.</p><a href="intake.html" class="t-claim" aria-label="Claim the Kalei's Lunch Box listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Da Soriano Grindz</span><span class="t-area">Kahului</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">Big, hearty island plate lunches with a loyal following.</p><a href="intake.html" class="t-claim" aria-label="Claim the Da Soriano Grindz listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kitoko Maui</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Hawaiian-Japanese-French Fusion</span><p class="t-desc">Creative fusion plates at South Maui Gardens, 35 Auhana Rd.</p><a href="intake.html" class="t-claim" aria-label="Claim the Kitoko Maui listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kina'ole Grill</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Hawaiian · Seafood</span><p class="t-desc">Local plates &amp; standout seared ahi, steps from Kamaole Beach I.</p><a href="intake.html" class="t-claim" aria-label="Claim the Kina'ole Grill listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Horhitos Mobile Taqueria</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Tacos · Local Plate Lunch</span><p class="t-desc">One of Maui's OG trucks - street tacos, local plates, burgers &amp; mac salad.</p><a href="intake.html" class="t-claim" aria-label="Claim the Horhitos Mobile Taqueria listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">South Maui Fish Company</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Seafood · Poke</span><p class="t-desc">Fresh-caught seafood by Azeka - locally sourced, prepared to order.</p><a href="intake.html" class="t-claim" aria-label="Claim the South Maui Fish Company listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Suns Out Buns Out</span><span class="t-area">Kihei</span></div><span class="t-cuisine">Bao Buns · Street Food</span><p class="t-desc">Inventive bao buns &amp; street food on Piikea Ave (also at Plate Lunch Marketplace).</p><a href="intake.html" class="t-claim" aria-label="Claim the Suns Out Buns Out listing and get a free sample site">Is this your truck? Claim it →</a></article>
-      <article class="truck" data-area="lahaina"><div class="t-top"><span class="t-name">808 Grindz</span><span class="t-area">Lahaina</span></div><span class="t-cuisine">Local Plate Lunch</span><p class="t-desc">West-side local favorites - back serving Lahaina with generous plates.</p><a href="intake.html" class="t-claim" aria-label="Claim the 808 Grindz listing and get a free sample site">Is this your truck? Claim it →</a></article>
+  <section class="dark intro below-head">
+    <div class="wrap">
+      <h1>Maui County <em>food trucks.</em></h1>
+      <p class="mono plain">A growing directory of the island&rsquo;s best trucks, by area. Own one of these? Claim your listing and let us build you a free website sample.</p>
     </div>
-    <p class="empty" id="empty" hidden role="status">No trucks listed in that area yet - <a href="intake.html">add yours →</a></p>
-    <p class="disc">Listings are a free community directory compiled from publicly available information and may change. Own a truck and want your details updated, added, or removed? <a href="intake.html">Let us know.</a></p>
-  </div>
-</section>
+  </section>
 
-<section class="cta">
-  <div class="wrap">
-    <p class="eyebrow">Own one of these trucks?</p>
-    <h2>Let's build you a free sample.</h2>
-    <p>See exactly what your truck's website could look like. No cost, no commitment.</p>
-    <a href="intake.html" class="btn btn-flame">Get your free sample
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-  </div>
-</section>
+  <section>
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter by area">
+        <button type="button" class="fbtn" data-area="all" aria-pressed="true">All</button>
+        <button type="button" class="fbtn" data-area="kihei" aria-pressed="false">Kihei</button>
+        <button type="button" class="fbtn" data-area="kahului" aria-pressed="false">Kahului</button>
+        <button type="button" class="fbtn" data-area="lahaina" aria-pressed="false">Lahaina</button>
+      </div>
+      <p class="mono count" id="count" role="status"></p>
+
+      <div class="dgrid" id="grid">
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Geste Shrimp Truck</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">Garlic shrimp &middot; Seafood</span><p class="t-desc">Maui&rsquo;s famous garlic shrimp (and hot dogs), usually parked on Kahului Beach Rd by the MACC.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Geste Shrimp Truck listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Thai Mee Up</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">Thai</span><p class="t-desc">&lsquo;Aipono Award Best Food Truck (2018 and 2022). Thai done Maui-style at Plate Lunch Marketplace.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Thai Mee Up listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Like Poke</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">Poke</span><p class="t-desc">Fresh, well-priced poke. Voted Best Food Truck Lunch 2023 by Maui Time readers.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Like Poke listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Ono Teppanyaki &amp; Seafood</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">Teppanyaki &middot; Seafood</span><p class="t-desc">Thai Mee Up&rsquo;s sister truck: teppanyaki and seafood, plate-lunch style.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Ono Teppanyaki and Seafood listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Tacos Maui</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">Mexican &middot; Tacos</span><p class="t-desc">Street tacos and burritos at Plate Lunch Marketplace near the airport.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Tacos Maui listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Mo&rsquo;Ono Hawai&rsquo;i</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">A&ccedil;a&iacute; bowls</span><p class="t-desc">A&ccedil;a&iacute; bowls from a recipe perfected over three years. Bright and fresh.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Mo'Ono Hawai'i listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Kalei&rsquo;s Lunch Box</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">Local plate lunch</span><p class="t-desc">A go-to for local comfort grindz. Kahului, Wailuku and Pukalani.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Kalei's Lunch Box listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului"><div class="t-top"><span class="t-name">Da Soriano Grindz</span><span class="mono t-area">Kahului</span></div><span class="mono t-cuisine">Local plate lunch</span><p class="t-desc">Big, hearty island plate lunches with a loyal following.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Da Soriano Grindz listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kitoko Maui</span><span class="mono t-area">Kihei</span></div><span class="mono t-cuisine">Hawaiian-Japanese-French fusion</span><p class="t-desc">Creative fusion plates at South Maui Gardens, 35 Auhana Rd.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Kitoko Maui listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Kina&rsquo;ole Grill</span><span class="mono t-area">Kihei</span></div><span class="mono t-cuisine">Hawaiian &middot; Seafood</span><p class="t-desc">Local plates and standout seared ahi, steps from Kamaole Beach I.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Kina'ole Grill listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Horhitos Mobile Taqueria</span><span class="mono t-area">Kihei</span></div><span class="mono t-cuisine">Tacos &middot; Local plate lunch</span><p class="t-desc">One of Maui&rsquo;s OG trucks: street tacos, local plates, burgers and mac salad.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Horhitos Mobile Taqueria listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">South Maui Fish Company</span><span class="mono t-area">Kihei</span></div><span class="mono t-cuisine">Seafood &middot; Poke</span><p class="t-desc">Fresh-caught seafood by Azeka. Locally sourced, prepared to order.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the South Maui Fish Company listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kihei"><div class="t-top"><span class="t-name">Suns Out Buns Out</span><span class="mono t-area">Kihei</span></div><span class="mono t-cuisine">Bao buns &middot; Street food</span><p class="t-desc">Inventive bao buns and street food on Piikea Ave, also at Plate Lunch Marketplace.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the Suns Out Buns Out listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="lahaina"><div class="t-top"><span class="t-name">808 Grindz</span><span class="mono t-area">Lahaina</span></div><span class="mono t-cuisine">Local plate lunch</span><p class="t-desc">West-side local favorites, back serving Lahaina with generous plates.</p><a href="intake.html" class="mono t-claim" aria-label="Claim the 808 Grindz listing and get a free sample site">Is this your truck? Claim it</a></article>
+      </div>
+
+      <p class="empty" id="empty" hidden role="status">No trucks listed in that area yet. <a href="intake.html">Add yours.</a></p>
+      <p class="mono plain disc">Listings are a free community directory compiled from publicly available information and may change. Own a truck and want your details updated, added, or removed? <a href="intake.html">Let us know.</a></p>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2 class="rise">Own one of these trucks? <em>Let us build you a free sample.</em></h2>
+      <p class="rise">See exactly what your truck&rsquo;s website could look like. No cost, no commitment.</p>
+      <a class="cta rise" href="intake.html">Get your free sample</a>
+    </div>
+  </section>
+
 </main>
 
-<footer class="site">
+<footer class="dark site-foot">
   <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-col" style="max-width:320px">
-        <a class="brand" href="index.html" style="color:#fff"><span class="dot" aria-hidden="true"></span>Maui Food Truck Websites</a>
-        <p style="margin-top:14px;font-size:.95rem">Websites for Maui County food trucks that show people you're open and where. Built on island.</p>
+    <div class="foot-grid">
+      <div>
+        <p class="brand">Maui Food Truck Websites</p>
+        <p class="blurb">Websites for Maui County food trucks that show people you are open and where. Built on island.</p>
       </div>
-      <div class="foot-col">
-        <p class="foot-h">Explore</p>
-        <a href="index.html#how">How it works</a>
-        <a href="directory.html" aria-current="page">Maui truck directory</a>
-        <a href="samples.html">Our work</a>
+      <div>
+        <p class="mono foot-h">Explore</p>
+        <nav class="mono" aria-label="Explore">
+          <a href="index.html">Home</a>
+          <a href="index.html#how">How it works</a>
+          <a href="samples.html">Our work</a>
+        </nav>
       </div>
-      <div class="foot-col">
-        <p class="foot-h">Get started</p>
-        <a href="intake.html">Free sample</a>
-        <a href="intake.html">Contact us</a>
+      <div>
+        <p class="mono foot-h">Get started</p>
+        <nav class="mono" aria-label="Get started">
+          <a href="intake.html">Free sample</a>
+          <a href="mailto:FrontlineWebDesigns@gmail.com">Email us a question</a>
+        </nav>
       </div>
     </div>
-    <div class="foot-bot">
-      <span>&copy; 2026 Maui Food Truck Websites · Maui, Hawaiʻi</span>
-      <span>Built by <a href="https://frontlinewebdesign.tech" rel="noopener">Frontline Web Designs</a></span>
+    <p class="foot-mark" aria-hidden="true">Maui Food Truck</p>
+    <div class="mono foot-bot">
+      <span>&copy; 2026 Maui Food Truck Websites &middot; Maui, Hawai&#699;i</span>
+      <span>Built by <a href="https://frontlinewebdesign.tech" rel="noopener nofollow">Frontline Web Designs</a></span>
     </div>
   </div>
 </footer>
 
-<script>
-document.documentElement.classList.remove("no-js");
-(function(){
-  // mobile nav (matches index)
-  var nav=document.getElementById("nav"),btn=document.getElementById("navBtn");
-  btn.addEventListener("click",function(){
-    var open=nav.classList.toggle("open");
-    btn.setAttribute("aria-expanded",open);btn.setAttribute("aria-label",open?"Close menu":"Open menu");
-  });
-  nav.addEventListener("click",function(e){if(e.target.tagName==="A"){nav.classList.remove("open");btn.setAttribute("aria-expanded","false");}});
+<aside class="callbar" aria-label="Get started">
+  <a class="cta" href="intake.html">Get your free sample</a>
+</aside>
 
-  // area filter (preserved)
-  var trucks=[].slice.call(document.querySelectorAll('.truck')),
-      empty=document.getElementById('empty'), count=document.getElementById('count');
-  document.querySelectorAll('.fbtn').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
-      b.classList.add('on');b.setAttribute('aria-pressed','true');
-      var a=b.dataset.area,n=0;
-      trucks.forEach(function(t){var v=a==='all'||t.dataset.area===a;t.hidden=!v;if(v)n++;});
-      if(empty) empty.hidden=n>0;
-      if(count) count.textContent=n===0?'':(a==='all'?'Showing all '+n+' trucks':'Showing '+n+' in '+b.textContent);
+<script src="assets/site.js" defer></script>
+<script>
+(function(){
+  "use strict";
+  var trucks = [].slice.call(document.querySelectorAll(".truck")),
+      btns   = [].slice.call(document.querySelectorAll(".fbtn")),
+      empty  = document.getElementById("empty"),
+      count  = document.getElementById("count");
+
+  function apply(area, label){
+    var n = 0;
+    trucks.forEach(function(t){
+      var show = area === "all" || t.dataset.area === area;
+      t.hidden = !show;
+      if (show) n++;
+    });
+    empty.hidden = n > 0;
+    /* Counted from the DOM, never hard-coded, so it cannot drift from the list. */
+    count.textContent = n === 0 ? "" : (area === "all" ? "Showing all " + n + " trucks" : "Showing " + n + " in " + label);
+  }
+
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      btns.forEach(function(x){ x.setAttribute("aria-pressed", "false"); });
+      b.setAttribute("aria-pressed", "true");
+      apply(b.dataset.area, b.textContent);
     });
   });
+
+  apply("all", "All");
 })();
 </script>
 </body>

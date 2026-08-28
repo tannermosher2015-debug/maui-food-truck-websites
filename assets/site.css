@@ -1,0 +1,157 @@
+/* Maui Food Truck Websites: the "Island Table" design system.
+   Shared by every page. Page-specific rules stay inline on the page that needs them.
+
+   Layer order matters: `responsive` must sit AFTER `components`, or every mobile
+   override silently loses to the desktop component rule it is meant to beat.
+   That bug cost a whole broken phone layout on 2026-08-27. */
+@layer base, layout, components, motion, responsive;
+
+@layer base {
+  :root{
+    /* Palette. Diverged from the reference on purpose: warm island, not French.
+       Every pair below was measured, not eyeballed. */
+    --cream:#ece4d7;
+    --volcanic:#241f1b;
+    --ink:#1a1613;
+    --ash:#675a4d;     /* 5.32:1 on cream */
+    --mango:#cf8434;   /* 5.44:1 on volcanic. Dark grounds only. */
+    --ember:#9a4a17;   /* 4.95:1 on cream. Light grounds only. */
+    --quiet:#5a4f45;   /* 6.31:1 on cream. Secondary copy. */
+    --hair:rgba(26,22,19,.16);
+    --hair-dark:rgba(236,228,215,.2);
+
+    /* One curve for the whole site, measured off the reference set. */
+    --ease:cubic-bezier(0.17,0.84,0.44,1);
+    --dur:.5s;
+    --dur-fast:.26s;
+
+    --fs-hero:clamp(3.25rem,9.4vw,8.8rem);
+    --fs-xxl:clamp(2.15rem,4.7vw,4.2rem);
+    --fs-lg:clamp(1.5rem,2.4vw,2.1rem);
+    --fs-body:1.06rem;
+    --fs-mono:11px;   /* 11px is the functional-text floor. Do not go under it. */
+
+    --gut:clamp(1.25rem,4vw,2.5rem);
+    --maxw:1200px;
+    --callbar-h:74px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:96px}
+  body{
+    background:var(--cream);color:var(--ink);
+    font:400 var(--fs-body)/1.58 "Instrument Serif",Georgia,"Times New Roman",serif;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  /* An author `display` beats the UA sheet's [hidden] rule, so any component
+     that sets display silently un-hides itself. This keeps the attribute honest.
+     Caught 2026-08-27: the brief's Back button rendered on step 1. */
+  [hidden]{display:none !important}
+  h1,h2,h3{font-weight:400;letter-spacing:-.022em;line-height:1.02}
+  :focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:2px}
+  .dark :focus-visible,.site-foot :focus-visible{outline-color:var(--mango)}
+  .skip{position:absolute;left:-999px;top:0;z-index:300;background:var(--ink);color:var(--cream);padding:14px 20px}
+  .skip:focus{left:0}
+  .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+
+@layer layout {
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+  .wrap-narrow{max-width:760px}
+  .mono{
+    font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:var(--fs-mono);letter-spacing:.16em;text-transform:uppercase;line-height:1.9;
+  }
+  /* Uppercase is for LABELS. A paragraph gets .plain. */
+  .mono.plain{font-size:14px;text-transform:none;letter-spacing:.02em;line-height:1.78}
+  section{padding:clamp(4rem,9vw,7.5rem) 0}
+  .dark{background:var(--volcanic);color:var(--cream)}
+  .lede{color:var(--quiet);max-width:56ch}
+}
+
+@layer components {
+  /* ---------- header ---------- */
+  .site-head{
+    position:fixed;inset:0 0 auto;z-index:60;display:flex;align-items:center;gap:1.5rem;
+    padding:1.25rem var(--gut);color:var(--cream);
+    transition:background var(--dur) var(--ease),color var(--dur) var(--ease);
+  }
+  /* Pages with no hero carry .stuck in the markup, so the bar is solid from load. */
+  .site-head.stuck{background:var(--cream);color:var(--ink);box-shadow:0 1px 0 var(--hair)}
+  .brand{font-size:1.32rem;font-style:italic;letter-spacing:.005em;text-decoration:none;white-space:nowrap}
+  .site-nav{margin-left:auto;display:flex;align-items:center;gap:1.9rem}
+  .site-nav a{text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+  .site-nav a:hover{border-color:currentColor}
+  .site-nav .go{border-bottom:1px solid currentColor}
+  .navbtn{display:none;margin-left:auto;background:none;border:1px solid currentColor;color:inherit;
+          padding:.6rem .9rem;cursor:pointer}
+  /* Inner pages start below the fixed bar instead of under a hero. */
+  .below-head{padding-top:clamp(7rem,13vw,10rem)}
+
+  /* ---------- buttons ---------- */
+  .cta{
+    display:inline-block;font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
+    background:var(--volcanic);color:var(--cream);padding:1.15rem 2.1rem;border:1px solid var(--volcanic);
+    cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease);
+  }
+  .cta:hover{background:var(--ember);border-color:var(--ember);color:#fff}
+  .cta.ghost{background:none;color:var(--ink)}
+  .cta.ghost:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .cta[disabled]{opacity:.55;cursor:not-allowed}
+
+  /* ---------- closing band, every page ends on one ---------- */
+  .close{text-align:center}
+  .close h2{font-size:var(--fs-xxl);max-width:15ch;margin:0 auto;line-height:1.04}
+  .close h2 em{font-style:italic;color:var(--ember)}
+  .close p{max-width:44ch;margin:1.4rem auto 0;color:var(--quiet)}
+  .close .cta{margin-top:2.2rem}
+
+  /* ---------- footer ---------- */
+  .site-foot{padding:clamp(3.5rem,7vw,6rem) 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+  .foot-grid p.blurb{color:#c0b2a1;max-width:34ch;margin-top:.9rem}
+  .foot-h{color:var(--mango);margin-bottom:.9rem}
+  .site-foot a{display:block;text-decoration:none;padding:.28rem 0;color:#e3d8c8}
+  .site-foot a:hover{color:#fff}
+  /* Decorative only, and aria-hidden: the brand name is readable directly above it. */
+  .foot-mark{
+    margin-top:clamp(3rem,7vw,5.5rem);font-size:clamp(3rem,12.6vw,11.5rem);line-height:.86;
+    font-style:italic;letter-spacing:-.03em;color:#443b33;
+  }
+  .foot-bot{display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+            margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--hair-dark);color:#a89a89}
+  .foot-bot a{display:inline;color:inherit;text-decoration:underline}
+
+  .callbar{display:none}
+}
+
+@layer motion {
+  /* Opt IN, inside no-preference. Never a `reduce` kill switch bolted on after. */
+  @media (prefers-reduced-motion: no-preference){
+    .rise{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .rise.in{opacity:1;transform:none}
+  }
+  /* Safety net: if the observer never runs, nothing is left hidden. */
+  .no-js .rise{opacity:1;transform:none}
+}
+
+@layer responsive {
+  @media (max-width:800px){
+    .site-nav{display:none}
+    .site-nav.open{
+      display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;
+      position:absolute;inset:100% 0 auto;background:var(--cream);color:var(--ink);
+      padding:1.2rem var(--gut) 1.6rem;box-shadow:0 12px 30px rgba(26,22,19,.14);
+    }
+    .navbtn{display:block}
+    .foot-grid{grid-template-columns:1fr}
+    body{padding-bottom:var(--callbar-h)}
+    .callbar{
+      display:block;position:fixed;inset:auto 0 0;z-index:70;background:var(--volcanic);
+      padding:.85rem var(--gut) calc(.85rem + env(safe-area-inset-bottom,0px));
+    }
+    .callbar .cta{display:block;margin:0;text-align:center;background:var(--ember);border-color:var(--ember);color:#fff}
+  }
+}

@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get Your Free Maui Food-Truck Website Sample</title>
 <meta name="description" content="Three things about your Maui food truck and we build you a free website sample. No cost, no card, no obligation.">
 <meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#241A12">
+<meta name="theme-color" content="#241f1b">
 <link rel="canonical" href="https://mauifoodtruckwebsites.com/intake.html">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -19,14 +19,9 @@
 <meta name="twitter:title" content="Get your free Maui food-truck website sample">
 <meta name="twitter:description" content="Tell us your truck's name and what you sell. We build a free sample site and send you the link.">
 <meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Meta Pixel + Google Ads.
-     The queues are defined NOW so fbq() and gtag() are callable immediately and no
-     PageView or Lead is ever dropped. Only the two script FILES are deferred to idle,
-     which takes ~240KB off the initial contention window. -->
+<!-- Meta Pixel + Google Ads. Queues defined NOW so fbq() and gtag() are callable
+     immediately and the Lead event on submit is never dropped. -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -60,151 +55,187 @@ gtag('js',new Date());gtag('config','AW-18248944168');
 <noscript><img height="1" width="1" style="display:none" alt=""
 src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></noscript>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-  :root{
-    --bg:#FFF7EC; --surface:#F6E4C8; --ink:#241A12; --flame:#D93E12; --ocean:#0B6E60;
-    --ink-soft:#5C4B39; --faint:#6E5C46; --hair:#E6D2B2; --white:#fff;
-    --disp:"Bricolage Grotesque",serif; --body:"Figtree",system-ui,-apple-system,sans-serif;
+/* Page-specific only. The shared system lives in assets/site.css. */
+@layer components, responsive;
+
+@layer components {
+  .intro{text-align:center}
+  .intro h1{font-size:var(--fs-xxl);max-width:14ch;margin:0 auto;line-height:1.04}
+  .intro h1 em{font-style:italic;color:var(--mango)}
+  .intro .mono{color:#cfc0ae;max-width:46ch;margin:1.4rem auto 0}
+
+  .promise{
+    display:flex;gap:.9rem;align-items:flex-start;max-width:60ch;margin:0 auto 2.6rem;
+    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:1.2rem 0;color:var(--quiet);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  [hidden]{display:none !important}
-  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-  h1,h2{font-family:var(--disp);letter-spacing:-.015em;line-height:1.08}
-  a{color:inherit}
-  .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:12px 18px;z-index:200;border-radius:0 0 10px 0}
-  .skip:focus{left:0}
-  .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-  :focus-visible{outline:3px solid var(--ocean);outline-offset:3px;border-radius:3px}
-  .wrap{max-width:560px;margin:0 auto;padding:0 22px}
+  .promise .star{color:var(--ember);flex:none;line-height:1.4}
+  .promise b{color:var(--ink);font-style:italic;font-weight:400}
 
-  header.site{background:var(--white);border-bottom:1px solid var(--hair)}
-  .back{display:inline-flex;align-items:center;min-height:44px;font-size:.72rem;font-weight:800;
-    letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
-  .back:hover{color:var(--flame)}
-
-  main{padding:34px 0 60px}
-  h1{font-size:2rem;margin-bottom:10px}
-  .lede{color:var(--ink-soft);font-size:1rem;margin-bottom:8px}
-  .promise{display:flex;gap:9px;align-items:flex-start;background:var(--surface);
-    border:2px solid var(--ink);border-radius:12px;padding:13px 15px;margin:22px 0 30px;font-size:.9rem;line-height:1.45}
-  .promise b{font-weight:700}
-
-  .field{margin-bottom:22px}
-  .field label{display:block;font-size:.7rem;font-weight:800;color:var(--ink-soft);
-    text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
-  .hint{font-weight:400;text-transform:none;letter-spacing:0;color:var(--faint)}
+  form{max-width:60ch;margin:0 auto}
+  .field{margin-bottom:1.5rem}
+  .field label{display:block;color:var(--ash);margin-bottom:.5rem}
+  .field label .hint{text-transform:none;letter-spacing:.02em;color:var(--ash)}
   input[type=text],input[type=email],input[type=tel]{
-    width:100%;padding:13px 15px;border:1.5px solid var(--hair);border-radius:9px;
-    font-size:16px;font-family:inherit;background:var(--white);color:var(--ink);
-    -webkit-appearance:none;min-height:48px}
-  input:focus{border-color:var(--ocean);outline:none;box-shadow:0 0 0 3px rgba(11,110,96,.16)}
-  input[aria-invalid="true"]{border-color:#8C1F0B;box-shadow:0 0 0 3px rgba(140,31,11,.16)}
+    width:100%;font:inherit;font-size:1.06rem;color:var(--ink);
+    background:rgba(255,255,255,.42);border:1px solid var(--hair);border-radius:0;
+    padding:.95rem 1rem;transition:border-color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease);
+  }
+  input:hover{background:rgba(255,255,255,.7)}
+  input:focus{background:#fff;border-color:var(--ember);outline:none;box-shadow:0 0 0 2px rgba(154,74,23,.28)}
+  input[aria-invalid=true]{border-color:#a3231b;background:#fdf3f1}
+  ::placeholder{color:#9b8e81;opacity:1}
 
-  .contact-box{background:var(--white);border:1px solid var(--hair);border-radius:12px;padding:18px 16px 6px;margin-bottom:16px}
-  .boxlabel{display:block;font-size:.7rem;font-weight:800;color:var(--ink-soft);
-    text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
-  .reassure{font-size:.87rem;color:var(--ink-soft);margin-bottom:26px;line-height:1.5}
-  .reassure b{color:var(--ink)}
+  .contact-box{border:1px solid var(--hair);padding:1.6rem 1.4rem .3rem;margin:2.2rem 0 1.4rem;position:relative}
+  .boxlabel{position:absolute;top:-.72rem;left:1rem;background:var(--cream);padding:0 .55rem;color:var(--ash)}
 
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;
-    font-family:var(--disp);font-weight:700;font-size:1.05rem;padding:15px 22px;border-radius:12px;
-    border:2px solid var(--ink);background:var(--flame);color:#fff;cursor:pointer;min-height:56px;text-decoration:none}
-  .btn[disabled]{opacity:.7;cursor:default}
-  .btn-quiet{background:var(--white);color:var(--ink);font-size:.95rem;min-height:48px}
-  .err{color:#8C1F0B;background:#FDECE7;border:1px solid #E0A192;border-radius:9px;
-    font-size:.88rem;padding:10px 13px;margin-bottom:14px;line-height:1.45}
-  .err:empty{display:none}
-  .hp{position:absolute;left:-9999px}
+  .err{color:#8f1f16;margin-bottom:1rem;min-height:1.2em}
+  .err:empty{margin:0}
+  .reassure{color:var(--quiet);margin:.4rem 0 2rem}
+  .reassure b{color:var(--ink);font-style:italic;font-weight:400}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
-  .done{text-align:center;padding:20px 0 10px}
-  .tick{width:64px;height:64px;border-radius:50%;background:var(--surface);border:2px solid var(--ink);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:var(--flame)}
-  .done h2{font-size:1.7rem;margin-bottom:10px}
-  .done p{color:var(--ink-soft);margin-bottom:26px}
+  #submitBtn{width:100%}
 
-  footer.site{border-top:1px solid var(--hair);padding:26px 0 40px;text-align:center;color:var(--faint);font-size:.85rem}
-  footer.site a{color:var(--ink);font-weight:600}
+  .done{text-align:center;max-width:52ch;margin:0 auto}
+  .tick{
+    width:64px;height:64px;margin:0 auto 1.4rem;border:1px solid var(--ember);border-radius:50%;
+    display:grid;place-items:center;color:var(--ember);font-size:1.8rem;line-height:1;
+  }
+  .done h2{font-size:var(--fs-lg);margin-bottom:.7rem}
+  .done p{color:var(--quiet);margin-bottom:2rem}
+}
 
-  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+@layer responsive {
+  @media (max-width:800px){
+    .promise{flex-direction:column;gap:.5rem}
+  }
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#form">Skip to the form</a>
 
-<header class="site">
-  <div class="wrap"><a class="back" href="index.html">&#8592; Maui Food Truck Websites</a></div>
+<header class="site-head stuck" id="head">
+  <a class="brand" href="index.html">Maui Food Truck Websites</a>
+  <button class="navbtn mono" id="navBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="site-nav mono" id="nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="samples.html">See real sites</a>
+    <a href="directory.html">Truck directory</a>
+  </nav>
 </header>
 
-<main class="wrap" id="main">
-  <h1>Get your free sample</h1>
-  <p class="lede">Three things about your truck. That is the whole form.</p>
+<main id="main">
 
-  <p class="promise"><span aria-hidden="true">&#9733;</span>
-    <span>We build you a real, working sample site and send you the link.
-    <b>No cost, no card, no obligation.</b> Love it and you keep it.</span></p>
-
-  <form id="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-    <input type="hidden" name="access_key" value="27a01d1c-8f66-495f-9083-39a77467a130">
-    <input type="hidden" name="from_name" value="Maui Food Truck Websites">
-    <input type="hidden" name="subject" id="subjectField" value="Free sample request">
-    <input type="hidden" name="message" id="messageField" value="">
-    <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-    <p class="err" id="err" role="alert" aria-live="assertive"></p>
-
-    <div class="field">
-      <label for="bizName">Your truck's name</label>
-      <input type="text" id="bizName" name="bizName" placeholder="e.g. Maui Smoke BBQ" autocomplete="organization" required>
-    </div>
-
-    <div class="field">
-      <label for="whatTheySell">What do you sell?</label>
-      <input type="text" id="whatTheySell" name="whatTheySell" placeholder="e.g. Hawaiian BBQ, tacos, shave ice, plate lunch" required>
-    </div>
-
-    <div class="field">
-      <label for="serviceArea">Where do you usually park? <span class="hint">(optional)</span></label>
-      <input type="text" id="serviceArea" name="serviceArea" placeholder="e.g. Kihei, or all over Maui">
-    </div>
-
-    <div class="contact-box">
-      <span class="boxlabel">Where do we send it?</span>
-      <div class="field">
-        <label class="sr" for="name">Your name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
-      </div>
-      <div class="field">
-        <label class="sr" for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="Email address" autocomplete="email" required>
-      </div>
-      <div class="field">
-        <label class="sr" for="phone">Phone, optional</label>
-        <input type="tel" id="phone" name="phone" placeholder="Phone (optional)" autocomplete="tel">
-      </div>
-    </div>
-
-    <p class="reassure"><b>We reply within a day.</b> We never share your number and we never sell your details to anyone.</p>
-
-    <button type="submit" class="btn" id="submitBtn">Send it over &#8594;</button>
-  </form>
-
-  <section id="thanks" hidden aria-live="polite">
-    <div class="done">
-      <div class="tick" aria-hidden="true">&#10003;</div>
-      <h2 id="thanksTitle">Got it!</h2>
-      <p id="thanksBody">We will send your free sample, usually within a day.</p>
-      <a class="btn btn-quiet" href="index.html">Back to the site</a>
+  <section class="dark intro below-head">
+    <div class="wrap">
+      <h1>Three things about your truck. <em>That is the whole form.</em></h1>
+      <p class="mono plain">We build you a real, working sample site and send you the link. It takes about a day.</p>
     </div>
   </section>
+
+  <section>
+    <div class="wrap">
+      <p class="promise">
+        <span class="star" aria-hidden="true">&#9733;</span>
+        <span>We build you a real, working sample site and send you the link.
+        <b>No cost, no card, no obligation.</b> Love it and you keep it.</span>
+      </p>
+
+      <form id="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="27a01d1c-8f66-495f-9083-39a77467a130">
+        <input type="hidden" name="from_name" value="Maui Food Truck Websites">
+        <input type="hidden" name="subject" id="subjectField" value="Free sample request">
+        <input type="hidden" name="message" id="messageField" value="">
+        <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <p class="err mono plain" id="err" role="alert" aria-live="assertive"></p>
+
+        <div class="field">
+          <label class="mono" for="bizName">Your truck&rsquo;s name</label>
+          <input type="text" id="bizName" name="bizName" placeholder="e.g. Maui Smoke BBQ" autocomplete="organization" required>
+        </div>
+
+        <div class="field">
+          <label class="mono" for="whatTheySell">What do you sell?</label>
+          <input type="text" id="whatTheySell" name="whatTheySell" placeholder="e.g. Hawaiian BBQ, tacos, shave ice, plate lunch" required>
+        </div>
+
+        <div class="field">
+          <label class="mono" for="serviceArea">Where do you usually park? <span class="hint">(optional)</span></label>
+          <input type="text" id="serviceArea" name="serviceArea" placeholder="e.g. Kihei, or all over Maui">
+        </div>
+
+        <div class="contact-box">
+          <span class="mono boxlabel">Where do we send it?</span>
+          <div class="field">
+            <label class="vh" for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="vh" for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="Email address" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label class="vh" for="phone">Phone, optional</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone (optional)" autocomplete="tel">
+          </div>
+        </div>
+
+        <p class="reassure"><b>We reply within a day.</b> We never share your number and we never sell your details to anyone.</p>
+
+        <button type="submit" class="cta" id="submitBtn">Send it over &#8594;</button>
+      </form>
+
+      <div id="thanks" hidden aria-live="polite">
+        <div class="done">
+          <div class="tick" aria-hidden="true">&#10003;</div>
+          <h2 id="thanksTitle">Got it!</h2>
+          <p id="thanksBody">We will send your free sample, usually within a day.</p>
+          <a class="cta ghost" href="index.html">Back to the site</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer class="site">
+<footer class="dark site-foot">
   <div class="wrap">
-    <p>Rather just ask a question? Email <a href="mailto:FrontlineWebDesigns@gmail.com">FrontlineWebDesigns@gmail.com</a>.</p>
-    <p style="margin-top:6px">Built by <a href="https://frontlinewebdesign.tech" rel="nofollow noopener">Frontline Web Designs</a></p>
+    <div class="foot-grid">
+      <div>
+        <p class="brand">Maui Food Truck Websites</p>
+        <p class="blurb">Websites for Maui County food trucks that show people you are open and where. Built on island.</p>
+      </div>
+      <div>
+        <p class="mono foot-h">Explore</p>
+        <nav class="mono" aria-label="Explore">
+          <a href="index.html">Home</a>
+          <a href="directory.html">Maui truck directory</a>
+          <a href="samples.html">Our work</a>
+        </nav>
+      </div>
+      <div>
+        <p class="mono foot-h">Rather just ask?</p>
+        <nav class="mono" aria-label="Contact">
+          <a href="mailto:FrontlineWebDesigns@gmail.com">FrontlineWebDesigns@gmail.com</a>
+        </nav>
+      </div>
+    </div>
+    <p class="foot-mark" aria-hidden="true">Maui Food Truck</p>
+    <div class="mono foot-bot">
+      <span>&copy; 2026 Maui Food Truck Websites</span>
+      <span>Built by <a href="https://frontlinewebdesign.tech" rel="nofollow noopener">Frontline Web Designs</a></span>
+    </div>
   </div>
 </footer>
 
+<script src="assets/site.js" defer></script>
 <script>
 (function(){
   "use strict";
