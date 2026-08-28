@@ -5,7 +5,11 @@
    override silently loses to the desktop component rule it is meant to beat.
    That bug cost a whole broken phone layout on 2026-08-27.
 
-   BUMP THE ?v= ON ALL FIVE PAGES WHEN YOU EDIT THIS FILE.
+   BUMP THE ?v= WHEN YOU EDIT THIS FILE. That is the FOUR hand-written pages
+   (index, samples, intake, brief) BY HAND, plus `ASSET_V` in build_directory.py,
+   which stamps the generated directory hub and the seven food-trucks/<area>/
+   pages. It said "all five pages" until 2026-08-27, which was true before the
+   directory was generated and would now leave eight pages on a stale stylesheet.
    Every page links this as `assets/site.css?v=N`. .htaccess caches CSS and JS for
    30 days (max-age=2592000) while the HTML is no-cache, so without a new N a
    returning visitor gets new markup against a month-old stylesheet.
@@ -146,7 +150,12 @@
   }
   .foot-bot{display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
             margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--hair-dark);color:#a89a89}
-  .foot-bot a{display:inline-block;padding-block:4px;color:inherit;text-decoration:underline}
+  /* 6px, not the 4px that was here, and not 5. At 4px this measured 23x176 LIVE,
+     one pixel under the WCAG 2.2 AA 2.5.8 floor of 24. It measured OVER 24 from
+     file://, because the real webfont changes the box height, so the local check
+     passed an element the deployed page failed. 6px gives ~27px and enough margin
+     that font loading cannot decide the outcome. Measured 2026-08-27. */
+  .foot-bot a{display:inline-block;padding-block:6px;color:inherit;text-decoration:underline}
 
   .callbar{display:none}
 }

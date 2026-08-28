@@ -25,7 +25,7 @@ SITE = "https://mauifoodtruckwebsites.com"
 TODAY = date.today().isoformat()
 
 # Bump when assets/site.css or assets/site.js changes. Matches the other pages.
-ASSET_V = "3"
+ASSET_V = "4"
 
 PAGE_CSS = """/* Page-specific only. The shared system lives in assets/site.css. */
 @layer components, responsive;
