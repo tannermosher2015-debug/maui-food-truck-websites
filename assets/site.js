@@ -28,6 +28,19 @@ document.documentElement.classList.remove("no-js");
   /* ---- scroll reveals. Transform and opacity only, with a safety net. ---- */
   var risers = document.querySelectorAll(".rise");
   function showAll() { for (var i = 0; i < risers.length; i++) risers[i].classList.add("in"); }
+
+  /* NEVER animate what is already on screen at load. A .rise element starts at
+     opacity 0, and a transparent element is not "contentful", so revealing
+     above-the-fold content pushes Largest Contentful Paint out by the whole
+     transition duration. Measured live 2026-08-27 on samples.html: 828ms with
+     the reveal running against 144ms with it bypassed, same LCP element. The
+     .instant class kills the transition so these appear with the first paint. */
+  for (var q = 0; q < risers.length; q++) {
+    if (risers[q].getBoundingClientRect().top < innerHeight) {
+      risers[q].classList.add("instant", "in");
+    }
+  }
+
   if (reduce || !("IntersectionObserver" in window)) {
     showAll();
   } else {

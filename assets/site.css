@@ -156,6 +156,9 @@
   @media (prefers-reduced-motion: no-preference){
     .rise{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
     .rise.in{opacity:1;transform:none}
+    /* Set by site.js on anything already in the viewport at load, so it paints
+       immediately instead of costing LCP the transition duration. */
+    .rise.instant{transition:none}
   }
   /* Safety net: if the observer never runs, nothing is left hidden. */
   .no-js .rise{opacity:1;transform:none}
