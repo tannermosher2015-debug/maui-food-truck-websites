@@ -29,6 +29,7 @@
 @layer components, responsive;
 
 @layer components {
+  main:focus{outline:none}
   .intro h1{font-size:var(--fs-xxl);max-width:13ch;line-height:1.04}
   .intro h1 em{font-style:italic;color:var(--mango)}
   .intro .mono{color:#cfc0ae;max-width:54ch;margin-top:1.4rem}
@@ -52,14 +53,16 @@
   .scard-desc{color:var(--quiet);margin-bottom:.8rem}
   .scard-link{
     display:inline-block;text-decoration:none;color:var(--ember);
-    border-bottom:1px solid currentColor;padding-bottom:2px;
+    border-bottom:1px solid currentColor;
+    /* measured 23.89px, under the 24px WCAG 2.2 AA 2.5.8 floor */
+    padding-block:3px;
   }
   .scard-link:hover{color:var(--ink)}
   .note{margin-top:3rem;color:var(--ash);max-width:56ch}
 }
 
 @layer responsive {
-  @media (max-width:800px){
+  @media (max-width:800px), (max-height:500px) and (max-width:1100px){
     .scard,.scard:first-child,.scard:nth-child(2){grid-column:1/13}
     .grid{gap:2.4rem 0}
   }
@@ -80,7 +83,7 @@
   </nav>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
   <section class="dark intro below-head">
     <div class="wrap">

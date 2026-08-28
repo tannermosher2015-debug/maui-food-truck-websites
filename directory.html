@@ -29,6 +29,7 @@
 @layer components, responsive;
 
 @layer components {
+  main:focus{outline:none}
   .intro h1{font-size:var(--fs-xxl);max-width:13ch;line-height:1.04}
   .intro h1 em{font-style:italic;color:var(--mango)}
   .intro .mono{color:#cfc0ae;max-width:56ch;margin-top:1.4rem}
@@ -61,7 +62,7 @@
 }
 
 @layer responsive {
-  @media (max-width:800px){
+  @media (max-width:800px), (max-height:500px) and (max-width:1100px){
     .dgrid{grid-template-columns:1fr;gap:0}
   }
 }
@@ -81,7 +82,7 @@
   </nav>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
   <section class="dark intro below-head">
     <div class="wrap">

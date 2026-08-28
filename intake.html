@@ -88,7 +88,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   input:hover{background:rgba(255,255,255,.7)}
   input:focus{background:#fff;border-color:var(--ember);outline:none;box-shadow:0 0 0 2px rgba(154,74,23,.28)}
   input[aria-invalid=true]{border-color:#a3231b;background:#fdf3f1}
-  ::placeholder{color:#9b8e81;opacity:1}
+  ::placeholder{color:var(--ash);opacity:1}
 
   .contact-box{border:1px solid var(--hair);padding:1.6rem 1.4rem .3rem;margin:2.2rem 0 1.4rem;position:relative}
   .boxlabel{position:absolute;top:-.72rem;left:1rem;background:var(--cream);padding:0 .55rem;color:var(--ash)}
@@ -97,6 +97,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   .err:empty{margin:0}
   .reassure{color:var(--quiet);margin:.4rem 0 2rem}
   .reassure b{color:var(--ink);font-style:italic;font-weight:400}
+  main:focus,#form:focus{outline:none}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
   #submitBtn{width:100%}
@@ -111,7 +112,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
 }
 
 @layer responsive {
-  @media (max-width:800px){
+  @media (max-width:800px), (max-height:500px) and (max-width:1100px){
     .promise{flex-direction:column;gap:.5rem}
   }
 }
@@ -147,7 +148,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
         <b>No cost, no card, no obligation.</b> Love it and you keep it.</span>
       </p>
 
-      <form id="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <form id="form" tabindex="-1" action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="27a01d1c-8f66-495f-9083-39a77467a130">
         <input type="hidden" name="from_name" value="Maui Food Truck Websites">
         <input type="hidden" name="subject" id="subjectField" value="Free sample request">

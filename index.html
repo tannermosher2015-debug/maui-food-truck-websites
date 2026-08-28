@@ -9,7 +9,7 @@
 <meta property="og:title" content="Maui Food Truck Websites">
 <meta property="og:description" content="A website that's actually live: open/closed, today's spot, and today's menu, run from your phone.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://mauifoodtruckwebsites.com">
+<meta property="og:url" content="https://mauifoodtruckwebsites.com/">
 <meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
 <meta property="og:image:alt" content="A free sample food-truck website by Frontline Web Designs">
 <meta property="og:site_name" content="Maui Food Truck Websites">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="A website that's actually live: open/closed, today's spot, and today's menu, run from your phone.">
 <meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
 <meta name="theme-color" content="#241f1b">
-<link rel="canonical" href="https://mauifoodtruckwebsites.com">
+<link rel="canonical" href="https://mauifoodtruckwebsites.com/">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
@@ -81,7 +81,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
       "logo": "https://mauifoodtruckwebsites.com/icon-512.png",
       "description": "Custom websites built for Maui County food trucks: menu, hours, live location map, online ordering and catering. Get a free sample site for your truck.",
       "areaServed": { "@type": "AdministrativeArea", "name": "Maui County, Hawaii" },
-      "priceRange": "$249-$699",
+      "priceRange": "$49-$699",
       "serviceType": "Food truck website design",
       "provider": { "@type": "Organization", "name": "Frontline Web Designs", "url": "https://frontlinewebdesign.tech" },
       "hasOfferCatalog": {
@@ -108,6 +108,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
 @layer components, responsive;
 
 @layer components {
+  main:focus{outline:none}
   /* ---------- hero ---------- */
   .hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:#0d0b09;padding:0}
   .hero-media{position:absolute;inset:0}
@@ -205,7 +206,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
 }
 
 @layer responsive {
-  @media (max-width:800px){
+  @media (max-width:800px), (max-height:500px) and (max-width:1100px){
     .hero{min-height:92svh;padding-bottom:var(--callbar-h)}
     .hero-inner{max-width:none}
     .hero-corner{display:none}
@@ -238,7 +239,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   </nav>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
   <!-- HERO ------------------------------------------------------------ -->
   <section class="hero">

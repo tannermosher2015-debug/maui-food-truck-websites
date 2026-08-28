@@ -77,8 +77,11 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   }
   .hrow{display:flex;align-items:flex-end;gap:1rem;padding-bottom:.9rem}
   .back{
+    display:inline-block;
     font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:var(--fs-mono);
     letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);
+    /* measured 14px tall, under the 24px WCAG 2.2 AA 2.5.8 floor */
+    padding-block:6px;
   }
   .back:hover{color:var(--ember)}
   .stepnow{
@@ -121,7 +124,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   input:hover,textarea:hover{background:rgba(255,255,255,.7)}
   input:focus,textarea:focus{background:#fff;border-color:var(--ember);outline:none;box-shadow:0 0 0 2px rgba(154,74,23,.28)}
   input[aria-invalid=true]{border-color:#a3231b;background:#fdf3f1}
-  ::placeholder{color:#9b8e81;opacity:1}
+  ::placeholder{color:var(--ash);opacity:1}
   .stack > * + *{margin-top:.7rem}
 
   /* ---------- radio rows ---------- */
@@ -184,6 +187,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   .contact-box{border:1px solid var(--hair);padding:1.5rem 1.3rem .3rem;margin:1.6rem 0}
   .reassure{color:var(--quiet);margin:.4rem 0 1.4rem}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  fieldset:focus,#thanks:focus,#form:focus,main:focus{outline:none}
   .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
   /* ---------- sticky actions ---------- */
@@ -225,11 +229,11 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   .scard strong{font-weight:400;font-size:1.15rem}
 
   footer.site-note{text-align:center;color:var(--ash);padding:2.5rem 0 1rem}
-  footer.site-note a{color:var(--ember)}
+  footer.site-note a{display:inline-block;padding-block:4px;color:var(--ember)}
 }
 
 @layer responsive {
-  @media (max-width:800px){
+  @media (max-width:800px), (max-height:500px) and (max-width:1100px){
     .cards{grid-template-columns:1fr 1fr}
     .summary{grid-template-columns:1fr}
     .tier-price{margin-left:0}
@@ -248,7 +252,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
     <div class="hrow">
       <div>
         <a class="back" href="index.html">&#8592; Maui Food Truck Websites</a>
-        <div class="stepnow" id="stepNow">Website brief, step 1 of 4</div>
+        <div class="stepnow" id="stepNow" role="status" aria-live="polite">Website brief, step 1 of 4</div>
       </div>
       <div class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     </div>
@@ -256,18 +260,18 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   </div>
 </header>
 
-<main class="wrap" id="main">
+<main class="wrap" id="main" tabindex="-1">
   <h1>Your website brief</h1>
   <p class="lede">You have your sample. These four steps tell us everything we need to finish the real thing. Nothing here is required, skip anything you are unsure about.</p>
 
-  <form id="form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+  <form id="form" tabindex="-1" action="https://api.web3forms.com/submit" method="POST" novalidate>
     <input type="hidden" name="access_key" value="27a01d1c-8f66-495f-9083-39a77467a130">
     <input type="hidden" name="from_name" value="Maui Food Truck Websites">
     <input type="hidden" name="subject" id="subjectField" value="Food-truck website BRIEF">
     <input type="hidden" name="message" id="messageField" value="">
     <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <fieldset data-step="1">
+    <fieldset tabindex="-1" data-step="1">
       <legend>Your food truck</legend>
       <p class="sub">Tell us who you are and what you are serving.</p>
 
@@ -317,7 +321,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
       </div>
     </fieldset>
 
-    <fieldset data-step="2" hidden>
+    <fieldset tabindex="-1" data-step="2" hidden>
       <legend>Look and feel</legend>
       <p class="sub">This shapes every design decision we make.</p>
 
@@ -353,7 +357,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
       </div>
     </fieldset>
 
-    <fieldset data-step="3" hidden>
+    <fieldset tabindex="-1" data-step="3" hidden>
       <legend>Package and content</legend>
       <p class="sub">Pick your tier and tell us what you have got.</p>
 
@@ -421,7 +425,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
       </div>
     </fieldset>
 
-    <fieldset data-step="4" hidden>
+    <fieldset tabindex="-1" data-step="4" hidden>
       <legend>Almost done</legend>
       <p class="sub">Last few things and we are good to go.</p>
 
@@ -547,7 +551,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
     if(o._step >= 1 && o._step <= TOTAL) step = o._step;
   }
 
-  function show(n){
+  function show(n, moveFocus){
     step = n;
     sets.forEach(function(fs){ fs.hidden = (+fs.getAttribute("data-step") !== n); });
     backBtn.hidden = (n === 1);
@@ -559,6 +563,14 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
     }
     err.textContent = "";
     window.scrollTo(0, 0);
+    /* Move focus INTO the newly revealed step. Without this, focus stays on the
+       Next button, which sits after the fieldset in the DOM, so a forward Tab
+       skips the entire new step. The fieldset carries tabindex="-1" so it can
+       receive focus programmatically without joining the tab order. */
+    if (moveFocus) {
+      var live = sets.filter(function (fs) { return !fs.hidden; })[0];
+      if (live) live.focus();
+    }
     save();
   }
 
@@ -721,6 +733,10 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
       return '<div class="scard"><span>' + esc(c[0]) + '</span><strong>' + esc(c[1]) + '</strong></div>';
     }).join("");
     t.hidden = false;
+    /* The button that had focus was just hidden. Hand focus to the confirmation
+       or the keyboard user is left on a removed element. */
+    t.setAttribute("tabindex", "-1");
+    t.focus();
     stepNow.textContent = "Brief complete";
     bar.style.transform = "scaleX(1)";
     try{ localStorage.removeItem(KEY); }catch(e){}
@@ -732,7 +748,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
        if(window.gtag) gtag("event", "conversion", {send_to: "AW-18248944168/YOUR_LABEL"}); */
   }
 
-  backBtn.addEventListener("click", function(){ if(step > 1) show(step - 1); });
+  backBtn.addEventListener("click", function(){ if(step > 1) show(step - 1, true); });
 
   form.addEventListener("input", save);
   form.addEventListener("change", function(e){
@@ -744,7 +760,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
 
   form.addEventListener("submit", function(ev){
     ev.preventDefault();
-    if(step < TOTAL){ show(step + 1); return; }
+    if(step < TOTAL){ show(step + 1, true); return; }
     if(sending) return;
     if(!validateContact()) return;
     err.textContent = "";

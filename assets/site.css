@@ -52,7 +52,7 @@
 
     --gut:clamp(1.25rem,4vw,2.5rem);
     --maxw:1200px;
-    --callbar-h:74px;
+    --callbar-h:88px;  /* measured rendered height 85.7px, was reserving 74 */
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;scroll-padding-top:96px}
@@ -146,7 +146,7 @@
   }
   .foot-bot{display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
             margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--hair-dark);color:#a89a89}
-  .foot-bot a{display:inline;color:inherit;text-decoration:underline}
+  .foot-bot a{display:inline-block;padding-block:4px;color:inherit;text-decoration:underline}
 
   .callbar{display:none}
 }
@@ -165,7 +165,7 @@
 }
 
 @layer responsive {
-  @media (max-width:800px){
+  @media (max-width:800px), (max-height:500px) and (max-width:1100px){
     .site-nav{display:none}
     .site-nav.open{
       display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;
