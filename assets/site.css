@@ -8,11 +8,21 @@
    BUMP THE ?v= ON ALL FIVE PAGES WHEN YOU EDIT THIS FILE.
    Every page links this as `assets/site.css?v=N`. .htaccess caches CSS and JS for
    30 days (max-age=2592000) while the HTML is no-cache, so without a new N a
-   returning visitor gets new markup against a month-old stylesheet. Measured
-   2026-08-27: the server held a FRESH identity copy and a STALE brotli copy of
-   this file at the same time, so plain `curl` reported the fix as live while
-   every real browser got the old one. Use `curl --compressed`, or read the etag,
-   or just change the query string and make the question moot. */
+   returning visitor gets new markup against a month-old stylesheet.
+
+   Observed 2026-08-27, and only the observation is written down because the
+   mechanism is UNVERIFIED. A photo fix was pushed. The live HTML carried the new
+   rules and a plain `curl` of this file returned the NEW bytes with height:auto
+   present. A real browser, in a fresh context, was nonetheless served this file
+   with etag 1cf8 (0x1cf8 = 7416 = the PRE-fix size) and rendered the old layout.
+   Minutes later the same browser got etag 1e9d (7837 = post-fix) and rendered
+   correctly. So the origin and the browser disagreed for a window of minutes and
+   nothing errored. Per-encoding variant caching was the first theory and it did
+   NOT survive checking, so do not repeat it as the cause.
+
+   The lesson that does hold: verify a deploy by what a BROWSER renders, never by
+   what curl returns, and read the etag. Changing the query string sidesteps the
+   whole question, which is why N exists. */
 @layer base, layout, components, motion, responsive;
 
 @layer base {
