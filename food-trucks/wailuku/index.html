@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Wailuku Food Trucks | Maui Food Truck Websites</title>
+<meta name="description" content="11 food trucks in Wailuku, Maui, and what each one serves. Free community directory. Own one? Claim your listing.">
+<meta property="og:title" content="Wailuku food trucks">
+<meta property="og:description" content="11 food trucks in Wailuku, Maui, and what each one serves.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mauifoodtruckwebsites.com/food-trucks/wailuku/">
+<meta property="og:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wailuku food trucks">
+<meta name="twitter:description" content="11 food trucks in Wailuku, Maui, and what each one serves.">
+<meta name="twitter:image" content="https://mauifoodtruckwebsites.com/og-image.png">
+<meta name="theme-color" content="#241f1b">
+<link rel="canonical" href="https://mauifoodtruckwebsites.com/food-trucks/wailuku/">
+<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css?v=3">
+<style>
+/* Page-specific only. The shared system lives in assets/site.css. */
+@layer components, responsive;
+
+@layer components {
+  main:focus{outline:none}
+  .intro h1{font-size:var(--fs-xxl);max-width:13ch;line-height:1.04}
+  .intro h1 em{font-style:italic;color:var(--mango)}
+  .intro .mono{color:#cfc0ae;max-width:56ch;margin-top:1.4rem}
+
+  .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.9rem}
+  .fbtn{
+    appearance:none;background:none;border:1px solid var(--hair);color:var(--ink);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:var(--fs-mono);
+    letter-spacing:.16em;text-transform:uppercase;padding:.7rem 1.1rem;cursor:pointer;
+    transition:background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),border-color var(--dur-fast) var(--ease);
+  }
+  .fbtn:hover{border-color:var(--ink)}
+  .fbtn[aria-pressed="true"]{background:var(--volcanic);border-color:var(--volcanic);color:var(--cream)}
+  .count{color:var(--ash);margin-bottom:2.4rem}
+
+  .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem}
+  .truck{padding:1.6rem 0;border-top:1px solid var(--hair)}
+  .t-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem}
+  .t-name{font-size:var(--fs-lg);line-height:1.15}
+  .t-area{margin-left:auto;color:var(--ember)}
+  .t-cuisine{display:block;color:var(--ash);margin:.35rem 0 .6rem}
+  .t-desc{color:var(--quiet);margin-bottom:.7rem}
+  .t-claim{display:inline-block;text-transform:none;letter-spacing:.03em;font-size:13px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--hair);padding-bottom:2px;
+           transition:border-color var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease)}
+  .t-claim:hover{color:var(--ember);border-color:var(--ember)}
+
+  .empty{padding:2.5rem 0;color:var(--quiet)}
+  .disc{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--hair);color:var(--ash);max-width:70ch}
+  .disc a{color:var(--ember)}
+
+  /* Area navigation. These links are the crawlable path the filter buttons are not. */
+  .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 3rem;margin-bottom:1rem}
+  .area-card{display:block;padding:1.5rem 0;border-top:1px solid var(--hair);text-decoration:none;color:inherit}
+  .area-card:hover .area-name{color:var(--ember)}
+  .area-name{font-size:var(--fs-lg);line-height:1.15;transition:color var(--dur-fast) var(--ease)}
+  .area-meta{display:block;color:var(--ash);margin-top:.3rem}
+  .area-blurb{color:var(--quiet);margin-top:.5rem;font-size:.97rem}
+  /* A real breadcrumb, not a decorative eyebrow. `impeccable detect` flags a
+     tracked-caps label above an oversized h1 as the default AI hero shape, and
+     names "run it as a navigation breadcrumb instead" as the fix. So it is one:
+     a nav, an ordered list, aria-current on the leaf, and BreadcrumbList schema. */
+  .crumb{margin-bottom:1.1rem;color:#cfc0ae}
+  .crumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
+  .crumb li+li::before{content:"/";margin-right:.5rem;opacity:.55}
+  .crumb a{color:var(--mango)}
+  .elsewhere{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--hair)}
+  .elsewhere .mono{color:var(--ash);margin-bottom:.8rem}
+  .elsewhere-list{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+  .elsewhere-list a{color:var(--ink)}
+}
+
+@layer responsive {
+  @media (max-width:800px), (max-height:500px) and (max-width:1100px){
+    .dgrid{grid-template-columns:1fr;gap:0}
+  }
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Food trucks in Wailuku, Maui", "url": "https://mauifoodtruckwebsites.com/food-trucks/wailuku/", "numberOfItems": 11, "itemListOrder": "https://schema.org/ItemListUnordered", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Kalei’s Lunch Box"}, {"@type": "ListItem", "position": 2, "name": "Da Soriano Grindz"}, {"@type": "ListItem", "position": 3, "name": "Plantation Plates"}, {"@type": "ListItem", "position": 4, "name": "‘Ula‘Ula Cafe"}, {"@type": "ListItem", "position": 5, "name": "Tagpuan"}, {"@type": "ListItem", "position": 6, "name": "Lupita Antojitos Mexicanos"}, {"@type": "ListItem", "position": 7, "name": "HI Thai Food"}, {"@type": "ListItem", "position": 8, "name": "Kwai-Sin’s Noodle Shop"}, {"@type": "ListItem", "position": 9, "name": "K-Bap"}, {"@type": "ListItem", "position": 10, "name": "Keyakiya"}, {"@type": "ListItem", "position": 11, "name": "Yumtastic"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Maui food truck directory", "item": "https://mauifoodtruckwebsites.com/directory.html"}, {"@type": "ListItem", "position": 2, "name": "Wailuku", "item": "https://mauifoodtruckwebsites.com/food-trucks/wailuku/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head stuck" id="head">
+  <a class="brand" href="../../index.html">Maui Food Truck Websites</a>
+  <button class="navbtn mono" id="navBtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="site-nav mono" id="nav" aria-label="Primary">
+    <a href="../../index.html">Home</a>
+    <a href="../../directory.html">Truck directory</a>
+    <a href="../../samples.html">See real sites</a>
+    <a class="go" href="../../intake.html">Get your free sample</a>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <section class="dark intro below-head">
+    <div class="wrap">
+      <nav class="mono plain crumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../directory.html">Maui food truck directory</a></li>
+          <li aria-current="page">Wailuku</li>
+        </ol>
+      </nav>
+      <h1>Wailuku <em>food trucks.</em></h1>
+      <p class="mono plain">Wailuku trucks skew local and family-run, spread along Kahekili Highway and through town rather than gathered in one lot.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="mono count">11 trucks listed in Wailuku</p>
+      <div class="dgrid">
+        <article class="truck" data-area="kahului wailuku upcountry"><div class="t-top"><span class="t-name">Kalei’s Lunch Box</span></div><span class="mono t-cuisine">Local plate lunch</span><p class="t-desc">A go-to for local comfort grindz, working Kahului, Wailuku and Pukalani.</p><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Kalei’s Lunch Box listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului wailuku"><div class="t-top"><span class="t-name">Da Soriano Grindz</span></div><span class="mono t-cuisine">Local plate lunch</span><p class="t-desc">Big, hearty island plate lunches with a loyal following.</p><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Da Soriano Grindz listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="kahului wailuku"><div class="t-top"><span class="t-name">Plantation Plates</span></div><span class="mono t-cuisine">Hawaiian plate lunch</span><p class="t-desc">Family-run Hawaii comfort food on Haleakala Hwy: loco moco, kalua pork and hamburger steak.</p><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Plantation Plates listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">‘Ula‘Ula Cafe</span></div><span class="mono t-cuisine">Farm-to-table · Local</span><p class="t-desc">Farm-inspired food served fresh on Kahekili Hwy, from the ʻāina to your plate.</p><a href="../../intake.html" class="mono t-claim" aria-label="Claim the ‘Ula‘Ula Cafe listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">Tagpuan</span></div><span class="mono t-cuisine">Filipino</span><p class="t-desc">Filipino street food in Wailuku: lumpia, siomai and pork sisig.</p><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Tagpuan listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">Lupita Antojitos Mexicanos</span></div><span class="mono t-cuisine">Mexican</span><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Lupita Antojitos Mexicanos listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">HI Thai Food</span></div><span class="mono t-cuisine">Thai</span><a href="../../intake.html" class="mono t-claim" aria-label="Claim the HI Thai Food listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">Kwai-Sin’s Noodle Shop</span></div><span class="mono t-cuisine">Noodles</span><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Kwai-Sin’s Noodle Shop listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">K-Bap</span></div><a href="../../intake.html" class="mono t-claim" aria-label="Claim the K-Bap listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">Keyakiya</span></div><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Keyakiya listing and get a free sample site">Is this your truck? Claim it</a></article>
+        <article class="truck" data-area="wailuku"><div class="t-top"><span class="t-name">Yumtastic</span></div><a href="../../intake.html" class="mono t-claim" aria-label="Claim the Yumtastic listing and get a free sample site">Is this your truck? Claim it</a></article>
+      </div>
+
+      <div class="elsewhere">
+        <p class="mono">Food trucks elsewhere on Maui</p>
+        <nav class="mono elsewhere-list" aria-label="Other areas">
+        <a href="../kahului/">Kahului (12)</a>
+        <a href="../kihei/">Kihei (21)</a>
+        <a href="../west-maui/">West Maui (12)</a>
+        <a href="../upcountry/">Upcountry (9)</a>
+        <a href="../north-shore/">North Shore (6)</a>
+        <a href="../hana/">Hana (10)</a>
+        </nav>
+      </div>
+
+      <p class="disc mono plain">This directory is free and community-run. We are a web design company, not a review site, so nothing here is paid placement. Spotted a truck that has closed, moved or is missing? <a href="mailto:FrontlineWebDesigns@gmail.com">Tell us</a> and we will fix it.</p>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap wrap-narrow">
+      <h2>Own a truck in <em>Wailuku</em>?</h2>
+      <p>We build websites for Maui food trucks that show people you are open and where you are parked. Tell us three things and we will build you a free sample. No cost, no card.</p>
+      <a class="cta" href="../../intake.html">Get your free sample</a>
+    </div>
+  </section>
+</main>
+
+<footer class="dark site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="brand">Maui Food Truck Websites</p>
+        <p class="blurb">Websites for Maui County food trucks that show people you are open and where. Built on island.</p>
+      </div>
+      <div>
+        <p class="mono foot-h">Explore</p>
+        <nav class="mono" aria-label="Explore">
+          <a href="../../index.html">Home</a>
+          <a href="../../directory.html">Truck directory</a>
+          <a href="../../samples.html">Our work</a>
+        </nav>
+      </div>
+      <div>
+        <p class="mono foot-h">Get started</p>
+        <nav class="mono" aria-label="Get started">
+          <a href="../../intake.html">Free sample</a>
+          <a href="mailto:FrontlineWebDesigns@gmail.com">Email us a question</a>
+        </nav>
+      </div>
+    </div>
+    <p class="foot-mark" aria-hidden="true">Maui Food Truck</p>
+    <div class="mono foot-bot">
+      <span>&copy; 2026 Maui Food Truck Websites &middot; Maui, Hawai&#699;i</span>
+      <span>Built by <a href="https://frontlinewebdesign.tech" rel="noopener nofollow">Frontline Web Designs</a></span>
+    </div>
+  </div>
+</footer>
+
+<aside class="callbar" aria-label="Get started">
+  <a class="cta" href="../../intake.html">Get your free sample</a>
+</aside>
+
+<script src="../../assets/site.js?v=3" defer></script>
+</body>
+</html>

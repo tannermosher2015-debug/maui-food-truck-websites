@@ -1,0 +1,135 @@
+{
+  "_readme": [
+    "Every truck here is REAL and carries a `source` naming where it was confirmed.",
+    "NEVER add a truck you cannot source, and NEVER invent a cuisine or a description.",
+    "An empty `cuisine` or `desc` is CORRECT and intended: the page renders without it and the",
+    "claim-your-listing link is how the owner fills it in. A guessed cuisine on a real business",
+    "is a factual error about someone's livelihood, which is worse than a blank field.",
+    "Run `python build_directory.py` after editing. Do NOT hand-edit the generated HTML."
+  ],
+  "areas": [
+    {
+      "slug": "kahului",
+      "name": "Kahului",
+      "region": "Central Maui",
+      "blurb": "Central Maui's truck capital. Most of these are clustered at Plate Lunch Marketplace on Haleakala Highway, across from the Costco gas station, plus the harbour and Dairy Road lots."
+    },
+    {
+      "slug": "wailuku",
+      "name": "Wailuku",
+      "region": "Central Maui",
+      "blurb": "Wailuku trucks skew local and family-run, spread along Kahekili Highway and through town rather than gathered in one lot."
+    },
+    {
+      "slug": "kihei",
+      "name": "Kihei",
+      "region": "South Maui",
+      "blurb": "South Maui is home to Kihei Food Oasis at South Maui Gardens, voted the best food truck pod on the island, with trucks on both the north side (30 Alahele Place) and south side (35 Auhana Road)."
+    },
+    {
+      "slug": "west-maui",
+      "name": "West Maui",
+      "region": "Lahaina, Ka'anapali and Honokowai",
+      "blurb": "The Honoapiilani food truck courtyard on Lower Honoapiilani Road, on the Ka'anapali and Honokowai border, is the heart of the west side scene. Most trucks come alive around 5:30pm."
+    },
+    {
+      "slug": "upcountry",
+      "name": "Upcountry",
+      "region": "Pukalani, Makawao and Kula",
+      "blurb": "Upcountry's trucks gather around Kulamalu in Pukalani and along the Kula Highway, serving the cooler slopes of Haleakala."
+    },
+    {
+      "slug": "north-shore",
+      "name": "North Shore",
+      "region": "Paia and Haiku",
+      "blurb": "Haiku and Paia trucks lean small, independent and surprising, with a strong showing around the old Haiku cannery and marketplace."
+    },
+    {
+      "slug": "hana",
+      "name": "Hana",
+      "region": "East Maui",
+      "blurb": "At the end of the Road to Hana, a tight cluster of trucks feeds nearly everyone who makes the drive. Hours are short and things sell out, so go early."
+    }
+  ],
+  "trucks": [
+    { "name": "Geste Shrimp Truck", "areas": ["kahului"], "cuisine": "Garlic shrimp · Seafood", "desc": "Maui’s famous garlic shrimp (and hot dogs), usually parked on Kahului Beach Rd by the MACC.", "source": "existing listing" },
+    { "name": "Thai Mee Up", "areas": ["kahului", "kihei", "upcountry"], "cuisine": "Thai", "desc": "‘Aipono Award Best Food Truck (2018 and 2022). Thai done Maui-style, now at Plate Lunch Marketplace, Kihei Food Oasis and Kula.", "source": "existing listing; South Maui Gardens tenant list; Yelp Pukalani 2026-08" },
+    { "name": "Like Poke", "areas": ["kahului"], "cuisine": "Poke", "desc": "Fresh, well-priced poke. Voted Best Food Truck Lunch 2023 by Maui Time readers.", "source": "existing listing" },
+    { "name": "Ono Teppanyaki & Seafood", "areas": ["kahului"], "cuisine": "Teppanyaki · Seafood", "desc": "Thai Mee Up’s sister truck: teppanyaki and seafood, plate-lunch style.", "source": "existing listing" },
+    { "name": "Tacos Maui", "areas": ["kahului"], "cuisine": "Mexican · Tacos", "desc": "Street tacos and burritos at Plate Lunch Marketplace near the airport.", "source": "existing listing" },
+    { "name": "Mo’Ono Hawai’i", "areas": ["kahului", "upcountry"], "cuisine": "Açaí bowls", "desc": "Açaí bowls from a recipe perfected over three years. Bright and fresh.", "source": "existing listing; Yelp Pukalani 2026-08" },
+    { "name": "Kalei’s Lunch Box", "areas": ["kahului", "wailuku", "upcountry"], "cuisine": "Local plate lunch", "desc": "A go-to for local comfort grindz, working Kahului, Wailuku and Pukalani.", "source": "existing listing; Yelp Pukalani 2026-08" },
+    { "name": "Da Soriano Grindz", "areas": ["kahului", "wailuku"], "cuisine": "Local plate lunch", "desc": "Big, hearty island plate lunches with a loyal following.", "source": "existing listing; Yelp Kahului and Wailuku 2026-08" },
+    { "name": "808 Plates Maui", "areas": ["kahului"], "cuisine": "Hawaiian · Local plate lunch", "desc": "A long-running Kahului plate-lunch truck and one of the most reviewed on the island.", "source": "Yelp Kahului 2026-08 (467 reviews); Maui No Ka Oi directory" },
+    { "name": "Plantation Plates", "areas": ["kahului", "wailuku"], "cuisine": "Hawaiian plate lunch", "desc": "Family-run Hawaii comfort food on Haleakala Hwy: loco moco, kalua pork and hamburger steak.", "source": "Yelp Kahului 2026-08; own Instagram menu" },
+    { "name": "Havens", "areas": ["kahului"], "cuisine": "Smash burgers", "desc": "Smash burgers and crinkle fries at Plate Lunch Marketplace. Won Best Burger on Maui in 2022.", "source": "Yelp Kahului 2026-08; The Hawaii Vacation Guide 2026-07" },
+    { "name": "Suns Out Buns Out", "areas": ["kahului", "kihei"], "cuisine": "Bao buns · Street food", "desc": "Inventive handcrafted bao buns, on Piikea Ave in Kihei and at Plate Lunch Marketplace.", "source": "existing listing; Yelp Kahului 2026-08" },
+
+    { "name": "‘Ula‘Ula Cafe", "areas": ["wailuku"], "cuisine": "Farm-to-table · Local", "desc": "Farm-inspired food served fresh on Kahekili Hwy, from the ʻāina to your plate.", "source": "Yelp Wailuku 2026-08 (170 reviews); own Facebook page" },
+    { "name": "Tagpuan", "areas": ["wailuku"], "cuisine": "Filipino", "desc": "Filipino street food in Wailuku: lumpia, siomai and pork sisig.", "source": "Yelp Wailuku 2026-08" },
+    { "name": "Lupita Antojitos Mexicanos", "areas": ["wailuku"], "cuisine": "Mexican", "desc": "", "source": "Yelp Wailuku 2026-08" },
+    { "name": "HI Thai Food", "areas": ["wailuku"], "cuisine": "Thai", "desc": "", "source": "Yelp Wailuku 2026-08 (172 reviews)" },
+    { "name": "Kwai-Sin’s Noodle Shop", "areas": ["wailuku"], "cuisine": "Noodles", "desc": "", "source": "Yelp Wailuku 2026-08" },
+    { "name": "K-Bap", "areas": ["wailuku"], "cuisine": "", "desc": "", "source": "Yelp Wailuku 2026-08" },
+    { "name": "Keyakiya", "areas": ["wailuku"], "cuisine": "", "desc": "", "source": "Yelp Wailuku 2026-08 (83 reviews)" },
+    { "name": "Yumtastic", "areas": ["wailuku"], "cuisine": "", "desc": "", "source": "Yelp Wailuku 2026-08" },
+
+    { "name": "Kitoko Maui", "areas": ["kihei"], "cuisine": "Hawaiian-Japanese-French fusion", "desc": "Creative fusion plates, bentos and a seafood platter at South Maui Gardens, 35 Auhana Rd.", "source": "existing listing; South Maui Gardens tenant list" },
+    { "name": "Kina’ole Grill", "areas": ["kihei"], "cuisine": "Hawaiian · Seafood", "desc": "Local plates and standout seared ahi, steps from Kamaole Beach I.", "source": "existing listing" },
+    { "name": "Horhitos Mobile Taqueria", "areas": ["kihei"], "cuisine": "Tacos · Local plate lunch", "desc": "One of Maui’s OG trucks: street tacos, local plates, burgers and mac salad.", "source": "existing listing" },
+    { "name": "South Maui Fish Company", "areas": ["kihei"], "cuisine": "Seafood · Poke", "desc": "Fresh-caught seafood by Azeka. Locally sourced, prepared to order.", "source": "existing listing" },
+    { "name": "Wing Kings", "areas": ["kihei"], "cuisine": "Chicken wings", "desc": "Chicken wings served with aloha at Kihei Food Oasis, north side.", "source": "South Maui Gardens tenant list" },
+    { "name": "Sweet Hula", "areas": ["kihei"], "cuisine": "Açaí bowls", "desc": "Açaí bowls with fresh and plant-based options, good for breakfast or lunch.", "source": "South Maui Gardens tenant list" },
+    { "name": "Burger Boys", "areas": ["kihei"], "cuisine": "Burgers", "desc": "Wagyu burgers at Kihei Food Oasis.", "source": "South Maui Gardens tenant list" },
+    { "name": "Da Sweet Spot by Bling Bing", "areas": ["kihei"], "cuisine": "Shave ice", "desc": "The only Chinese shave ice on Maui, with new toppings daily.", "source": "South Maui Gardens tenant list" },
+    { "name": "Voyage Maui Sushi", "areas": ["kihei"], "cuisine": "Sushi · Poke · Taiwanese", "desc": "Pacific Rim flavours: sushi, poke and Taiwanese specialities.", "source": "South Maui Gardens tenant list" },
+    { "name": "Little Pink Taco Truck Maui", "areas": ["kihei"], "cuisine": "Mexican · Baja · Tacos", "desc": "A tiny pink truck blending Mexican, Hawaiian and Baja flavours.", "source": "South Maui Gardens tenant list" },
+    { "name": "Sparkys Food Company", "areas": ["kihei"], "cuisine": "Local Hawaiian", "desc": "Family recipes and local Hawaiian cuisine at Kihei Food Oasis.", "source": "South Maui Gardens tenant list" },
+    { "name": "Myth Legendary Kitchen", "areas": ["kihei"], "cuisine": "Greek", "desc": "Made-to-order Greek street food from three generations of family recipes.", "source": "South Maui Gardens tenant list" },
+    { "name": "Nirvana", "areas": ["kihei"], "cuisine": "Indian", "desc": "Authentic Indian curries and kebabs at Kihei Food Oasis.", "source": "South Maui Gardens tenant list" },
+    { "name": "SŌKAI Maui", "areas": ["kihei"], "cuisine": "Pacific Rim · Boba", "desc": "Soup dumplings, signature bowls and boba from a kiosk-first setup.", "source": "South Maui Gardens tenant list" },
+    { "name": "Bacon & Blossom", "areas": ["kihei"], "cuisine": "Local · Baked goods", "desc": "Maui-sourced ingredients cooked in beef tallow: fresh fish, grass-fed beef and baked goods.", "source": "South Maui Gardens tenant list" },
+    { "name": "Alaska’s Aloha", "areas": ["kihei"], "cuisine": "Seafood", "desc": "Alaskan seafood with a Hawaiian twist.", "source": "South Maui Gardens tenant list" },
+    { "name": "The Garden Market & Deli", "areas": ["kihei"], "cuisine": "Sandwiches · Salads", "desc": "Handcrafted sandwiches on house-baked focaccia and fresh salads, south side of the Gardens.", "source": "South Maui Gardens tenant list" },
+    { "name": "Blue Door Bakery", "areas": ["kihei"], "cuisine": "Bakery · Sourdough pizza", "desc": "A fully organic bakery turning out artisan bread and sourdough pizza.", "source": "South Maui Gardens tenant list" },
+    { "name": "Da Green Coffee Bar", "areas": ["kihei"], "cuisine": "Coffee · Desserts", "desc": "Maui-grown coffee, local desserts and gourmet toasts.", "source": "South Maui Gardens tenant list" },
+
+    { "name": "808 Grindz", "areas": ["west-maui"], "cuisine": "Local plate lunch", "desc": "West-side local favourites, back serving Lahaina with generous plates.", "source": "existing listing" },
+    { "name": "El Taco Borracho", "areas": ["west-maui"], "cuisine": "Mexican · Tacos", "desc": "The taqueria of the Honoapiilani courtyard: tacos, tortas, huaraches and shrimp plates.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Thai Food By Suri", "areas": ["west-maui"], "cuisine": "Thai", "desc": "One of the west side’s most popular Thai kitchens. The drunken noodles are the signature.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Da Food Anchor", "areas": ["west-maui"], "cuisine": "Gyros · Pasta · Burgers", "desc": "The comfort-food truck of the courtyard, supporting local Maui farms across the menu.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Hooked", "areas": ["west-maui"], "cuisine": "Seafood · Poke", "desc": "Fresh fish plates, poke bowls and mahi mahi, all served with rice.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Paniolo", "areas": ["west-maui"], "cuisine": "BBQ", "desc": "Hawaii meets western BBQ: huli huli chicken, pulled pork and pipikaula beef.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Aloha Sweets", "areas": ["west-maui"], "cuisine": "Ice cream · Malasadas", "desc": "Ice cream, boba, sweet Hawaiian popcorn and traditional malasadas.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Da Best Pho and Vietnamese Food", "areas": ["west-maui"], "cuisine": "Vietnamese", "desc": "Family-run for over twenty years: pho, banh mi and a large vegan menu.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Kaya Sushi", "areas": ["west-maui"], "cuisine": "Sushi", "desc": "Made-to-order maki, specialty rolls and island-style Japanese plates.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Vida’s Coffee", "areas": ["west-maui"], "cuisine": "Coffee · Smoothies", "desc": "Open from 6am for lattes, cold brew, matcha, smoothies and açaí bowls.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Tokyo Habachi Express", "areas": ["west-maui"], "cuisine": "Teppanyaki", "desc": "Hibachi-style plates made to order: teriyaki chicken, shrimp or mahi mahi over rice.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+    { "name": "Isla Chibugan", "areas": ["west-maui"], "cuisine": "Filipino", "desc": "Filipino street food with an island twist: pork belly, BBQ skewers and banana lumpia.", "source": "Maui Resort Rentals park guide, updated 2026-01" },
+
+    { "name": "Al’s BBQ Pit", "areas": ["upcountry"], "cuisine": "BBQ", "desc": "", "source": "Yelp Pukalani 2026-08 (149 reviews)" },
+    { "name": "Maui Pizza Truck", "areas": ["upcountry"], "cuisine": "Pizza", "desc": "Napoli-style pizza hand-crafted in a kiawe wood-fired oven.", "source": "own site mauipizzatruck.com; Yelp Pukalani 2026-08" },
+    { "name": "Sushi Ko", "areas": ["upcountry"], "cuisine": "Sushi", "desc": "", "source": "Yelp Pukalani 2026-08, listed in Makawao" },
+    { "name": "Stewz Burgers", "areas": ["upcountry"], "cuisine": "Burgers", "desc": "", "source": "Yelp Pukalani 2026-08" },
+    { "name": "Aihara Okazuya", "areas": ["upcountry"], "cuisine": "Japanese · Okazuya", "desc": "", "source": "Yelp Pukalani 2026-08, listed in Makawao" },
+    { "name": "Leekam Lunchwagon", "areas": ["upcountry"], "cuisine": "", "desc": "", "source": "Yelp Pukalani 2026-08" },
+
+    { "name": "Maui Nata", "areas": ["north-shore"], "cuisine": "Portuguese · Bakery", "desc": "Handmade Portuguese custard tarts in Haiku, including lilikoi and chocolate.", "source": "Yelp Haiku-Pauwela 2026-08 (48 reviews); Giftly listing" },
+    { "name": "Mediterranean Grill", "areas": ["north-shore"], "cuisine": "Mediterranean", "desc": "Mediterranean grill up at the Haiku cannery.", "source": "Yelp Haiku-Pauwela 2026-08 (147 reviews)" },
+    { "name": "Satori", "areas": ["north-shore"], "cuisine": "Sushi", "desc": "", "source": "Yelp Haiku-Pauwela 2026-08 (98 reviews)" },
+    { "name": "Fat Boy Ron’s Famous Grilled Cheese", "areas": ["north-shore"], "cuisine": "Grilled cheese", "desc": "", "source": "Yelp Haiku-Pauwela 2026-08" },
+    { "name": "7 Elephants", "areas": ["north-shore"], "cuisine": "", "desc": "", "source": "Yelp Haiku-Pauwela 2026-08" },
+    { "name": "Tukana", "areas": ["north-shore"], "cuisine": "", "desc": "", "source": "Yelp Haiku-Pauwela 2026-08" },
+
+    { "name": "Braddah Hutts BBQ Grill", "areas": ["hana"], "cuisine": "BBQ · Hawaiian", "desc": "The best-known truck in Hana by a distance, and a fixture of the drive.", "source": "Yelp Hana 2026-08 (721 reviews)" },
+    { "name": "Ae’s Thai Kitchen", "areas": ["hana"], "cuisine": "Thai", "desc": "Thai cooking at the end of the Road to Hana.", "source": "Yelp Hana 2026-08 (334 reviews)" },
+    { "name": "Da Fish Shack", "areas": ["hana"], "cuisine": "Seafood", "desc": "Consistently fresh seafood, cooked to order.", "source": "Yelp Hana 2026-08 (203 reviews); The Maui Blog" },
+    { "name": "Poke Bobs", "areas": ["hana"], "cuisine": "Poke", "desc": "", "source": "Yelp Hana 2026-08 (107 reviews)" },
+    { "name": "Kilo’s Kitchen", "areas": ["hana"], "cuisine": "", "desc": "On Uakea Rd in Hana town.", "source": "Yelp Hana 2026-08 (80 reviews)" },
+    { "name": "Chow’s", "areas": ["hana"], "cuisine": "Hawaiian", "desc": "On Hana Hwy, serving island plates.", "source": "Yelp Hana 2026-08 (64 reviews); MenuPix listing" },
+    { "name": "Capt Sam’s", "areas": ["hana"], "cuisine": "Hawaiian · Poke", "desc": "Kalua pork and poke from a small Hana truck.", "source": "Yelp Hana 2026-08" },
+    { "name": "My Titas Cafe", "areas": ["hana"], "cuisine": "", "desc": "", "source": "Yelp Hana 2026-08 (67 reviews)" },
+    { "name": "Órale Taco", "areas": ["hana"], "cuisine": "Mexican · Tacos", "desc": "", "source": "Yelp Hana 2026-08; mauifoodtrucks.com listing" },
+    { "name": "Nalei", "areas": ["hana"], "cuisine": "", "desc": "", "source": "Yelp Hana 2026-08" }
+  ]
+}
