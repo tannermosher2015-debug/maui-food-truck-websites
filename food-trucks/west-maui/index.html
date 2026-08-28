@@ -74,11 +74,17 @@
   .crumb{margin-bottom:1.1rem;color:#cfc0ae}
   .crumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
   .crumb li+li::before{content:"/";margin-right:.5rem;opacity:.55}
-  .crumb a{color:var(--mango)}
+  /* inline-block plus padding, because a bare inline anchor's box is only the
+     font's content height. Measured live 2026-08-27 at 217x18, under the WCAG 2.2
+     AA 2.5.8 floor of 24x24. These are standalone nav links, not links inside a
+     sentence, so 2.5.8's inline exception does not cover them. 18 + 8 = 26px.
+     devices.js reported these as "sub-44 but >=24 (AAA only)", which is wrong;
+     trust a measured rect over that note. */
+  .crumb a{display:inline-block;padding-block:4px;color:var(--mango)}
   .elsewhere{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--hair)}
   .elsewhere .mono{color:var(--ash);margin-bottom:.8rem}
   .elsewhere-list{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
-  .elsewhere-list a{color:var(--ink)}
+  .elsewhere-list a{display:inline-block;padding-block:4px;color:var(--ink)}
 }
 
 @layer responsive {
