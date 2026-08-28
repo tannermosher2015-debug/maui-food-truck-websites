@@ -180,6 +180,10 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   /* ---------- editorial pair ---------- */
   .ed{display:grid;grid-template-columns:repeat(12,1fr);gap:1.6rem;align-items:start}
   .ed figure{margin:0}
+  /* CROP to a chosen shape, never STRETCH to one. The source files are 1:1 and
+     1.79:1, so without this the pair renders at wildly different heights. cover
+     is the only honest way to art-direct them. */
+  .ed figure img{aspect-ratio:4/5;object-fit:cover;width:100%}
   .ed figcaption{margin-top:.85rem;color:var(--ash)}
   .ed .f1{grid-column:1/7}
   .ed .f2{grid-column:8/13;margin-top:6rem}
@@ -239,7 +243,7 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   <!-- HERO ------------------------------------------------------------ -->
   <section class="hero">
     <div class="hero-media">
-      <img src="assets/cook-window.webp" width="1600" height="1067" fetchpriority="high"
+      <img src="assets/cook-window.webp" width="1264" height="848" fetchpriority="high"
            alt="Hands passing a hot plate lunch out of a Maui food-truck window">
     </div>
     <div class="hero-inner">
@@ -301,12 +305,12 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
   <section>
     <div class="wrap ed">
       <figure class="f1 rise">
-        <img src="assets/platelunch.webp" width="1200" height="900" loading="lazy"
+        <img src="assets/platelunch.webp" width="1024" height="1024" loading="lazy"
              alt="A plate lunch served at a lit food-truck window at night">
         <figcaption class="mono">Your food, shot the way it deserves</figcaption>
       </figure>
       <figure class="f2 rise">
-        <img src="assets/truck-dusk.webp" width="1200" height="800" loading="lazy"
+        <img src="assets/truck-dusk.webp" width="1376" height="768" loading="lazy"
              alt="The truck parked at dusk with a line of customers">
         <figcaption class="mono">Your lot, your hours, live</figcaption>
       </figure>

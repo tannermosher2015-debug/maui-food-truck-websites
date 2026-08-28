@@ -42,7 +42,12 @@
     font:400 var(--fs-body)/1.58 "Instrument Serif",Georgia,"Times New Roman",serif;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  img{display:block;max-width:100%}
+  /* height:auto is NOT optional here. With width/height attributes present the UA
+     sheet derives an aspect-ratio, but the height attribute still acts as a
+     presentational hint, so a width-constrained image keeps the attribute's height
+     and DEFORMS. Measured live 2026-08-27: truck-dusk stretched 68.5%, platelunch
+     39.2%. Distortion is invisible in a screenshot review, so keep this line. */
+  img{display:block;max-width:100%;height:auto}
   a{color:inherit}
   /* An author `display` beats the UA sheet's [hidden] rule, so any component
      that sets display silently un-hides itself. This keeps the attribute honest.
