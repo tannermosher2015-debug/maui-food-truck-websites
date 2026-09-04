@@ -69,6 +69,11 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
 
 @layer components {
   body{padding-bottom:170px}
+  @media (prefers-reduced-motion: no-preference){
+    html{scroll-behavior:smooth}
+    fieldset[data-step]{transition:opacity .3s var(--ease),transform .3s var(--ease)}
+    fieldset[data-step].step-enter{opacity:0;transform:translateY(10px)}
+  }
 
   /* ---------- progress header ---------- */
   header.site{
@@ -567,10 +572,14 @@ src="https://www.facebook.com/tr?id=1231807428404160&ev=PageView&noscript=1"/></
        Next button, which sits after the fieldset in the DOM, so a forward Tab
        skips the entire new step. The fieldset carries tabindex="-1" so it can
        receive focus programmatically without joining the tab order. */
-    if (moveFocus) {
-      var live = sets.filter(function (fs) { return !fs.hidden; })[0];
-      if (live) live.focus();
+    var live = sets.filter(function (fs) { return !fs.hidden; })[0];
+    if (live && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+      live.classList.add("step-enter");
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { live.classList.remove("step-enter"); });
+      });
     }
+    if (moveFocus && live) live.focus();
     save();
   }
 
