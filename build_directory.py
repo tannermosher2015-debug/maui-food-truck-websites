@@ -24,6 +24,21 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = "https://mauifoodtruckwebsites.com"
 TODAY = date.today().isoformat()
 
+# Blog posts are READ OFF DISK rather than listed by hand, for the same reason the
+# sitemap is rebuilt below: a hand-kept list drifts the moment somebody adds a post
+# and forgets this file. blog/index.html is the hub and is added separately, so it
+# is excluded here.
+_BLOG_DIR = os.path.join(ROOT, "blog")
+BLOG_POSTS = (
+    sorted(
+        f
+        for f in os.listdir(_BLOG_DIR)
+        if f.endswith(".html") and f != "index.html"
+    )
+    if os.path.isdir(_BLOG_DIR)
+    else []
+)
+
 # Bump when assets/site.css or assets/site.js changes. Matches the other pages.
 ASSET_V = "4"
 
@@ -455,6 +470,8 @@ def build():
 
     # ---------- sitemap, rebuilt so it cannot drift ----------
     urls = [(f"{SITE}/", "1.0"), (f"{SITE}/samples.html", "0.8"), (f"{SITE}/directory.html", "0.8")]
+    urls += [(f"{SITE}/blog/", "0.8")]
+    urls += [(f"{SITE}/blog/{slug}", "0.7") for slug in BLOG_POSTS]
     urls += [(f"{SITE}/food-trucks/{a['slug']}/", "0.7") for a in areas]
     body = "\n".join(
         f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{TODAY}</lastmod>\n"

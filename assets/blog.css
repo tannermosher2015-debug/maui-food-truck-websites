@@ -1,0 +1,134 @@
+/* blog.css - prose styles for /blog/ only.
+   Built on the custom properties site.css already defines on :root, so the blog
+   inherits the site theme and nothing here touches the existing ten pages.
+
+   Contrast measured 2026-09-14 against --cream #ece4d7:
+     --ink   #1a1613  14.25:1  body text
+     --quiet #5a4f45   6.31:1  meta lines
+     --ash   #675a4d   5.29:1  muted text
+     --ember #9a4a17   4.95:1  links          <- AA pass, this is why links are ember
+     --mango #cf8434   2.38:1  FAILS on cream <- never use mango for text on light
+   --mango is only used on the volcanic background, where it measures 5.44:1. */
+
+.post-head {
+  background: var(--cream);
+  border-bottom: 1px solid var(--hair);
+  /* Top padding must clear the FIXED .site-head. site.css does that with
+     .below-head{padding-top:clamp(7rem,13vw,10rem)}, and blog.css loads after it,
+     so a `padding-block` shorthand here silently overrides that top value and the
+     h1 slides under the bar. Caught on the mobile shot 2026-09-14: the first line
+     of the h1 was hidden. Set the two sides separately and never use the shorthand. */
+  padding-top: clamp(7rem, 13vw, 10rem);
+  padding-bottom: clamp(2.5rem, 7vw, 5rem);
+}
+.post-head h1 {
+  font-size: var(--fs-xxl);
+  line-height: 1.04;
+  margin: 0 0 .7em;
+  max-width: 18ch;
+}
+.post-head .lede { max-width: 60ch; }
+
+.post-meta {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--quiet);
+  margin-top: 1.6em;
+}
+
+.prose {
+  max-width: 68ch;
+  margin-inline: auto;
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  font-size: var(--fs-body);
+  line-height: 1.66;
+  color: var(--ink);
+}
+.prose h2 {
+  font-size: var(--fs-lg);
+  line-height: 1.15;
+  margin: 2.2em 0 .6em;
+  max-width: 24ch;
+}
+.prose h3 {
+  font-size: 1.18rem;
+  margin: 1.8em 0 .4em;
+}
+.prose p { margin: 0 0 1.1em; }
+.prose ul, .prose ol { margin: 0 0 1.3em; padding-left: 1.3em; }
+.prose li { margin-bottom: .55em; }
+
+.prose a {
+  color: var(--ember);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prose a:hover { text-decoration-thickness: 2px; }
+
+/* Callout. Left rule rather than a fill, so it reads in both themes. */
+.callout {
+  border-left: 3px solid var(--ember);
+  background: rgba(154, 74, 23, .06);
+  padding: 1.1rem 1.25rem;
+  margin: 1.8em 0;
+}
+.callout .lbl {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs-mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: .45em;
+}
+.callout p:last-child { margin-bottom: 0; }
+
+/* Tables scroll on their own rather than pushing the page sideways. */
+.tablewrap { overflow-x: auto; margin: 1.8em 0; }
+.tablewrap table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 30rem;
+  font-size: .97rem;
+}
+.tablewrap th, .tablewrap td {
+  text-align: left;
+  padding: .7rem .85rem;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: top;
+}
+.tablewrap thead th {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs-mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+
+/* Post list on the blog index. */
+.postlist { list-style: none; margin: 0; padding: 0; }
+.postlist > li {
+  border-top: 1px solid var(--hair);
+  padding-block: clamp(1.4rem, 3vw, 2.1rem);
+}
+.postlist > li:last-child { border-bottom: 1px solid var(--hair); }
+.postlist h2 { margin: .25em 0 .4em; font-size: var(--fs-lg); line-height: 1.15; }
+.postlist h2 a { color: var(--ink); text-decoration: none; }
+.postlist h2 a:hover { color: var(--ember); text-decoration: underline; }
+.postlist p { margin: 0 0 .6em; max-width: 62ch; color: var(--ash); }
+.postlist .post-meta { margin-top: 0; }
+
+/* Keyboard users must be able to see where they are. */
+.prose a:focus-visible,
+.postlist a:focus-visible,
+.post-head a:focus-visible {
+  outline: 3px solid var(--ember);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose a, .postlist h2 a { transition: none; }
+}
