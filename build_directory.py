@@ -18,6 +18,7 @@ import json
 import html
 import os
 import re
+import subprocess
 from datetime import date
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -469,12 +470,46 @@ def build():
         written.append((f"food-trucks/{a['slug']}/index.html", len(mine)))
 
     # ---------- sitemap, rebuilt so it cannot drift ----------
+    # <lastmod> is the date of the LAST COMMIT that touched each file, never
+    # today's date for everything. Stamping every URL with today is a lie about
+    # the 9 pages that did not change, and Google's sitemap docs say an
+    # inaccurate lastmod makes it stop trusting the signal. This file stamped
+    # all of them until 2026-09-14. Same approach as frontline-website's
+    # tools/sitemap_lastmod.py.
+    staged = set(
+        subprocess.run(
+            ["git", "diff", "--cached", "--name-only"],
+            cwd=ROOT, capture_output=True, text=True,
+        ).stdout.split()
+    )
+
+    def path_for(loc):
+        """The repo file a <loc> resolves to. A trailing slash means index.html."""
+        rel = loc[len(SITE) + 1:] if loc.startswith(SITE + "/") else loc
+        if rel == "" or rel.endswith("/"):
+            rel += "index.html"
+        return rel
+
+    def lastmod_for(loc):
+        rel = path_for(loc)
+        if not os.path.exists(os.path.join(ROOT, rel.replace("/", os.sep))):
+            print(f"  WARNING: sitemap <loc> has no file: {loc} -> {rel}")
+            return TODAY
+        # A file staged for THIS commit dates today; its commit does not exist yet.
+        if rel in staged:
+            return TODAY
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", rel],
+            cwd=ROOT, capture_output=True, text=True,
+        ).stdout.strip()
+        return out or TODAY
+
     urls = [(f"{SITE}/", "1.0"), (f"{SITE}/samples.html", "0.8"), (f"{SITE}/directory.html", "0.8")]
     urls += [(f"{SITE}/blog/", "0.8")]
     urls += [(f"{SITE}/blog/{slug}", "0.7") for slug in BLOG_POSTS]
     urls += [(f"{SITE}/food-trucks/{a['slug']}/", "0.7") for a in areas]
     body = "\n".join(
-        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{TODAY}</lastmod>\n"
+        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{lastmod_for(u)}</lastmod>\n"
         f"    <changefreq>monthly</changefreq>\n    <priority>{p}</priority>\n  </url>"
         for u, p in urls
     )
