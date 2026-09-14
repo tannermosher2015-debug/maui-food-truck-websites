@@ -1,75 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- No <changefreq> and no <priority>. Google's own sitemap documentation states
+     outright that it ignores both, so generating them is noise. Removed 2026-09-14.
+     <lastmod> is each file's own last-commit date, because Google uses lastmod only
+     "if it's consistently and verifiably ... accurate". -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mauifoodtruckwebsites.com/</loc>
     <lastmod>2026-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/samples.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/directory.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/blog/</loc>
     <lastmod>2026-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/blog/google-business-profile-food-truck.html</loc>
     <lastmod>2026-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/food-trucks/kahului/</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/food-trucks/wailuku/</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/food-trucks/kihei/</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/food-trucks/west-maui/</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/food-trucks/upcountry/</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/food-trucks/north-shore/</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mauifoodtruckwebsites.com/food-trucks/hana/</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

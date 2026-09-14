@@ -504,17 +504,28 @@ def build():
         ).stdout.strip()
         return out or TODAY
 
-    urls = [(f"{SITE}/", "1.0"), (f"{SITE}/samples.html", "0.8"), (f"{SITE}/directory.html", "0.8")]
-    urls += [(f"{SITE}/blog/", "0.8")]
-    urls += [(f"{SITE}/blog/{slug}", "0.7") for slug in BLOG_POSTS]
-    urls += [(f"{SITE}/food-trucks/{a['slug']}/", "0.7") for a in areas]
+    # No <changefreq> and no <priority>. Google's own sitemap documentation says
+    # outright "Google ignores `<priority>` and `<changefreq>` values", so generating
+    # them is noise. The URLs used to carry a per-page priority number and it bought
+    # nothing. Dropped 2026-09-14; madeyouawebsite.com dropped its pair 2026-08-27.
+    # Source: raw/seo-reference/search-central/crawling-indexing-sitemaps-build-sitemap.md
+    # line 55, Google page_last_updated 2026-07-08, retrieved 2026-08-06.
+    # The line directly under it is why lastmod above is computed per file: Google uses
+    # lastmod "if it's consistently and verifiably ... accurate".
+    urls = [f"{SITE}/", f"{SITE}/samples.html", f"{SITE}/directory.html"]
+    urls += [f"{SITE}/blog/"]
+    urls += [f"{SITE}/blog/{slug}" for slug in BLOG_POSTS]
+    urls += [f"{SITE}/food-trucks/{a['slug']}/" for a in areas]
     body = "\n".join(
-        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{lastmod_for(u)}</lastmod>\n"
-        f"    <changefreq>monthly</changefreq>\n    <priority>{p}</priority>\n  </url>"
-        for u, p in urls
+        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{lastmod_for(u)}</lastmod>\n  </url>"
+        for u in urls
     )
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
+        "<!-- No <changefreq> and no <priority>. Google's own sitemap documentation states\n"
+        "     outright that it ignores both, so generating them is noise. Removed 2026-09-14.\n"
+        "     <lastmod> is each file's own last-commit date, because Google uses lastmod only\n"
+        '     "if it\'s consistently and verifiably ... accurate". -->\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "\n</urlset>\n"
     )
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
